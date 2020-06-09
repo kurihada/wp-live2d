@@ -9,16 +9,17 @@
  * License: MIT
  */
 //定义css根目录
-define( 'assets', plugin_dir_url( __FILE__ ) . 'assets/' );
+define( 'LIVE2D_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );
+define('LIVE2D_BASEFOLDER', plugin_basename(dirname(__FILE__)));
 
 //添加样式
 
 function live2D_style(){
-	wp_enqueue_style( 'waifu_css' ,assets . "waifu.css");//css
+	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
 	wp_enqueue_script( 'jquery');//js
-	wp_enqueue_script( 'jquery-ui' ,assets.'jquery-ui.min.js');//js
-   wp_enqueue_script( 'waifu-tips_js' ,assets.'waifu-tips.js');//js
-	wp_enqueue_script( 'live2d_js' ,assets.'live2d.js');//js
+	wp_enqueue_script( 'jquery-ui' ,LIVE2D_ASSETS.'jquery-ui.min.js');//js
+   wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js');//js
+	wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js');//js
 	
 }
 add_action( 'init', 'live2D_style' );
@@ -74,6 +75,21 @@ add_action('admin_menu', 'live2D_add_setting_page');
 
 function live2D_setting_page ()
 {
+?>
+ 	<h2>Example Plugin Settings</h2>
+		<form name="form1" method="post" action="<?php echo wp_nonce_url('./options-general.php?page=' . LIVE2D_BASEFOLDER . '/wordpress-live2d.php'); ?>">
+			<table class="form-table">
+			<tr>
+				<th><legend>API地址</legend></th>
+				<td><input type="text" name="apiUrl" value="" size="50"  />
+					<p>
+						<?php _e('默认为 //live2d.fghrsh.net/api/ 请访问 <a href="https://www.fghrsh.net/post/123.html" target="_blank"> https://www.fghrsh.net/post/123.html </a> 获取最新消息', 'wordpress-gos')?>
+					</p></td>
+			</tr>
+			</table>
+        <input name="submit" class="button button-primary" type="submit" value="<?php esc_attr_e( 'Save' ); ?>" />
+    </form>
+<?php
 }
 
 ?>

@@ -62,4 +62,18 @@ function live_2d_stop ()
 {
 	
 }
+
+
+// 在导航栏“设置”中添加条目
+function live2D_add_setting_page ()
+{
+	add_options_page('Live2D 设置', 'Live2D 设置', 'manage_options', __FILE__, 'live2D_setting_page');
+}
+
+add_action('admin_menu', 'live2D_add_setting_page');
+
+function live2D_setting_page ()
+{
+}
+
 ?>

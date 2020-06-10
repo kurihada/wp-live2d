@@ -518,20 +518,20 @@ class LiveD {
 	public function modelapi_0_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[modelapi_0]" id="modelapi_0" value="%s">',
-			isset( $this->live_2d__options['modelapi_0'] ) ? esc_attr( $this->live_2d__options['modelapi_0']) : ''
+			isset( $this->live_2d__options['modelapi_0'] ) ? esc_attr( $this->live_2d__options['modelapi_0']) : '//live2d.fghrsh.net/api/'
 		);
 	}
 
 	public function tipsmessage_1_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[tipsmessage_1]" id="tipsmessage_1" value="%s">',
-			isset( $this->live_2d__options['tipsmessage_1'] ) ? esc_attr( $this->live_2d__options['tipsmessage_1']) : ''
+			isset( $this->live_2d__options['tipsmessage_1'] ) ? esc_attr( $this->live_2d__options['tipsmessage_1']) : 'waifu-tips.json'
 		);
 	}
 
 	public function hitokotoapi_2_callback() {
 		?> <select name="live_2d__option_name[hitokotoapi_2]" id="hitokotoapi_2">
-			<?php $selected = (isset( $this->live_2d__options['hitokotoapi_2'] ) && $this->live_2d__options['hitokotoapi_2'] === 'lwl12.com') ? 'selected' : '' ; ?>
+			<?php $selected = (isset( $this->live_2d__options['hitokotoapi_2'] ) && $this->live_2d__options['hitokotoapi_2'] === 'lwl12.com') ? 'selected' : 'selected' ; ?>
 			<option <?php echo $selected; ?>>lwl12.com</option>
 			<?php $selected = (isset( $this->live_2d__options['hitokotoapi_2'] ) && $this->live_2d__options['hitokotoapi_2'] === 'hitokoto.cn') ? 'selected' : '' ; ?>
 			<option <?php echo $selected; ?>>hitokoto.cn</option>
@@ -542,7 +542,7 @@ class LiveD {
 
 	public function modelid_3_callback() {
 		?> <select name="live_2d__option_name[modelid_3]" id="modelid_3">
-			<?php $selected = (isset( $this->live_2d__options['modelid_3'] ) && $this->live_2d__options['modelid_3'] === '1') ? 'selected' : '' ; ?>
+			<?php $selected = (isset( $this->live_2d__options['modelid_3'] ) && $this->live_2d__options['modelid_3'] === '1') ? 'selected' : 'selected' ; ?>
 			<option value="1" <?php echo $selected; ?>>来自药水制作师的 Pio</option>
 			<?php $selected = (isset( $this->live_2d__options['modelid_3'] ) && $this->live_2d__options['modelid_3'] === '2') ? 'selected' : '' ; ?>
 			<option value="2" <?php echo $selected; ?>>来自药水制作师的 Tia</option>
@@ -562,7 +562,7 @@ class LiveD {
 	public function modeltexturesid_4_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[modeltexturesid_4]" id="modeltexturesid_4" value="%s">',
-			isset( $this->live_2d__options['modeltexturesid_4'] ) ? esc_attr( $this->live_2d__options['modeltexturesid_4']) : ''
+			isset( $this->live_2d__options['modeltexturesid_4'] ) ? esc_attr( $this->live_2d__options['modeltexturesid_4']) : '53'
 		);
 	}
 
@@ -710,42 +710,42 @@ class LiveD {
 	public function waifufontsize_24_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[waifufontsize_24]" id="waifufontsize_24" value="%s">',
-			isset( $this->live_2d__options['waifufontsize_24'] ) ? esc_attr( $this->live_2d__options['waifufontsize_24']) : ''
+			isset( $this->live_2d__options['waifufontsize_24'] ) ? esc_attr( $this->live_2d__options['waifufontsize_24']) : '12px'
 		);
 	}
 
 	public function waifutoolfont_25_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[waifutoolfont_25]" id="waifutoolfont_25" value="%s">',
-			isset( $this->live_2d__options['waifutoolfont_25'] ) ? esc_attr( $this->live_2d__options['waifutoolfont_25']) : ''
+			isset( $this->live_2d__options['waifutoolfont_25'] ) ? esc_attr( $this->live_2d__options['waifutoolfont_25']) : '14px'
 		);
 	}
 
 	public function waifutoolline_26_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[waifutoolline_26]" id="waifutoolline_26" value="%s">',
-			isset( $this->live_2d__options['waifutoolline_26'] ) ? esc_attr( $this->live_2d__options['waifutoolline_26']) : ''
+			isset( $this->live_2d__options['waifutoolline_26'] ) ? esc_attr( $this->live_2d__options['waifutoolline_26']) : '20px'
 		);
 	}
 
 	public function waifutooltop_27_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[waifutooltop_27]" id="waifutooltop_27" value="%s">',
-			isset( $this->live_2d__options['waifutooltop_27'] ) ? esc_attr( $this->live_2d__options['waifutooltop_27']) : ''
+			isset( $this->live_2d__options['waifutooltop_27'] ) ? esc_attr( $this->live_2d__options['waifutooltop_27']) : '0px'
 		);
 	}
 
 	public function waifuminwidth_28_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[waifuminwidth_28]" id="waifuminwidth_28" value="%s">',
-			isset( $this->live_2d__options['waifuminwidth_28'] ) ? esc_attr( $this->live_2d__options['waifuminwidth_28']) : ''
+			isset( $this->live_2d__options['waifuminwidth_28'] ) ? esc_attr( $this->live_2d__options['waifuminwidth_28']) : '768px'
 		);
 	}
 
 	public function waifuedgeside_29_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[waifuedgeside_29]" id="waifuedgeside_29" value="%s">',
-			isset( $this->live_2d__options['waifuedgeside_29'] ) ? esc_attr( $this->live_2d__options['waifuedgeside_29']) : ''
+			isset( $this->live_2d__options['waifuedgeside_29'] ) ? esc_attr( $this->live_2d__options['waifuedgeside_29']) : 'left:0'
 		);
 	}
 
@@ -770,21 +770,21 @@ class LiveD {
 	public function homepageurl_32_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[homepageurl_32]" id="homepageurl_32" value="%s">',
-			isset( $this->live_2d__options['homepageurl_32'] ) ? esc_attr( $this->live_2d__options['homepageurl_32']) : ''
+			isset( $this->live_2d__options['homepageurl_32'] ) ? esc_attr( $this->live_2d__options['homepageurl_32']) : 'auto'
 		);
 	}
 
 	public function aboutpageurl_33_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[aboutpageurl_33]" id="aboutpageurl_33" value="%s">',
-			isset( $this->live_2d__options['aboutpageurl_33'] ) ? esc_attr( $this->live_2d__options['aboutpageurl_33']) : ''
+			isset( $this->live_2d__options['aboutpageurl_33'] ) ? esc_attr( $this->live_2d__options['aboutpageurl_33']) : '#'
 		);
 	}
 
 	public function screenshotcapturename_34_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d__option_name[screenshotcapturename_34]" id="screenshotcapturename_34" value="%s">',
-			isset( $this->live_2d__options['screenshotcapturename_34'] ) ? esc_attr( $this->live_2d__options['screenshotcapturename_34']) : ''
+			isset( $this->live_2d__options['screenshotcapturename_34'] ) ? esc_attr( $this->live_2d__options['screenshotcapturename_34']) : 'live2d.png'
 		);
 	}
 

@@ -5,7 +5,7 @@
  * Description: 看板娘插件
  * Version: 1.1
  * Author: jiangweifang
- * Author URI: https://5ri.org
+ * Author URI: https://github.com/jiangweifang/wp-live2d
  * License: GPL-2.0
  */
 //定义目录

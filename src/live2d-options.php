@@ -10,7 +10,6 @@ class LiveD {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'live_2d__add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'live_2d__page_init' ) );
-		//add_action( 'admin_init', 'live_2d_advanced_page_init' );
 	}
 
 	public function live_2d__add_plugin_page() {
@@ -25,7 +24,7 @@ class LiveD {
 
 	public function live_2d__create_admin_page() {
 		$this->live_2d__options = get_option( 'live_2d__option_name' );
-		//$this->live_2d_advanced_options = get_option( 'live_2d_advanced_option_name' );
+		$this->live_2d_advanced_options = get_option( 'live_2d_advanced_option_name' );
 
 		if( isset( $_GET[ 'tab' ] ) ) {
 			$active_tab = $_GET[ 'tab' ];
@@ -36,7 +35,7 @@ class LiveD {
 		// 更新配置文件
 		if (isset($_GET['settings-updated'])){
 			$set_updated = $_GET['settings-updated'];
-			if($set_updated){ 
+			if($set_updated){
 				switch ($active_tab){
 					case 'settings':
 						//暂时不用
@@ -44,7 +43,8 @@ class LiveD {
 						//file_put_contents(dirname(__FILE__)  . '/assets/waifu-options.json',json_encode($live_2d__options));
 					break;
 					case 'advanced':
-						file_put_contents(dirname(__FILE__)  . '/assets/waifu-tips.json','22');
+						file_put_contents(dirname(__FILE__)  . '/assets/waifu-tips.json',json_encode($this->live_2d_advanced_options));
+						echo '1111111111111111111111';
 					break;
 				}
 			}
@@ -72,9 +72,17 @@ class LiveD {
 	<?php }
 	
 	public function live_2d__page_init() {
+		// 注册基础设置
 		register_setting(
 			'live_2d__option_group', // option_group
 			'live_2d__option_name', // option_name
+			array( $this, 'live_2d__sanitize' ) // sanitize_callback
+		);
+		
+		// 注册高级设置
+		register_setting(
+			'live_2d_advanced_option_group', // option_group
+			'live_2d_advanced_option_name', // option_name
 			array( $this, 'live_2d__sanitize' ) // sanitize_callback
 		);
 

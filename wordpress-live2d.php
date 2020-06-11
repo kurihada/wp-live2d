@@ -3,10 +3,10 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.0
+ * Version: 1.1
  * Author: jiangweifang
  * Author URI: https://5ri.org
- * License: MIT
+ * License: GPL-2.0
  */
 //定义目录
 define( 'LIVE2D_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );//资源目录

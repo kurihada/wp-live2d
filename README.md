@@ -9,104 +9,21 @@
 - 增加 看板娘样式设置，可直接设置宽高度等
 - 支持多种一言接口，基于 JQuery UI 实现拖拽
 
-## 使用
+- 以上是fghrsh作者的原文
+- 增加：可通过WordPress后台进行所有waifu-tips.js中设置的内容
+- 直接增加JQuery UI库
 
-### 目录结构
-
-```shell
-│  demo1-default.html       // 常规引用 Demo
-│  demo2-autoload.html      // autoload.js Demo
-│  demo3-waifu-tips.html    // 内置 waifu-tips Demo
-│
-└─assets
-        autoload.js                     // 自动异步加载
-        flat-ui-icons-regular.eot       // Flat UI 字体
-        flat-ui-icons-regular.svg       // Flat UI 字体
-        flat-ui-icons-regular.ttf       // Flat UI 字体
-        flat-ui-icons-regular.woff      // Flat UI 字体
-        live2d.js                       // Live2D 核心
-        waifu-tips.js                   // Live2D 看板娘 扩展
-        waifu-tips.json                 // Live2D 看板娘 提示语
-        waifu.css                       // Live2D 看板娘 样式表
-```
 
 ### 食用方法
 
-- 依赖类库
-  - JQuery (`waifu-tips.js`)
-  - JQuery UI (仅实现 *拖拽效果* 需要)
-
-- 常规方式引入
-
-  1. 在 `</head>` 前引入 `waifu.css` 样式表
-  2. 在 `</body>` 前引入 `waifu-tips.js` 和 `live2d.js`
-  3. 在 `</body>` 前插入 初始化 JS，可在 初始化前 设置参数
-
-```html
-<html>
-<head>
-
-        · · ·   · · ·
-
-    <link rel="stylesheet" type="text/css" href="https://www.example.com/path/to/waifu.css"/>
-</head>
-<body>
-
-        · · ·   · · ·
-
-    <div class="waifu">
-        <div class="waifu-tips"></div>
-        <canvas id="live2d" class="live2d"></canvas>
-        <div class="waifu-tool">
-            <span class="fui-home"></span>
-            <span class="fui-chat"></span>
-            <span class="fui-eye"></span>
-            <span class="fui-user"></span>
-            <span class="fui-photo"></span>
-            <span class="fui-info-circle"></span>
-            <span class="fui-cross"></span>
-        </div>
-    </div>
-    
-    <script src="path/to/waifu-tips.js"></script>
-    <script src="path/to/live2d.js"></script>
-    
-    <script type="text/javascript">
-        live2d_settings['modelId'] = 1;
-        live2d_settings['modelTexturesId'] = 87;
-    	initModel("https://www.example.com/path/to/waifu-tips.json")
-    </script>
-</body>
-</html>
-```
-
-- autoload.js 引入
-  1. 在 `</body>` 前引入 `autoload.js`
-  2. 修改 `autoload.js` 文件路径，可在 初始化前 设置参数
-
-```html
-    · · ·   · · ·
-    <script src="path/to/autoload.js"></script>
-</body>
-</html>
-```
-
-```javascript
-try {
-    · · ·   · · ·
-    live2d_settings['modelId'] = 1;
-    live2d_settings['modelTexturesId'] = 87;
-    initModel('https://www.example.com/path/to/waifu-tips.json');
-} catch(err) { console.log('[Error] JQuery is not defined.') }
-
-```
+1. 在WordPress后台添加插件压缩包安装
+2. 初始化看板娘设置（进入设置后保存）
 
 - 定制属于你的看板娘
-  - 修改 `waifu-tips.js` 顶部的设置参数 (或初始化前设置
   - 修改 `waifu-tips.json`，定制看板娘提示语，打造专属看板娘
 
 ### 设置参数
-*Tips： `waifu-tips.js` 已自带默认参数，如无特殊要求可跳过*
+*Tips：保存设置后仅进行了部分设置，以下是作者原文，感谢年轻有为的你*
 
 - 后端接口
 

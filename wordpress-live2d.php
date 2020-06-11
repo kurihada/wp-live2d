@@ -39,7 +39,7 @@ function live_2d_stop ()
 	
 }
 // 加载设置组件
-require(dirname(__FILE__)  . '/live2d-options.php');
+require(dirname(__FILE__)  . '/src/live2d-options.php');
 
 // 实例化设置组件
 if ( is_admin() ){

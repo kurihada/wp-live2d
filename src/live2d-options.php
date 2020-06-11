@@ -47,8 +47,9 @@ class LiveD {
 						//file_put_contents(dirname(__FILE__)  . '/assets/waifu-options.json',json_encode($live_2d__options));
 					break;
 					case 'advanced':
-						file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
-						echo plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json';
+						//尚未完成
+						//file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
+						//echo plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json';
 					break;
 				}
 			}

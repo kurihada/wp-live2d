@@ -66,8 +66,8 @@ $live_2d__options = get_option( 'live_2d__option_name' ); // Array of All Option
         </div>
     </div>
 	<script type="text/javascript">
-			var jsonStr = '<?php echo json_encode($live_2d__options); ?>';
-        initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(jsonStr));
+			var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
+        initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
     </script>
 <?php
 		

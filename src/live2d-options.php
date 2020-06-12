@@ -48,7 +48,7 @@ class LiveD {
 					break;
 					case 'advanced':
 						//尚未完成
-						//file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
+						file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
 						//echo plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json';
 					break;
 				}

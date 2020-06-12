@@ -19,7 +19,7 @@ function live2D_style(){
 	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
 	wp_enqueue_script( 'jquery');//js
 	wp_enqueue_script( 'jquery-ui' ,LIVE2D_ASSETS.'jquery-ui.min.js');//js
-   wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js');//js
+	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js');//js
 	wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js');//js
 	
 }

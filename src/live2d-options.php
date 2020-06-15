@@ -28,8 +28,8 @@ class LiveD {
 
 	public function live_2d__create_admin_page() {
 		$this->live_2d__options = get_option( 'live_2d__option_name' );
-		$this->live_2d_advanced_options = get_option( 'live_2d_advanced_option_name' );
 ?>
+
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
 				<a id="settings_btn" href="#settings" class="nav-tab">基础设置</a>
@@ -48,7 +48,7 @@ class LiveD {
 				<form method="post" action="options.php">
 				<?php
 					settings_fields( 'live_2d_advanced_option_group' );
-					do_settings_sections( 'live-2d-advanced' );
+					do_settings_sections( 'live-2d-advanced-admin' );
 					submit_button('','primary','submit_advanced');
 				?>
 				</form>
@@ -91,6 +91,8 @@ class LiveD {
                         localStorage.setItem("activetab", clicked_group);
                     }
 				});
+				
+				//------------------------------
 			});
 		</script>
 	<?php }

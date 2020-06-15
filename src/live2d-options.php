@@ -29,54 +29,75 @@ class LiveD {
 	public function live_2d__create_admin_page() {
 		$this->live_2d__options = get_option( 'live_2d__option_name' );
 		$this->live_2d_advanced_options = get_option( 'live_2d_advanced_option_name' );
-
-		if( isset( $_GET[ 'tab' ] ) ) {
-			$active_tab = $_GET[ 'tab' ];
-		} else {
-			$active_tab = 'settings';
-		}
-		
-		// 更新配置文件
-		if (isset($_GET['settings-updated'])){
-			$set_updated = $_GET['settings-updated'];
-			if($set_updated){
-				switch ($active_tab){
-					case 'settings':
-						//暂时不用
-						//$live_2d__options = get_option( 'live_2d__option_name' ); 
-						//file_put_contents(dirname(__FILE__)  . '/assets/waifu-options.json',json_encode($live_2d__options));
-					break;
-					case 'advanced':
-						//尚未完成
-						file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
-						//echo plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json';
-					break;
-				}
-			}
-		}
 ?>
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
-				<a href="?page=live-2d-&tab=settings" class="nav-tab <?php echo $active_tab == 'settings' ? 'nav-tab-active' : ''; ?>">基础设置</a>
-				<a href="?page=live-2d-&tab=advanced" class="nav-tab <?php echo $active_tab == 'advanced' ? 'nav-tab-active' : ''; ?>">高级设置</a>
+				<a id="settings_btn" href="#settings" class="nav-tab">基础设置</a>
+				<a id="advanced_btn" href="#advanced" class="nav-tab">高级设置</a>
 			</h2>
-			<form method="post" action="options.php">
+			<div id="settings" class="group">
+				<form method="post" action="options.php">
 				<?php
-					if($active_tab == 'settings'){
-						settings_fields( 'live_2d__option_group' );
-						do_settings_sections( 'live-2d--admin' );
-					}
-					if($active_tab == 'advanced'){
-						settings_fields( 'live_2d_advanced_option_group' );
-						do_settings_sections( 'live-2d-advanced' );
-					}
-					submit_button();
+					settings_fields( 'live_2d__option_group' );
+					do_settings_sections( 'live-2d--admin' );
+					submit_button('','primary','submit_settings');
 				?>
-			</form>
+				</form>
+			</div>
+			<div id="advanced" class="group">
+				<form method="post" action="options.php">
+				<?php
+					settings_fields( 'live_2d_advanced_option_group' );
+					do_settings_sections( 'live-2d-advanced' );
+					submit_button('','primary','submit_advanced');
+				?>
+				</form>
+			</div>
 		</div>
+		<script type="text/javascript">
+			jQuery(document).ready(function ($) {
+				// 默认值
+				$('.group').hide();
+				$('.nav-tab-wrapper a').removeClass('nav-tab-active');
+				//表单默认值
+				var activetab = '';
+                if (typeof(localStorage) !== 'undefined') {
+                    activetab = localStorage.getItem("activetab");
+                }
+                if (activetab !== '' && $(activetab).length) {
+                    $(activetab).fadeIn();
+                } else {
+                    $('.group:first').fadeIn();
+                }
+				// 选项卡默认值
+				if (activetab !== '' && $(activetab + '_btn').length) {
+                    $(activetab + '_btn').addClass('nav-tab-active');
+                }
+                else {
+                    $('#settings_btn').addClass('nav-tab-active');
+                }
+				
+				// 切换按钮事件
+				$('.nav-tab-wrapper a').click(function(evt){
+					$('.nav-tab-wrapper a').removeClass('nav-tab-active');
+					$(this).addClass('nav-tab-active');
+					var clicked_group = $(this).attr('href');
+					
+					$('.group').hide();
+                    $(clicked_group).fadeIn();
+                    evt.preventDefault();
+					
+					if (typeof(localStorage) !== 'undefined') {
+                        localStorage.setItem("activetab", clicked_group);
+                    }
+				});
+			});
+		</script>
 	<?php }
 	
 	public function live_2d__page_init() {
+		
+		
 		// 注册基础设置
 		register_setting(
 			'live_2d__option_group', // option_group
@@ -89,7 +110,7 @@ class LiveD {
 		
 		$waifu_opt->live_2d_advanced_init();
 		
-		//$waifu_options = $live_Waifu->advanced_json() ;
+		
 
 		add_settings_section(
 			'live_2d__setting_section', // id
@@ -381,6 +402,7 @@ class LiveD {
 	}
 
 	public function live_2d__sanitize($input) {
+		
 		$sanitary_values = array();
 		if ( isset( $input['modelAPI'] ) ) {
 			$sanitary_values['modelAPI'] = sanitize_text_field( $input['modelAPI'] );
@@ -521,7 +543,6 @@ class LiveD {
 		if ( isset( $input['screenshotCaptureName'] ) ) {
 			$sanitary_values['screenshotCaptureName'] = sanitize_text_field( $input['screenshotCaptureName'] );
 		}
-echo '123123123';
 		return $sanitary_values;
 	}
 

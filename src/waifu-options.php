@@ -15,9 +15,30 @@ class live_Waifu {
 			'live-2d-advanced' // page
 		);
 		
+		add_settings_field(
+			'test', // id
+			'Test', // title
+			array( $this, 'test_callback' ), // callback
+			'live-2d-advanced', // page
+			'live_2d_advanced_setting_section' // section
+		);
+	}
+	
+	public function test_callback(){
+		printf(
+			'<input class="regular-text" type="hidden" name="test" id="modelTexturesId" value="%s">',
+			isset( $this->live_2d__options['test'] ) ? esc_attr( $this->live_2d__options['test']) : '53'
+		);
 	}
 	
 	public function live_2d_advanced_section_info() {
+		// 更新配置文件
+		if (isset($_GET['settings-updated'])){
+			$set_updated = $_GET['settings-updated'];
+			if($set_updated){
+				file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
+			}
+		}
 	}
 
 	public static function advanced_json() {

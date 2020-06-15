@@ -334,26 +334,24 @@ class live_Waifu {
 	
 	public function hour_tips_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s">
+			'<input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][0][1]" id="hour_tips_2" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][1][0]" id="hour_tips_3" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][1][0]" id="hour_tips_3" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][1][1]" id="hour_tips_4" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][2][0]" id="hour_tips_5" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][2][0]" id="hour_tips_5" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][2][1]" id="hour_tips_6" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][3][0]" id="hour_tips_7" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][3][0]" id="hour_tips_7" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][3][1]" id="hour_tips_8" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][4][0]" id="hour_tips_9" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][4][0]" id="hour_tips_9" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][4][1]" id="hour_tips_10" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][5][0]" id="hour_tips_11" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][5][0]" id="hour_tips_11" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][5][1]" id="hour_tips_12" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][6][0]" id="hour_tips_13" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][6][0]" id="hour_tips_13" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][6][1]" id="hour_tips_14" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][7][0]" id="hour_tips_15" value="%s">
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][7][0]" id="hour_tips_15" value="%s"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][7][1]" id="hour_tips_16" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][8][0]" id="hour_tips_17" value="%s">
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][8][1]" id="hour_tips_18" value="%s"><br />
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][9][0]" id="hour_tips_19" value="%s">
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][9][1]" id="hour_tips_20" value="%s">',
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][8][0]" id="hour_tips_17" value="%s"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][8][1]" id="hour_tips_18" value="%s"><br />',
 			isset( $this->live_2d_advanced_options['hour_tips'][0][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][0]) : '',
 			isset( $this->live_2d_advanced_options['hour_tips'][0][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][1]) : '',
 			isset( $this->live_2d_advanced_options['hour_tips'][1][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][1][0]) : '',
@@ -371,15 +369,15 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['hour_tips'][7][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][7][0]) : '',
 			isset( $this->live_2d_advanced_options['hour_tips'][7][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][7][1]) : '',
 			isset( $this->live_2d_advanced_options['hour_tips'][8][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][0]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][8][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][9][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][9][0]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][9][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][9][1]) : ''
+			isset( $this->live_2d_advanced_options['hour_tips'][8][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][1]) : ''
 		);
 	}
 	
 	public function hour_tips_hidden_callback(){
 		printf(
-			'<input type="hidden" name="live_2d_advanced_option_name[hour_tips_hidden]" id="hour_tips_hidden" value="%s">',
+			'
+			时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11
+			<input type="hidden" name="live_2d_advanced_option_name[hour_tips_hidden]" id="hour_tips_hidden" value="%s">',
 			isset( $this->live_2d_advanced_options['hour_tips_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips_hidden']) : ''
 		);
 	}

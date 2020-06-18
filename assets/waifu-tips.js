@@ -276,11 +276,13 @@ function loadTipsMessage(result) {
             else text = getRandText(result.waifu.hour_tips.default);
         } else {
             var referrer_message = result.waifu.referrer_message;
+			// 在document.referrer不为空的时候执行
             if (document.referrer !== '') {
                 var referrer = document.createElement('a');
                 referrer.href = document.referrer;
                 var domain = referrer.hostname.split('.')[1];
                 if (window.location.hostname == referrer.hostname)
+					//text = text.render({source: result.source, creator: result.author});
                     text = referrer_message.localhost[0] + document.title.split(referrer_message.localhost[2])[0] + referrer_message.localhost[1];
                 else if (domain == 'baidu')
                     text = referrer_message.baidu[0] + referrer.search.split('&wd=')[1].split('&')[0] + referrer_message.baidu[1];
@@ -367,7 +369,7 @@ function loadTipsMessage(result) {
                         var text = waifu_tips.hitokoto_api_message['lwl12.com'][0];
                         if (!empty(result.author)) text += waifu_tips.hitokoto_api_message['lwl12.com'][1];
                         text = text.render({source: result.source, creator: result.author});
-                        window.setTimeout(function() {showMessage(text+waifu_tips.hitokoto_api_message['lwl12.com'][2], 3000, true);}, 5000);
+                        window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
                     } showMessage(result.text, 5000, true);
                 });break;
     	    case 'fghrsh.net':

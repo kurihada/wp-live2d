@@ -232,35 +232,35 @@ class live_Waifu {
 
 		return $sanitary_values;
 	}
-
+	//控制台被打开提醒（支持多句随机）
 	public function console_open_msg_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[console_open_msg]" id="console_open_msg" value="%s">',
 			isset( $this->live_2d_advanced_options['console_open_msg'] ) ? esc_attr( $this->live_2d_advanced_options['console_open_msg']) : ''
 		);
 	}
-
+	//内容被复制触发提醒（支持多句随机）
 	public function copy_message_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[copy_message]" id="copy_message" value="%s">',
 			isset( $this->live_2d_advanced_options['copy_message'] ) ? esc_attr( $this->live_2d_advanced_options['copy_message']) : ''
 		);
 	}
-
+	//看板娘截图提示语（支持多句随机）
 	public function screenshot_message_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[screenshot_message]" id="screenshot_message" value="%s">',
 			isset( $this->live_2d_advanced_options['screenshot_message'] ) ? esc_attr( $this->live_2d_advanced_options['screenshot_message']) : ''
 		);
 	}
-
+	//看板娘隐藏提示语（支持多句随机）
 	public function hidden_message_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[hidden_message]" id="hidden_message" value="%s">',
 			isset( $this->live_2d_advanced_options['hidden_message'] ) ? esc_attr( $this->live_2d_advanced_options['hidden_message']) : ''
 		);
 	}
-
+	//随机材质提示语（暂不支持多句）
 	public function load_rand_textures_callback() {
 		printf(
 			'<input class="regular-text" style="width: 280px"  type="text" name="live_2d_advanced_option_name[load_rand_textures][0]" id="load_rand_textures_0" value="%s" placeholder = "没有服装时的提示">
@@ -271,7 +271,7 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['load_rand_textures'][1] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][1]) : ''
 		);
 	}
-	
+	//时间段欢迎语（支持多句随机）
 	public function hour_tips_callback() {
 		printf(
 			'<input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s"  readonly="readonly"> 时 
@@ -324,34 +324,35 @@ class live_Waifu {
 		);
 	}
 
+	// 请求来源欢迎语（不支持多句）
 	public function referrer_message_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[localhost]" id="localhost" value="%s">',
 			isset( $this->live_2d_advanced_options['localhost'] ) ? esc_attr( $this->live_2d_advanced_options['localhost']) : ''
 		);
 	}
-
+	//请求来源自定义名称（根据 host，支持多句随机）
 	public function referrer_hostname_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[referrer_hostname]" id="referrer_hostname" value="%s">',
 			isset( $this->live_2d_advanced_options['referrer_hostname'] ) ? esc_attr( $this->live_2d_advanced_options['referrer_hostname']) : ''
 		);
 	}
-
+	//模型切换欢迎语（根据模型 ID，支持多句随机）
 	public function model_message_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[model_message]" id="model_message" value="%s">',
 			isset( $this->live_2d_advanced_options['model_message'] ) ? esc_attr( $this->live_2d_advanced_options['model_message']) : ''
 		);
 	}
-
+	//一言 API 输出模板（不支持多句随机）
 	public function hitokoto_api_message_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[hitokoto_api_message]" id="hitokoto_api_message" value="%s">',
 			isset( $this->live_2d_advanced_options['hitokoto_api_message'] ) ? esc_attr( $this->live_2d_advanced_options['hitokoto_api_message']) : ''
 		);
 	}
-
+	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg][0][selector]" id="mouseover_msg_0_selector" value="%s" style="width: 200px">：
@@ -369,7 +370,7 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['mouseover_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_hidden']) : '9'
 		);
 	}
-
+	// 鼠标点击触发提示（根据 CSS 选择器，支持多句随机）
 	public function click_msg_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[click_msg]" id="click_msg" value="%s">
@@ -385,7 +386,7 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['click_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['click_hidden']) : '5'
 		);
 	}
-
+	//节日提示（日期段，支持多句随机）
 	public function seasons_msg_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[seasons_msg][0][selector]" id="seasons_msg_0_selector" value="%s"  style="width: 200px">：

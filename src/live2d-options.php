@@ -93,8 +93,11 @@ class LiveD {
 				});
 				
 				//------------------------------
-				$('#more_mouseover_msg').click(function(){
-					
+				
+				$('.mouseover_msg:last').append("&nbsp;<input class='button' type='button' value='+' id='mouseover_msg_addbtn' />");
+				
+				$('#mouseover_msg_addbtn').click(function(){
+					addMsgInput('',this);
 				});
 				
 				$('#more_click_msg').click(function(){
@@ -105,6 +108,10 @@ class LiveD {
 					
 				});
 			});
+			
+			function addMsgInput(key,obj){
+				
+			}
 		</script>
 	<?php }
 	

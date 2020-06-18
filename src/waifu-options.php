@@ -274,24 +274,24 @@ class live_Waifu {
 	//时间段欢迎语（支持多句随机）
 	public function hour_tips_callback() {
 		printf(
-			'<input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s"  readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][0][1]" id="hour_tips_2" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][1][0]" id="hour_tips_3" value="%s"  readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][1][1]" id="hour_tips_4" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][2][0]" id="hour_tips_5" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][2][1]" id="hour_tips_6" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][3][0]" id="hour_tips_7" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][3][1]" id="hour_tips_8" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][4][0]" id="hour_tips_9" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][4][1]" id="hour_tips_10" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][5][0]" id="hour_tips_11" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][5][1]" id="hour_tips_12" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][6][0]" id="hour_tips_13" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][6][1]" id="hour_tips_14" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][7][0]" id="hour_tips_15" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][7][1]" id="hour_tips_16" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][8][0]" id="hour_tips_17" value="%s" readonly="readonly"> 时 
-			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][8][1]" id="hour_tips_18" value="%s"><br />',
+			'<p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s"  readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][0][1]" id="hour_tips_2" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][1][0]" id="hour_tips_3" value="%s"  readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][1][1]" id="hour_tips_4" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][2][0]" id="hour_tips_5" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][2][1]" id="hour_tips_6" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][3][0]" id="hour_tips_7" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][3][1]" id="hour_tips_8" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][4][0]" id="hour_tips_9" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][4][1]" id="hour_tips_10" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][5][0]" id="hour_tips_11" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][5][1]" id="hour_tips_12" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][6][0]" id="hour_tips_13" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][6][1]" id="hour_tips_14" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][7][0]" id="hour_tips_15" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][7][1]" id="hour_tips_16" value="%s"></p>
+			 <p><input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][8][0]" id="hour_tips_17" value="%s" readonly="readonly"> 时 
+			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][8][1]" id="hour_tips_18" value="%s"></p>',
 			isset( $this->live_2d_advanced_options['hour_tips'][0][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][0]) : 't5-7',
 			isset( $this->live_2d_advanced_options['hour_tips'][0][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][1]) : '',
 			isset( $this->live_2d_advanced_options['hour_tips'][1][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][1][0]) : 't7-11',
@@ -354,13 +354,17 @@ class live_Waifu {
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg][0][selector]" id="mouseover_msg_0_selector" value="%s" style="width: 200px">：
-			<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg][0][text]" id="mouseover_msg_0_text" value="%s">
-			<input class="button" type="button" name="more_mouseover_msg" id="more_mouseover_msg" value="+">',
-			isset( $this->live_2d_advanced_options['mouseover_msg'][0]['selector'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg'][0]['selector']) : '',
-			isset( $this->live_2d_advanced_options['mouseover_msg'][0]['text'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg'][0]['text']) : ''
-		);
+		$txtCount =  $this->live_2d_advanced_options['mouseover_hidden'];
+		$txtCount = $txtCount < 1 ? $txtCount = 1 : $txtCount;
+		for($x = 0;$x<$txtCount;$x++){
+			printf(
+				'<p id="mouseover_msg_p'.$x.'" class = "mouseover_msg"><input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg]['.$x.'][selector]" id="mouseover_msg_'.$x.'_selector" value="%s" style="width: 200px">：
+				<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg]['.$x.'][text]" id="mouseover_msg_'.$x.'_text" value="%s">
+				<input class="button" type="button" name="mouseover_msg_delbtn'.$x.'" id="mouseover_msg_delbtn'.$x.'" value="-"></p>',
+				isset( $this->live_2d_advanced_options['mouseover_msg'][$x]['selector'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg'][$x]['selector']) : '',
+				isset( $this->live_2d_advanced_options['mouseover_msg'][$x]['text'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg'][$x]['text']) : ''
+			);
+		}
 	}
 	
 	public function mouseover_hidden_callback(){

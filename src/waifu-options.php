@@ -179,11 +179,27 @@ class live_Waifu {
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
+		
+		add_settings_field(
+			'mouseover_hidden', // id
+			null, // title
+			array( $this, 'mouseover_hidden_callback' ), // callback
+			'live-2d-advanced-admin', // page
+			'live_2d_advanced_setting_section' // section
+		);
 
 		add_settings_field(
 			'click_msg', // id
 			'鼠标点击时的消息提示', // title
 			array( $this, 'click_msg_callback' ), // callback
+			'live-2d-advanced-admin', // page
+			'live_2d_advanced_setting_section' // section
+		);
+		
+		add_settings_field(
+			'click_hidden', // id
+			null, // title
+			array( $this, 'click_hidden_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
@@ -196,7 +212,13 @@ class live_Waifu {
 			'live_2d_advanced_setting_section' // section
 		);
 		
-		
+		add_settings_field(
+			'seasons_hidden', // id
+			null, // title
+			array( $this, 'seasons_hidden_callback' ), // callback
+			'live-2d-advanced-admin', // page
+			'live_2d_advanced_setting_section' // section
+		);
 		
 	}
 
@@ -281,13 +303,25 @@ class live_Waifu {
 		if ( isset( $input['mouseover_msg'] ) ) {
 			$sanitary_values['mouseover_msg'] = $input['mouseover_msg'];
 		}
+		
+		if ( isset( $input['mouseover_hidden'] ) ) {
+			$sanitary_values['mouseover_hidden'] = $input['mouseover_hidden'];
+		}
 
 		if ( isset( $input['click_msg'] ) ) {
 			$sanitary_values['click_msg'] = $input['click_msg'];
 		}
+		
+		if ( isset( $input['click_hidden'] ) ) {
+			$sanitary_values['click_hidden'] = $input['click_hidden'];
+		}
 
 		if ( isset( $input['seasons_msg'] ) ) {
 			$sanitary_values['seasons_msg'] = $input['seasons_msg'];
+		}
+		
+		if ( isset( $input['seasons_hidden'] ) ) {
+			$sanitary_values['seasons_hidden'] = $input['seasons_hidden'];
 		}
 
 		return $sanitary_values;
@@ -372,6 +406,8 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['hour_tips'][8][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][1]) : ''
 		);
 	}
+	
+	
 	
 	public function hour_tips_hidden_callback(){
 		printf(
@@ -468,9 +504,19 @@ class live_Waifu {
 
 	public function mouseover_msg_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg]" id="mouseover_msg" value="%s">
+			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg][0][selector]" id="mouseover_msg_0_selector" value="%s" style="width: 200px">：
+			<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg][0][text]" id="mouseover_msg_0_text" value="%s">
 			<input class="button" type="button" name="more_mouseover_msg" id="more_mouseover_msg" value="+">',
-			isset( $this->live_2d_advanced_options['mouseover_msg'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg']) : ''
+			isset( $this->live_2d_advanced_options['mouseover_msg'][0]['selector'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg'][0]['selector']) : '',
+			isset( $this->live_2d_advanced_options['mouseover_msg'][0]['text'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg'][0]['text']) : ''
+		);
+	}
+	
+	public function mouseover_hidden_callback(){
+		printf(
+			'鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a>
+			<input type="hidden" name="live_2d_advanced_option_name[mouseover_hidden]" id="mouseover_hidden" value="%s">',
+			isset( $this->live_2d_advanced_options['mouseover_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_hidden']) : '9'
 		);
 	}
 
@@ -481,12 +527,30 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['click_msg'] ) ? esc_attr( $this->live_2d_advanced_options['click_msg']) : ''
 		);
 	}
+	
+	public function click_hidden_callback(){
+		printf(
+			'看板娘会循环以上的每一行点击事件
+			<input type="hidden" name="live_2d_advanced_option_name[click_hidden]" id="click_hidden" value="%s">',
+			isset( $this->live_2d_advanced_options['click_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['click_hidden']) : '5'
+		);
+	}
 
 	public function seasons_msg_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[seasons_msg]" id="seasons_msg" value="%s">
+			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[seasons_msg][0][selector]" id="seasons_msg_0_selector" value="%s"  style="width: 200px">：
+			<input class="regular-text" type="text" name="live_2d_advanced_option_name[seasons_msg][0][text]" id="seasons_msg_0_text" value="%s">
 			<input class="button" type="button" name="more_seasons_msg" id="more_seasons_msg" value="+">',
-			isset( $this->live_2d_advanced_options['seasons_msg'] ) ? esc_attr( $this->live_2d_advanced_options['seasons_msg']) : ''
+			isset( $this->live_2d_advanced_options['seasons_msg'][0]['selector'] ) ? esc_attr( $this->live_2d_advanced_options['seasons_msg'][0]['selector']) : '',
+			isset( $this->live_2d_advanced_options['seasons_msg'][0]['text'] ) ? esc_attr( $this->live_2d_advanced_options['seasons_msg'][0]['text']) : ''
+		);
+	}
+	
+	public function seasons_hidden_callback(){
+		printf(
+			'在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。
+			<input type="hidden" name="live_2d_advanced_option_name[seasons_hidden]" id="seasons_hidden" value="%s">',
+			isset( $this->live_2d_advanced_options['seasons_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['seasons_hidden']) : '9'
 		);
 	}
 	

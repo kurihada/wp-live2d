@@ -93,6 +93,17 @@ class LiveD {
 				});
 				
 				//------------------------------
+				$('#more_mouseover_msg').click(function(){
+					
+				});
+				
+				$('#more_click_msg').click(function(){
+					
+				});
+				
+				$('#seasons_msg').click(function(){
+					
+				});
 			});
 		</script>
 	<?php }

@@ -173,25 +173,25 @@ class live_Waifu {
 		);
 
 		add_settings_field(
-			'mouseover_18', // id
-			'mouseover', // title
-			array( $this, 'mouseover_18_callback' ), // callback
+			'mouseover_msg', // id
+			'鼠标悬停时的消息提示', // title
+			array( $this, 'mouseover_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
 
 		add_settings_field(
-			'click_19', // id
-			'click', // title
-			array( $this, 'click_19_callback' ), // callback
+			'click_msg', // id
+			'鼠标点击时的消息提示', // title
+			array( $this, 'click_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
 
 		add_settings_field(
-			'seasons_20', // id
-			'seasons', // title
-			array( $this, 'seasons_20_callback' ), // callback
+			'seasons_msg', // id
+			'节日事件', // title
+			array( $this, 'seasons_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
@@ -278,16 +278,16 @@ class live_Waifu {
 			$sanitary_values['hitokoto_api_hitokoto_17'] = sanitize_text_field( $input['hitokoto_api_hitokoto_17'] );
 		}
 
-		if ( isset( $input['mouseover_18'] ) ) {
-			$sanitary_values['mouseover_18'] = sanitize_text_field( $input['mouseover_18'] );
+		if ( isset( $input['mouseover_msg'] ) ) {
+			$sanitary_values['mouseover_msg'] = $input['mouseover_msg'];
 		}
 
-		if ( isset( $input['click_19'] ) ) {
-			$sanitary_values['click_19'] = sanitize_text_field( $input['click_19'] );
+		if ( isset( $input['click_msg'] ) ) {
+			$sanitary_values['click_msg'] = $input['click_msg'];
 		}
 
-		if ( isset( $input['seasons_20'] ) ) {
-			$sanitary_values['seasons_20'] = sanitize_text_field( $input['seasons_20'] );
+		if ( isset( $input['seasons_msg'] ) ) {
+			$sanitary_values['seasons_msg'] = $input['seasons_msg'];
 		}
 
 		return $sanitary_values;
@@ -334,41 +334,41 @@ class live_Waifu {
 	
 	public function hour_tips_callback() {
 		printf(
-			'<input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s"> 时 
+			'<input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][0][0]" id="hour_tips_1" value="%s"  readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][0][1]" id="hour_tips_2" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][1][0]" id="hour_tips_3" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][1][0]" id="hour_tips_3" value="%s"  readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][1][1]" id="hour_tips_4" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][2][0]" id="hour_tips_5" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][2][0]" id="hour_tips_5" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][2][1]" id="hour_tips_6" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][3][0]" id="hour_tips_7" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][3][0]" id="hour_tips_7" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][3][1]" id="hour_tips_8" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][4][0]" id="hour_tips_9" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][4][0]" id="hour_tips_9" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][4][1]" id="hour_tips_10" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][5][0]" id="hour_tips_11" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][5][0]" id="hour_tips_11" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][5][1]" id="hour_tips_12" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][6][0]" id="hour_tips_13" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][6][0]" id="hour_tips_13" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][6][1]" id="hour_tips_14" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][7][0]" id="hour_tips_15" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][7][0]" id="hour_tips_15" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][7][1]" id="hour_tips_16" value="%s"><br />
-			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][8][0]" id="hour_tips_17" value="%s"> 时 
+			 <input class="regular-text" style="width: 100px" type="text" name="live_2d_advanced_option_name[hour_tips][8][0]" id="hour_tips_17" value="%s" readonly="readonly"> 时 
 			 <input class="regular-text" type="text" name="live_2d_advanced_option_name[hour_tips][8][1]" id="hour_tips_18" value="%s"><br />',
-			isset( $this->live_2d_advanced_options['hour_tips'][0][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][0][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][0]) : 't5-7',
 			isset( $this->live_2d_advanced_options['hour_tips'][0][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][0][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][1][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][1][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][1][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][1][0]) : 't7-11',
 			isset( $this->live_2d_advanced_options['hour_tips'][1][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][1][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][2][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][2][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][2][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][2][0]) : 't11-14',
 			isset( $this->live_2d_advanced_options['hour_tips'][2][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][2][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][3][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][3][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][3][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][3][0]) : 't14-17',
 			isset( $this->live_2d_advanced_options['hour_tips'][3][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][3][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][4][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][4][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][4][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][4][0]) : 't17-19',
 			isset( $this->live_2d_advanced_options['hour_tips'][4][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][4][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][5][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][5][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][5][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][5][0]) : 't19-21',
 			isset( $this->live_2d_advanced_options['hour_tips'][5][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][5][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][6][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][6][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][6][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][6][0]) : 't21-23',
 			isset( $this->live_2d_advanced_options['hour_tips'][6][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][6][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][7][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][7][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][7][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][7][0]) : 't23-5',
 			isset( $this->live_2d_advanced_options['hour_tips'][7][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][7][1]) : '',
-			isset( $this->live_2d_advanced_options['hour_tips'][8][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][0]) : '',
+			isset( $this->live_2d_advanced_options['hour_tips'][8][0] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][0]) : 'default',
 			isset( $this->live_2d_advanced_options['hour_tips'][8][1] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips'][8][1]) : ''
 		);
 	}
@@ -376,9 +376,9 @@ class live_Waifu {
 	public function hour_tips_hidden_callback(){
 		printf(
 			'
-			时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11
+			时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）
 			<input type="hidden" name="live_2d_advanced_option_name[hour_tips_hidden]" id="hour_tips_hidden" value="%s">',
-			isset( $this->live_2d_advanced_options['hour_tips_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips_hidden']) : ''
+			isset( $this->live_2d_advanced_options['hour_tips_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips_hidden']) : '9'
 		);
 	}
 
@@ -466,24 +466,27 @@ class live_Waifu {
 		);
 	}
 
-	public function mouseover_18_callback() {
+	public function mouseover_msg_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_18]" id="mouseover_18" value="%s">',
-			isset( $this->live_2d_advanced_options['mouseover_18'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_18']) : ''
+			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[mouseover_msg]" id="mouseover_msg" value="%s">
+			<input class="button" type="button" name="more_mouseover_msg" id="more_mouseover_msg" value="+">',
+			isset( $this->live_2d_advanced_options['mouseover_msg'] ) ? esc_attr( $this->live_2d_advanced_options['mouseover_msg']) : ''
 		);
 	}
 
-	public function click_19_callback() {
+	public function click_msg_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[click_19]" id="click_19" value="%s">',
-			isset( $this->live_2d_advanced_options['click_19'] ) ? esc_attr( $this->live_2d_advanced_options['click_19']) : ''
+			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[click_msg]" id="click_msg" value="%s">
+			<input class="button" type="button" name="more_click_msg" id="more_click_msg" value="+">',
+			isset( $this->live_2d_advanced_options['click_msg'] ) ? esc_attr( $this->live_2d_advanced_options['click_msg']) : ''
 		);
 	}
 
-	public function seasons_20_callback() {
+	public function seasons_msg_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[seasons_20]" id="seasons_20" value="%s">',
-			isset( $this->live_2d_advanced_options['seasons_20'] ) ? esc_attr( $this->live_2d_advanced_options['seasons_20']) : ''
+			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[seasons_msg]" id="seasons_msg" value="%s">
+			<input class="button" type="button" name="more_seasons_msg" id="more_seasons_msg" value="+">',
+			isset( $this->live_2d_advanced_options['seasons_msg'] ) ? esc_attr( $this->live_2d_advanced_options['seasons_msg']) : ''
 		);
 	}
 	

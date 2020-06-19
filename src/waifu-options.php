@@ -204,10 +204,9 @@ class live_Waifu {
 	}
 	//控制台被打开提醒（支持多句随机）
 	public function console_open_msg_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[console_open_msg]" id="console_open_msg" value="%s">',
-			isset( $this->live_2d_advanced_options['console_open_msg'] ) ? esc_attr( $this->live_2d_advanced_options['console_open_msg']) : ''
-		);
+		$defKey = array();
+		$defKey['console_open_msg'][0] = '哈哈，你打开了控制台，是想要看看我的秘密吗？';
+		$this->loopMsg('console_open_msg','List',$defKey);
 	}
 	//内容被复制触发提醒（支持多句随机）
 	public function copy_message_callback() {
@@ -513,12 +512,12 @@ class live_Waifu {
 						'<p class = "'.$keyName.'">
 						<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
 						<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
-						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : isset($defArray[$keyName][$x]['selector'])?esc_attr($defArray[$keyName][$x]['selector']):'',
 						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : isset($defArray[$keyName][$x]['text'])?esc_attr($defArray[$keyName][$x]['text']):''
 					);
 				}
-				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
 			break;
 			case 'Array':
 				if($readonly){
@@ -538,12 +537,12 @@ class live_Waifu {
 							'<p class = "'.$keyName.'">
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
-							<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+							<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?esc_attr($defArray[$keyName][$x][0]):'',
 							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?esc_attr($defArray[$keyName][$x][1]):''
 						);
 					}
-					echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+					echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
 				}
 			break;
 			case 'List':
@@ -551,11 +550,11 @@ class live_Waifu {
 					printf(
 						'<p class = "'.$keyName.'">
 						<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
-						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : isset($defArray[$keyName][$x])?esc_attr($defArray[$keyName][$x]):''
 					);
 				}
-				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
 			break;
 		}
 	}

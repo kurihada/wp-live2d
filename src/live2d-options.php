@@ -92,56 +92,50 @@ class LiveD {
                     }
 				});
 				
-				//------------------------------
+				//----------------“添加/删除”按钮事件--------------
 
-				$('#mouseover_msg_addbtn').click(function(){
-					addMsgInput('mouseover_msg',this,true);
+				$('input.addbtn').click(function(){
+					var keyName = jQuery(this).attr('keyname');
+					var arrType = jQuery(this).attr('arrtype');
+					addMsgInput(keyName,this,arrType);
 				});
 				
-				$('#click_msg_addbtn').click(function(){
-					addMsgInput('click_msg',this);
+
+				$('input.delbtn').click(function(){
+					var keyName = jQuery(this).attr('keyname');
+					var arrType = jQuery(this).attr('arrtype');
+					delMsgInput(keyName,this,arrType);
 				});
-				
-				$('#seasons_msg_addbtn').click(function(){
-					addMsgInput('seasons_msg',this,true);
-				});
-				
-				$('.mouseover_msg_delbtn').click(function(){
-					delMsgInput('mouseover_msg',this,true);
-				});
-				
-				$('.click_msg_delbtn').click(function(){
-					delMsgInput('click_msg',this);
-				});
-				
-				$('.seasons_msg_delbtn').click(function(){
-					delMsgInput('seasons_msg',this,true);
-				});
+
 			});
 			
-			function addMsgInput(clsName,obj,isSelector = false ,isArray = false ){
+			function addMsgInput(clsName,obj,typeName){
 				var txtList = jQuery('p.'+ clsName);
 				var indexNum = txtList.length
 				var txtClone = txtList.last().clone();
-				if(isSelector){
-					txtClone.children('input.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][selector]')
-						.attr('id',clsName+'_'+indexNum+'_selector').val('');
-					txtClone.children('input.text').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][text]')
-						.attr('id',clsName+'_'+indexNum+'_text').val('');
-				} else if (isArray) {
-					txtClone.children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][0]')
-						.attr('id',clsName+'_'+indexNum+'_0').val('');
-					txtClone.children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][1]')
-						.attr('id',clsName+'_'+indexNum+'_1').val('');
-				} else {
-					txtClone.children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+']')
-						.attr('id',clsName+'_'+indexNum).val('');
+				switch (typeName){
+					case 'Selector':
+						txtClone.children('input.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][selector]')
+							.attr('id',clsName+'_'+indexNum+'_selector').val('');
+						txtClone.children('input.text').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][text]')
+							.attr('id',clsName+'_'+indexNum+'_text').val('');
+					break;
+					case 'Array':
+						txtClone.children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][0]')
+							.attr('id',clsName+'_'+indexNum+'_0').val('');
+						txtClone.children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][1]')
+							.attr('id',clsName+'_'+indexNum+'_1').val('');
+					break;
+					case 'List':
+						txtClone.children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+']')
+							.attr('id',clsName+'_'+indexNum).val('');
+					break;
 				}
 				//删除按钮
-				txtClone.children('input.'+clsName+'_delbtn').attr('name',clsName+'_delbtn'+indexNum)
+				txtClone.children('input.delbtn').attr('name',clsName+'_delbtn'+indexNum)
 						.attr('id',clsName+'_delbtn'+indexNum)
 						.bind('click',function(){
-							delMsgInput(clsName,this,isSelector,isArray);
+							delMsgInput(clsName,this,typeName);
 						});
 				txtList.last().after(txtClone);
 			}
@@ -149,7 +143,7 @@ class LiveD {
 			// 删除一个动态选项isSelector是如果是有选择器的动态选项，有选择器则传true
 			// isArray是没有选择器的动态选项，例如日期选择（暂时不用）
 			// 如果都不传递则为，支持多句随机类型的添加器。
-			function delMsgInput(clsName,obj,isSelector = false ,isArray = false ){
+			function delMsgInput(clsName,obj,typeName){
 				//如果没有其他组件就不能删除了
 				var otherTxt = jQuery(obj).parent().siblings('.' + clsName);
 				if(otherTxt.length==0) return;
@@ -157,21 +151,25 @@ class LiveD {
 				jQuery(obj).parent().fadeOut("fast",function(){
 					var allTxt = jQuery(this).siblings('.' + clsName);
 					allTxt.each(function(i,e){
-						if(isSelector){
-							jQuery(e).children('.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][selector]')
-								.attr('id',clsName+'_'+i+'_selector');
-							jQuery(e).children('.text').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][text]')
-								.attr('id',clsName+'_'+i+'_text');
-						} else if (isArray) {
-							jQuery(e).children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][0]')
-								.attr('id',clsName+'_'+i+'_0');
-							jQuery(e).children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][1]')
-								.attr('id',clsName+'_'+i+'_1');
-						} else {
-							jQuery(e).children('.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+i+']')
-								.attr('id',clsName+'_'+i);
+						switch (typeName){
+							case 'Selector':
+								jQuery(e).children('.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][selector]')
+									.attr('id',clsName+'_'+i+'_selector');
+								jQuery(e).children('.text').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][text]')
+									.attr('id',clsName+'_'+i+'_text');
+							break;
+							case 'Array':
+								jQuery(e).children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][0]')
+									.attr('id',clsName+'_'+i+'_0');
+								jQuery(e).children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][1]')
+									.attr('id',clsName+'_'+i+'_1');
+							break;
+							case 'List':
+								jQuery(e).children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+i+']')
+									.attr('id',clsName+'_'+i);
+							break;
 						}
-						jQuery(e).children('.'+clsName+'_delbtn').attr('id',clsName+'_delbtn'+i)
+						jQuery(e).children('input.delbtn').attr('id',clsName+'_delbtn'+i)
 							.attr('name',clsName+'_delbtn'+i);
 					});
 					// 执行删除

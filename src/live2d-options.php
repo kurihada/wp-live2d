@@ -93,24 +93,90 @@ class LiveD {
 				});
 				
 				//------------------------------
-				
-				$('.mouseover_msg:last').append("&nbsp;<input class='button' type='button' value='+' id='mouseover_msg_addbtn' />");
-				
+
 				$('#mouseover_msg_addbtn').click(function(){
-					addMsgInput('',this);
+					addMsgInput('mouseover_msg',this,true);
 				});
 				
-				$('#more_click_msg').click(function(){
-					
+				$('#click_msg_addbtn').click(function(){
+					addMsgInput('click_msg',this);
 				});
 				
-				$('#seasons_msg').click(function(){
-					
+				$('#seasons_msg_addbtn').click(function(){
+					addMsgInput('seasons_msg',this,true);
+				});
+				
+				$('.mouseover_msg_delbtn').click(function(){
+					delMsgInput('mouseover_msg',this,true);
+				});
+				
+				$('.click_msg_delbtn').click(function(){
+					delMsgInput('click_msg',this);
+				});
+				
+				$('.seasons_msg_delbtn').click(function(){
+					delMsgInput('seasons_msg',this,true);
 				});
 			});
 			
-			function addMsgInput(key,obj){
-				
+			function addMsgInput(clsName,obj,isSelector = false ,isArray = false ){
+				var txtList = jQuery('p.'+ clsName);
+				var indexNum = txtList.length
+				var txtClone = txtList.last().clone();
+				if(isSelector){
+					txtClone.children('input.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][selector]')
+						.attr('id',clsName+'_'+indexNum+'_selector');
+					txtClone.children('input.text').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][text]')
+						.attr('id',clsName+'_'+indexNum+'_text');
+				} else if (isArray) {
+					txtClone.children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][0]')
+						.attr('id',clsName+'_'+indexNum+'_0');
+					txtClone.children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][1]')
+						.attr('id',clsName+'_'+indexNum+'_1');
+				} else {
+					txtClone.children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+']')
+						.attr('id',clsName+'_'+indexNum).val('');
+				}
+				//删除按钮
+				txtClone.children('input.'+clsName+'_delbtn').attr('name',clsName+'_delbtn'+indexNum)
+						.attr('id',clsName+'_delbtn'+indexNum)
+						.bind('click',function(){
+							delMsgInput(clsName,this,isSelector,isArray);
+						});
+				txtList.last().after(txtClone);
+			}
+			
+			// 删除一个动态选项isSelector是如果是有选择器的动态选项，有选择器则传true
+			// isArray是没有选择器的动态选项，例如日期选择（暂时不用）
+			// 如果都不传递则为，支持多句随机类型的添加器。
+			function delMsgInput(clsName,obj,isSelector = false ,isArray = false ){
+				//如果没有其他组件就不能删除了
+				var otherTxt = jQuery(obj).parent().siblings('.' + clsName);
+				if(otherTxt.length==0) return;
+				// 在删除前隐藏并重组组件
+				jQuery(obj).parent().fadeOut("fast",function(){
+					var allTxt = jQuery(this).siblings('.' + clsName);
+					allTxt.each(function(i,e){
+						if(isSelector){
+							jQuery(e).children('.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][selector]')
+								.attr('id',clsName+'_'+i+'_selector');
+							jQuery(e).children('.text').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][text]')
+								.attr('id',clsName+'_'+i+'_text');
+						} else if (isArray) {
+							jQuery(e).children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][0]')
+								.attr('id',clsName+'_'+i+'_0');
+							jQuery(e).children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][1]')
+								.attr('id',clsName+'_'+i+'_1');
+						} else {
+							jQuery(e).children('.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+i+']')
+								.attr('id',clsName+'_'+i);
+						}
+						jQuery(e).children('.'+clsName+'_delbtn').attr('id',clsName+'_delbtn'+i)
+							.attr('name',clsName+'_delbtn'+i);
+					});
+					// 执行删除
+					this.remove();
+				});
 			}
 		</script>
 	<?php }

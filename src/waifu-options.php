@@ -293,7 +293,7 @@ class live_Waifu {
 	public function hitokoto_api_message_callback() {
 		$defKey = array();
 		$defKey['hitokoto_api_message'][0][0] = 'lwl12.com';
-		$defKey['hitokoto_api_message'][0][1] = '这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">{creator}</span> 投稿的。';
+		$defKey['hitokoto_api_message'][0][1] = '这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>|，是 <span style=\"color:#0099cc;\">{creator}</span> 投稿的。';
 		$defKey['hitokoto_api_message'][1][0] = 'fghrsh.net';
 		$defKey['hitokoto_api_message'][1][1] = '这句一言出处是 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">FGHRSH</span> 在 {date} 收藏的！';
 		$defKey['hitokoto_api_message'][2][0] = 'jinrishici.com';
@@ -301,7 +301,7 @@ class live_Waifu {
 		$defKey['hitokoto_api_message'][3][0] = 'hitokoto.cn';
 		$defKey['hitokoto_api_message'][3][1] = '这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">{creator}</span> 在 hitokoto.cn 投稿的。';
 		$this->loopMsg('hitokoto_api_message','Array',$defKey);
-		echo '<p>请务必不要修改{}中的内容</p>';//lwl12.com会有没有作者的情况
+		echo '<p>请务必不要修改{}中的内容，lwl12.com接口会有没有作者的情况语句中需要用“|”进行分割</p>';//lwl12.com会有没有作者的情况
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {	

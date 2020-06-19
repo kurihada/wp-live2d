@@ -381,8 +381,11 @@ function loadTipsMessage(result) {
     	    case 'lwl12.com':
     	        $.getJSON('https://api.lwl12.com/hitokoto/v1?encode=realjson',function(result){
         	        if (!empty(result.source)) {
-                        var text = waifu_tips.hitokoto_api_message['lwl12.com'][0];
-                        if (!empty(result.author)) text += waifu_tips.hitokoto_api_message['lwl12.com'][1];
+						var txtArr = waifu_tips.hitokoto_api_message['lwl12.com'][0].split('|');
+						var text = txtArr[0];
+						if(txtArr.length > 1){
+							if (!empty(result.author)) text += txtArr[1];
+						}
                         text = text.render({source: result.source, creator: result.author});
                         window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
                     } showMessage(result.text, 5000, true);

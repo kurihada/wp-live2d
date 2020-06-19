@@ -87,13 +87,7 @@ class live_Waifu {
 			'live_2d_advanced_setting_section' // section
 		);
 
-		add_settings_field(
-			'model_message', // id
-			'切换模型提示', // title
-			array( $this, 'model_message_callback' ), // callback
-			'live-2d-advanced-admin', // page
-			'live_2d_advanced_setting_section' // section
-		);
+		
 
 		add_settings_field(
 			'hitokoto_api_message', // id
@@ -176,10 +170,6 @@ class live_Waifu {
 			$sanitary_values['referrer_hostname'] =  $input['referrer_hostname'] ;
 		}
 
-		if ( isset( $input['model_message'] ) ) {
-			$sanitary_values['model_message'] = $input['model_message'] ;
-		}
-
 		if ( isset( $input['hitokoto_api_message'] ) ) {
 			$sanitary_values['hitokoto_api_message'] = $input['hitokoto_api_message'];
 		}
@@ -210,24 +200,21 @@ class live_Waifu {
 	}
 	//内容被复制触发提醒（支持多句随机）
 	public function copy_message_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[copy_message]" id="copy_message" value="%s">',
-			isset( $this->live_2d_advanced_options['copy_message'] ) ? esc_attr( $this->live_2d_advanced_options['copy_message']) : ''
-		);
+		$defKey = array();
+		$defKey['copy_message'][0] = '你都复制了些什么呀，转载要记得加上出处哦！';
+		$this->loopMsg('copy_message','List',$defKey);
 	}
 	//看板娘截图提示语（支持多句随机）
 	public function screenshot_message_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[screenshot_message]" id="screenshot_message" value="%s">',
-			isset( $this->live_2d_advanced_options['screenshot_message'] ) ? esc_attr( $this->live_2d_advanced_options['screenshot_message']) : ''
-		);
+		$defKey = array();
+		$defKey['screenshot_message'][0] = '照好了嘛，是不是很可爱呢？';
+		$this->loopMsg('screenshot_message','List',$defKey);
 	}
 	//看板娘隐藏提示语（支持多句随机）
 	public function hidden_message_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[hidden_message]" id="hidden_message" value="%s">',
-			isset( $this->live_2d_advanced_options['hidden_message'] ) ? esc_attr( $this->live_2d_advanced_options['hidden_message']) : ''
-		);
+		$defKey = array();
+		$defKey['hidden_message'][0] = '我们还能再见面的吧…？';
+		$this->loopMsg('hidden_message','List',$defKey);
 	}
 	//随机材质提示语（暂不支持多句）
 	public function load_rand_textures_callback() {
@@ -301,11 +288,7 @@ class live_Waifu {
 			isset( $this->live_2d_advanced_options['referrer_hostname'] ) ? esc_attr( $this->live_2d_advanced_options['referrer_hostname']) : ''
 		);*/
 	}
-	//模型切换欢迎语（根据模型 ID，支持多句随机）
-	public function model_message_callback() {
-		
-		$this->loopMsg('model_message','List');
-	}
+	
 	//一言 API 输出模板（不支持多句随机）
 	public function hitokoto_api_message_callback() {
 		$defKey = array();
@@ -382,7 +365,6 @@ class live_Waifu {
 		$msg["hour_tips"] = self::hourTips_Json();
 		$msg["referrer_message"] = self::referrerMsg_Json();
 		$msg["referrer_hostname"] = self::referrerHost_Json();
-		$msg["model_message"] = self::modelMsg_Json();
 		$msg["hitokoto_api_message"] = self::hitokotoApi_Json();
 		return $msg;
 	}
@@ -423,14 +405,6 @@ class live_Waifu {
 		$referrerHost["example.com"] = array("示例网站");
 		$referrerHost["www.fghrsh.net"] = array("FGHRSH 的博客");
 		return $referrerHost;
-	}
-	
-	// 模型切换的消息（可能已经用不上了）
-	public static function modelMsg_Json(){
-		$modelMsg = array();
-		$modelMsg["1"] = array("来自 Potion Maker 的 Pio 酱 ~");
-		$modelMsg["2"] = array("来自 Potion Maker 的 Tia 酱 ~");
-		return $modelMsg;
 	}
 	
 	// 一言API返回的结果

@@ -125,14 +125,14 @@ class LiveD {
 				var txtClone = txtList.last().clone();
 				if(isSelector){
 					txtClone.children('input.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][selector]')
-						.attr('id',clsName+'_'+indexNum+'_selector');
+						.attr('id',clsName+'_'+indexNum+'_selector').val('');
 					txtClone.children('input.text').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][text]')
-						.attr('id',clsName+'_'+indexNum+'_text');
+						.attr('id',clsName+'_'+indexNum+'_text').val('');
 				} else if (isArray) {
 					txtClone.children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][0]')
-						.attr('id',clsName+'_'+indexNum+'_0');
+						.attr('id',clsName+'_'+indexNum+'_0').val('');
 					txtClone.children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][1]')
-						.attr('id',clsName+'_'+indexNum+'_1');
+						.attr('id',clsName+'_'+indexNum+'_1').val('');
 				} else {
 					txtClone.children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+']')
 						.attr('id',clsName+'_'+indexNum).val('');

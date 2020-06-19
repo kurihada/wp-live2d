@@ -239,7 +239,6 @@ class live_Waifu {
 	}
 	//时间段欢迎语（支持多句随机）
 	public function hour_tips_callback() {
-		$this->loopMsg($this->live_2d_advanced_options,'hour_tips',false,true);
 		if(!isset( $this->live_2d_advanced_options['hour_tips'][0][0] )){
 			$this->live_2d_advanced_options['hour_tips'][0][0]='t5-7';
 		}
@@ -267,6 +266,7 @@ class live_Waifu {
 		if(!isset( $this->live_2d_advanced_options['hour_tips'][8][0] )){
 			$this->live_2d_advanced_options['hour_tips'][8][0]='default';
 		}
+		$this->loopMsg($this->live_2d_advanced_options,'hour_tips','Array');
 	}
 	
 	
@@ -282,17 +282,40 @@ class live_Waifu {
 
 	// 请求来源欢迎语（不支持多句）
 	public function referrer_message_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[localhost]" id="localhost" value="%s">',
-			isset( $this->live_2d_advanced_options['localhost'] ) ? esc_attr( $this->live_2d_advanced_options['localhost']) : ''
-		);
+		if(!isset( $this->live_2d_advanced_options['referrer_message'][0][0] )){
+			$this->live_2d_advanced_options['referrer_message'][0][0]='localhost';
+		}
+		if(!isset( $this->live_2d_advanced_options['referrer_message'][1][0] )){
+			$this->live_2d_advanced_options['referrer_message'][1][0]='baidu';
+		}
+		if(!isset( $this->live_2d_advanced_options['referrer_message'][2][0] )){
+			$this->live_2d_advanced_options['referrer_message'][2][0]='so';
+		}
+		if(!isset( $this->live_2d_advanced_options['referrer_message'][3][0] )){
+			$this->live_2d_advanced_options['referrer_message'][3][0]='google';
+		}
+		if(!isset( $this->live_2d_advanced_options['referrer_message'][4][0] )){
+			$this->live_2d_advanced_options['referrer_message'][4][0]='default';
+		}
+		if(!isset( $this->live_2d_advanced_options['referrer_message'][5][0] )){
+			$this->live_2d_advanced_options['referrer_message'][5][0]='none';
+		}
+
+		$this->loopMsg($this->live_2d_advanced_options,'referrer_message','Array');
 	}
 	//请求来源自定义名称（根据 host，支持多句随机）
 	public function referrer_hostname_callback() {
-		printf(
+		if(!isset( $this->live_2d_advanced_options['referrer_hostname'][0][0] )){
+			$this->live_2d_advanced_options['referrer_hostname'][0][0]='example.com';
+		}
+		if(!isset( $this->live_2d_advanced_options['referrer_hostname'][1][0] )){
+			$this->live_2d_advanced_options['referrer_hostname'][1][0]='www.fghrsh.net';
+		}
+		$this->loopMsg($this->live_2d_advanced_options,'referrer_hostname','Array', false);
+		/*printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[referrer_hostname]" id="referrer_hostname" value="%s">',
 			isset( $this->live_2d_advanced_options['referrer_hostname'] ) ? esc_attr( $this->live_2d_advanced_options['referrer_hostname']) : ''
-		);
+		);*/
 	}
 	//模型切换欢迎语（根据模型 ID，支持多句随机）
 	public function model_message_callback() {
@@ -310,21 +333,21 @@ class live_Waifu {
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {	
-		$this->loopMsg($this->live_2d_advanced_options,'mouseover_msg',true);
+		$this->loopMsg($this->live_2d_advanced_options,'mouseover_msg','Selector');
 		echo '<p>鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a></p>';
 	}
 	
 	
 	// 鼠标点击触发提示（根据 CSS 选择器，支持多句随机）
 	public function click_msg_callback() {
-		$this->loopMsg($this->live_2d_advanced_options,'click_msg');
+		$this->loopMsg($this->live_2d_advanced_options,'click_msg','List');
 		echo '<p>点击看板娘会循环以上的每一行点击事件</p>';
 	}
 	
 	
 	//节日提示（日期段，支持多句随机）
 	public function seasons_msg_callback() {
-		$this->loopMsg($this->live_2d_advanced_options,'seasons_msg',true);
+		$this->loopMsg($this->live_2d_advanced_options,'seasons_msg','Selector');
 		echo '<p>在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。</p>';
 	}
 
@@ -471,57 +494,64 @@ class live_Waifu {
 		return $seasonsMsg;
 	}
 	
-	public function loopMsg($optionsArray,$keyName,$isSelector = false,$isArray = false){
+	// $type 有3个选择：Selector（用于带有选择器的数组），Array（纯数组），List（只有文本的数组列表）
+	// $readonly 让第一组input 只读
+	//这里指定时间就只有9个参数 因为waifu-tips.js中第266行之后的描述如此
+	public function loopMsg($optionsArray,$keyName,$type = 'List',$readonly = true){
 		$txtCount = count($optionsArray[$keyName]);
 		$txtCount = $txtCount < 1 ? $txtCount = 1 : $txtCount;
 		//echo $txtCount;
-		if($isSelector){
-			for($x = 0;$x<$txtCount;$x++){
-				printf(
-					'<p class = "'.$keyName.'">
-					<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
-					<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
-					<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-					isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : '',
-					isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
-				);
-			}
-			echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
-		}else if($isArray){
-			if($this->hour_tips_readonly){
-				$txtCount = 9; //这里指定时间就只有9个参数 因为waifu-tips.js中第266行之后的描述如此
+		switch ($type){
+			case 'Selector':
 				for($x = 0;$x<$txtCount;$x++){
 					printf(
 						'<p class = "'.$keyName.'">
-						<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly"> 时 
-						<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
-						isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
-						isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
-					);
-				}
-			} else{ //这个可能性应该是没有
-				for($x = 0;$x<$txtCount;$x++){
-					printf(
-						'<p class = "'.$keyName.'">
-						<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
-						<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
+						<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
+						<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
 						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
-						isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
+						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : '',
+						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
 					);
 				}
 				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
-			}
-		}else{
-			for($x = 0;$x<$txtCount;$x++){
-				printf(
-					'<p class = "'.$keyName.'">
-					<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
-					<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-					isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
-				);
-			}
-			echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+			break;
+			case 'Array':
+				if($readonly){
+					//$txtCount = $roCount; 
+					for($x = 0;$x<$txtCount;$x++){
+						printf(
+							'<p class = "'.$keyName.'">
+							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly">：
+							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
+						);
+					}
+				} else{ //这个可能性应该是没有
+					for($x = 0;$x<$txtCount;$x++){
+						printf(
+							'<p class = "'.$keyName.'">
+							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
+							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
+							<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
+						);
+					}
+					echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+				}
+			break;
+			case 'List':
+				for($x = 0;$x<$txtCount;$x++){
+					printf(
+						'<p class = "'.$keyName.'">
+						<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
+						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
+					);
+				}
+				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+			break;
 		}
 	}
 }

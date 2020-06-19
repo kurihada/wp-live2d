@@ -69,14 +69,6 @@ class live_Waifu {
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
-		// 每小时提示的隐藏表单域
-		add_settings_field(
-			'hour_tips_hidden', // id
-			null, // title
-			array( $this, 'hour_tips_hidden_callback' ), // callback
-			'live-2d-advanced-admin', // page
-			'live_2d_advanced_setting_section' // section
-		);
 
 		add_settings_field(
 			'referrer_message', // id
@@ -239,79 +231,43 @@ class live_Waifu {
 	}
 	//时间段欢迎语（支持多句随机）
 	public function hour_tips_callback() {
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][0][0] )){
-			$this->live_2d_advanced_options['hour_tips'][0][0]='t5-7';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][1][0] )){
-			$this->live_2d_advanced_options['hour_tips'][1][0]='t7-11';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][2][0] )){
-			$this->live_2d_advanced_options['hour_tips'][2][0]='t11-14';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][3][0] )){
-			$this->live_2d_advanced_options['hour_tips'][3][0]='t14-17';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][4][0] )){
-			$this->live_2d_advanced_options['hour_tips'][4][0]='t17-19';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][5][0] )){
-			$this->live_2d_advanced_options['hour_tips'][5][0]='t19-21';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][6][0] )){
-			$this->live_2d_advanced_options['hour_tips'][6][0]='t21-23';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][7][0] )){
-			$this->live_2d_advanced_options['hour_tips'][7][0]='t23-5';
-		}
-		if(!isset( $this->live_2d_advanced_options['hour_tips'][8][0] )){
-			$this->live_2d_advanced_options['hour_tips'][8][0]='default';
-		}
-		$this->loopMsg($this->live_2d_advanced_options,'hour_tips','Array');
+		//这里指定时间就只有9个参数 因为waifu-tips.js中第266行之后的描述如此
+		$tipsKey = array();
+		$tipsKey['hour_tips'][0][0] = 't5-7';
+		$tipsKey['hour_tips'][1][0] = 't7-11';
+		$tipsKey['hour_tips'][2][0] = 't11-14';
+		$tipsKey['hour_tips'][3][0] = 't14-17';
+		$tipsKey['hour_tips'][4][0] = 't17-19';
+		$tipsKey['hour_tips'][5][0] = 't19-21';
+		$tipsKey['hour_tips'][6][0] = 't21-23';
+		$tipsKey['hour_tips'][7][0] = 't23-5';
+		$tipsKey['hour_tips'][8][0] = 'default';
+		
+		$this->loopMsg('hour_tips','Array',$tipsKey);
+		echo '<p>时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）</p>';
 	}
-	
-	
-	
-	public function hour_tips_hidden_callback(){
-		printf(
-			'
-			时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）
-			<input type="hidden" name="live_2d_advanced_option_name[hour_tips_hidden]" id="hour_tips_hidden" value="%s">',
-			isset( $this->live_2d_advanced_options['hour_tips_hidden'] ) ? esc_attr( $this->live_2d_advanced_options['hour_tips_hidden']) : '9'
-		);
-	}
+
 
 	// 请求来源欢迎语（不支持多句）
 	public function referrer_message_callback() {
-		if(!isset( $this->live_2d_advanced_options['referrer_message'][0][0] )){
-			$this->live_2d_advanced_options['referrer_message'][0][0]='localhost';
-		}
-		if(!isset( $this->live_2d_advanced_options['referrer_message'][1][0] )){
-			$this->live_2d_advanced_options['referrer_message'][1][0]='baidu';
-		}
-		if(!isset( $this->live_2d_advanced_options['referrer_message'][2][0] )){
-			$this->live_2d_advanced_options['referrer_message'][2][0]='so';
-		}
-		if(!isset( $this->live_2d_advanced_options['referrer_message'][3][0] )){
-			$this->live_2d_advanced_options['referrer_message'][3][0]='google';
-		}
-		if(!isset( $this->live_2d_advanced_options['referrer_message'][4][0] )){
-			$this->live_2d_advanced_options['referrer_message'][4][0]='default';
-		}
-		if(!isset( $this->live_2d_advanced_options['referrer_message'][5][0] )){
-			$this->live_2d_advanced_options['referrer_message'][5][0]='none';
-		}
+		
+		$defKey = array();
+		$defKey['referrer_message'][0][0] = 'localhost';
+		$defKey['referrer_message'][1][0] = 'baidu';
+		$defKey['referrer_message'][2][0] = 'so';
+		$defKey['referrer_message'][3][0] = 'google';
+		$defKey['referrer_message'][4][0] = 'default';
+		$defKey['referrer_message'][5][0] = 'none';
 
-		$this->loopMsg($this->live_2d_advanced_options,'referrer_message','Array');
+		$this->loopMsg('referrer_message','Array',$defKey);
 	}
 	//请求来源自定义名称（根据 host，支持多句随机）
 	public function referrer_hostname_callback() {
-		if(!isset( $this->live_2d_advanced_options['referrer_hostname'][0][0] )){
-			$this->live_2d_advanced_options['referrer_hostname'][0][0]='example.com';
-		}
-		if(!isset( $this->live_2d_advanced_options['referrer_hostname'][1][0] )){
-			$this->live_2d_advanced_options['referrer_hostname'][1][0]='www.fghrsh.net';
-		}
-		$this->loopMsg($this->live_2d_advanced_options,'referrer_hostname','Array', false);
+		$defKey = array();
+		$defKey['referrer_hostname'][0][0] = 'example.com';
+		$defKey['referrer_hostname'][1][0] = 'www.fghrsh.net';
+
+		$this->loopMsg('referrer_hostname','Array', $defKey , false);
 		/*printf(
 			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[referrer_hostname]" id="referrer_hostname" value="%s">',
 			isset( $this->live_2d_advanced_options['referrer_hostname'] ) ? esc_attr( $this->live_2d_advanced_options['referrer_hostname']) : ''
@@ -319,35 +275,35 @@ class live_Waifu {
 	}
 	//模型切换欢迎语（根据模型 ID，支持多句随机）
 	public function model_message_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[model_message]" id="model_message" value="%s">',
-			isset( $this->live_2d_advanced_options['model_message'] ) ? esc_attr( $this->live_2d_advanced_options['model_message']) : ''
-		);
+		
+		$this->loopMsg('model_message','List');
 	}
 	//一言 API 输出模板（不支持多句随机）
 	public function hitokoto_api_message_callback() {
-		printf(
-			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[hitokoto_api_message]" id="hitokoto_api_message" value="%s">',
-			isset( $this->live_2d_advanced_options['hitokoto_api_message'] ) ? esc_attr( $this->live_2d_advanced_options['hitokoto_api_message']) : ''
-		);
+		$defKey = array();
+		$defKey['hitokoto_api_message'][0][0] = 'lwl12.com';
+		$defKey['hitokoto_api_message'][1][0] = 'fghrsh.net';
+		$defKey['hitokoto_api_message'][2][0] = 'jinrishici.com';
+		$defKey['hitokoto_api_message'][3][0] = 'hitokoto.cn';
+		$this->loopMsg('hitokoto_api_message','Array',$defKey);
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {	
-		$this->loopMsg($this->live_2d_advanced_options,'mouseover_msg','Selector');
+		$this->loopMsg('mouseover_msg','Selector');
 		echo '<p>鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a></p>';
 	}
 	
 	
 	// 鼠标点击触发提示（根据 CSS 选择器，支持多句随机）
 	public function click_msg_callback() {
-		$this->loopMsg($this->live_2d_advanced_options,'click_msg','List');
+		$this->loopMsg('click_msg','List');
 		echo '<p>点击看板娘会循环以上的每一行点击事件</p>';
 	}
 	
 	
 	//节日提示（日期段，支持多句随机）
 	public function seasons_msg_callback() {
-		$this->loopMsg($this->live_2d_advanced_options,'seasons_msg','Selector');
+		$this->loopMsg('seasons_msg','Selector');
 		echo '<p>在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。</p>';
 	}
 
@@ -494,11 +450,18 @@ class live_Waifu {
 		return $seasonsMsg;
 	}
 	
+	// $keyName options中的key值
 	// $type 有3个选择：Selector（用于带有选择器的数组），Array（纯数组），List（只有文本的数组列表）
+	// $defArray 是数组默认值，可在callback函数中确定默认值
 	// $readonly 让第一组input 只读
-	//这里指定时间就只有9个参数 因为waifu-tips.js中第266行之后的描述如此
-	public function loopMsg($optionsArray,$keyName,$type = 'List',$readonly = true){
-		$txtCount = count($optionsArray[$keyName]);
+	public function loopMsg($keyName,$type = 'List',$defArray = array(),$readonly = true ){
+		$optionsArray = $this->live_2d_advanced_options;
+		$txtCount = 1;
+		if( isset($optionsArray[$keyName])){
+			$txtCount = count($optionsArray[$keyName]);
+		}else if(isset($defArray[$keyName])){
+			$txtCount = count($defArray[$keyName]);
+		}
 		$txtCount = $txtCount < 1 ? $txtCount = 1 : $txtCount;
 		//echo $txtCount;
 		switch ($type){
@@ -509,8 +472,8 @@ class live_Waifu {
 						<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
 						<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
 						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : '',
-						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
+						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : isset($defArray[$keyName][$x]['selector'])?$defArray[$keyName][$x]['selector']:'',
+						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : isset($defArray[$keyName][$x]['text'])?$defArray[$keyName][$x]['text']:''
 					);
 				}
 				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
@@ -523,8 +486,8 @@ class live_Waifu {
 							'<p class = "'.$keyName.'">
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
-							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
-							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?$defArray[$keyName][$x][0]:'',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?$defArray[$keyName][$x][1]:''
 						);
 					}
 				} else{ //这个可能性应该是没有
@@ -534,8 +497,8 @@ class live_Waifu {
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
 							<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
-							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?$defArray[$keyName][$x][0]:'',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?$defArray[$keyName][$x][1]:''
 						);
 					}
 					echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
@@ -547,7 +510,7 @@ class live_Waifu {
 						'<p class = "'.$keyName.'">
 						<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
 						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
+						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : isset($defArray[$keyName][$x])?$defArray[$keyName][$x]:''
 					);
 				}
 				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';

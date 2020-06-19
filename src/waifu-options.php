@@ -111,6 +111,14 @@ class live_Waifu {
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
+		
+		add_settings_field(
+			'click_selector', // id
+			'鼠标点击选择器', // title
+			array( $this, 'click_selector_callback' ), // callback
+			'live-2d-advanced-admin', // page
+			'live_2d_advanced_setting_section' // section
+		);
 
 		add_settings_field(
 			'click_msg', // id
@@ -179,7 +187,11 @@ class live_Waifu {
 		if ( isset( $input['mouseover_msg'] ) ) {
 			$sanitary_values['mouseover_msg'] = $input['mouseover_msg'];
 		}
-
+		
+		if ( isset( $input['click_selector'] ) ) {
+			$sanitary_values['click_selector'] = sanitize_text_field($input['click_selector']);
+		}
+		
 		if ( isset( $input['click_msg'] ) ) {
 			$sanitary_values['click_msg'] = $input['click_msg'];
 		}
@@ -225,8 +237,8 @@ class live_Waifu {
 			 <input class="regular-text" style="width: 280px" type="text" name="live_2d_advanced_option_name[load_rand_textures][1]" id="load_rand_textures_1" value="%s" placeholder = "切换时的提示"><br />
 			 <p>请在第一个输入框输入没有服装时的默认提示，第二个输入框输入每次切换时的提示消息</p>
 			',
-			isset( $this->live_2d_advanced_options['load_rand_textures'][0] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][0]) : '',
-			isset( $this->live_2d_advanced_options['load_rand_textures'][1] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][1]) : ''
+			isset( $this->live_2d_advanced_options['load_rand_textures'][0] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][0]) : '我还没有其他衣服呢',
+			isset( $this->live_2d_advanced_options['load_rand_textures'][1] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][1]) : '我的新衣服好看嘛'
 		);
 	}
 	//时间段欢迎语（支持多句随机）
@@ -234,14 +246,23 @@ class live_Waifu {
 		//这里指定时间就只有9个参数 因为waifu-tips.js中第266行之后的描述如此
 		$tipsKey = array();
 		$tipsKey['hour_tips'][0][0] = 't5-7';
+		$tipsKey['hour_tips'][0][1] = '早上好！一日之计在于晨，美好的一天就要开始了';
 		$tipsKey['hour_tips'][1][0] = 't7-11';
+		$tipsKey['hour_tips'][1][1] = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
 		$tipsKey['hour_tips'][2][0] = 't11-14';
+		$tipsKey['hour_tips'][2][1] = '中午了，工作了一个上午，现在是午餐时间！';
 		$tipsKey['hour_tips'][3][0] = 't14-17';
+		$tipsKey['hour_tips'][3][1] = '午后很容易犯困呢，今天的运动目标完成了吗？';
 		$tipsKey['hour_tips'][4][0] = 't17-19';
+		$tipsKey['hour_tips'][4][1] = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~';
 		$tipsKey['hour_tips'][5][0] = 't19-21';
+		$tipsKey['hour_tips'][5][1] = '晚上好，今天过得怎么样？';
 		$tipsKey['hour_tips'][6][0] = 't21-23';
+		$tipsKey['hour_tips'][6][1] = '已经这么晚了呀，早点休息吧，晚安~';
 		$tipsKey['hour_tips'][7][0] = 't23-5';
+		$tipsKey['hour_tips'][7][1] = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛';
 		$tipsKey['hour_tips'][8][0] = 'default';
+		$tipsKey['hour_tips'][8][1] = '嗨~ 快来逗我玩吧！';
 		
 		$this->loopMsg('hour_tips','Array',$tipsKey);
 		echo '<p>时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）</p>';
@@ -250,22 +271,30 @@ class live_Waifu {
 
 	// 请求来源欢迎语（不支持多句）
 	public function referrer_message_callback() {
-		
 		$defKey = array();
 		$defKey['referrer_message'][0][0] = 'localhost';
+		$defKey['referrer_message'][0][1] = '欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>';
 		$defKey['referrer_message'][1][0] = 'baidu';
+		$defKey['referrer_message'][1][1] = 'Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">{keyword}</span> 找到的我吗？';
 		$defKey['referrer_message'][2][0] = 'so';
+		$defKey['referrer_message'][2][1] = 'Hello! 来自 360搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">{keyword}</span> 找到的我吗？';
 		$defKey['referrer_message'][3][0] = 'google';
+		$defKey['referrer_message'][3][1] = 'Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>';
 		$defKey['referrer_message'][4][0] = 'default';
+		$defKey['referrer_message'][4][1] = 'Hello! 来自 <span style=\"color:#0099cc;\">{website}</span> 的朋友';
 		$defKey['referrer_message'][5][0] = 'none';
+		$defKey['referrer_message'][5][1] = '欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>';
 
 		$this->loopMsg('referrer_message','Array',$defKey);
+		echo '<p>请务必不要修改{}中的内容，{title}网站标题、{keyword}关键词、{website}站点名称</p>';
 	}
 	//请求来源自定义名称（根据 host，支持多句随机）
 	public function referrer_hostname_callback() {
 		$defKey = array();
 		$defKey['referrer_hostname'][0][0] = 'example.com';
+		$defKey['referrer_hostname'][0][1] = '示例网站';
 		$defKey['referrer_hostname'][1][0] = 'www.fghrsh.net';
+		$defKey['referrer_hostname'][1][1] = 'FGHRSH 的博客';
 
 		$this->loopMsg('referrer_hostname','Array', $defKey , false);
 		/*printf(
@@ -282,10 +311,15 @@ class live_Waifu {
 	public function hitokoto_api_message_callback() {
 		$defKey = array();
 		$defKey['hitokoto_api_message'][0][0] = 'lwl12.com';
+		$defKey['hitokoto_api_message'][0][1] = '这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">{creator}</span> 投稿的。';
 		$defKey['hitokoto_api_message'][1][0] = 'fghrsh.net';
+		$defKey['hitokoto_api_message'][1][1] = '这句一言出处是 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">FGHRSH</span> 在 {date} 收藏的！';
 		$defKey['hitokoto_api_message'][2][0] = 'jinrishici.com';
+		$defKey['hitokoto_api_message'][2][1] = '这句诗词出自 <span style=\"color:#0099cc;\">《{title}》</span>，是 {dynasty}诗人 {author} 创作的！';
 		$defKey['hitokoto_api_message'][3][0] = 'hitokoto.cn';
+		$defKey['hitokoto_api_message'][3][1] = '这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">{creator}</span> 在 hitokoto.cn 投稿的。';
 		$this->loopMsg('hitokoto_api_message','Array',$defKey);
+		echo '<p>请务必不要修改{}中的内容</p>';//lwl12.com会有没有作者的情况
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {	
@@ -293,6 +327,12 @@ class live_Waifu {
 		echo '<p>鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a></p>';
 	}
 	
+	public function click_selector_callback(){
+		printf(
+			'<input class="regular-text" type="text" name="live_2d_advanced_option_name[click_selector]" id="click_selector" value="%s">',
+			isset( $this->live_2d_advanced_options['click_selector'] ) ? esc_attr( $this->live_2d_advanced_options['click_selector']) : '.waifu #live2d'
+		);
+	}
 	
 	// 鼠标点击触发提示（根据 CSS 选择器，支持多句随机）
 	public function click_msg_callback() {
@@ -456,14 +496,16 @@ class live_Waifu {
 	// $readonly 让第一组input 只读
 	public function loopMsg($keyName,$type = 'List',$defArray = array(),$readonly = true ){
 		$optionsArray = $this->live_2d_advanced_options;
-		$txtCount = 1;
+		$txtCount = 1;// 以下判断不为true时 $txtCount =1
+		// 如果options中存在则先获取options的长度
 		if( isset($optionsArray[$keyName])){
 			$txtCount = count($optionsArray[$keyName]);
 		}else if(isset($defArray[$keyName])){
+			// 如果options不存在而默认array中存在则获取默认array长度
 			$txtCount = count($defArray[$keyName]);
 		}
+		// 为了防止$txtCount小于1做的强制判定
 		$txtCount = $txtCount < 1 ? $txtCount = 1 : $txtCount;
-		//echo $txtCount;
 		switch ($type){
 			case 'Selector':
 				for($x = 0;$x<$txtCount;$x++){
@@ -472,8 +514,8 @@ class live_Waifu {
 						<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
 						<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
 						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : isset($defArray[$keyName][$x]['selector'])?$defArray[$keyName][$x]['selector']:'',
-						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : isset($defArray[$keyName][$x]['text'])?$defArray[$keyName][$x]['text']:''
+						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : isset($defArray[$keyName][$x]['selector'])?esc_attr($defArray[$keyName][$x]['selector']):'',
+						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : isset($defArray[$keyName][$x]['text'])?esc_attr($defArray[$keyName][$x]['text']):''
 					);
 				}
 				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
@@ -486,8 +528,8 @@ class live_Waifu {
 							'<p class = "'.$keyName.'">
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
-							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?$defArray[$keyName][$x][0]:'',
-							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?$defArray[$keyName][$x][1]:''
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?esc_attr($defArray[$keyName][$x][0]):'',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?esc_attr($defArray[$keyName][$x][1]):''
 						);
 					}
 				} else{ //这个可能性应该是没有
@@ -497,8 +539,8 @@ class live_Waifu {
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
 							<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?$defArray[$keyName][$x][0]:'',
-							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?$defArray[$keyName][$x][1]:''
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?esc_attr($defArray[$keyName][$x][0]):'',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?esc_attr($defArray[$keyName][$x][1]):''
 						);
 					}
 					echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
@@ -510,7 +552,7 @@ class live_Waifu {
 						'<p class = "'.$keyName.'">
 						<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
 						<input class="button '.$keyName.'_delbtn" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : isset($defArray[$keyName][$x])?$defArray[$keyName][$x]:''
+						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : isset($defArray[$keyName][$x])?esc_attr($defArray[$keyName][$x]):''
 					);
 				}
 				echo '<p class="addBtn"><input class="button" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';

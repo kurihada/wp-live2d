@@ -306,7 +306,10 @@ class live2D_Advanced {
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {	
-		live2D_Utils::loopMsg('mouseover_msg','Selector');
+		$defKey = array();
+		$defKey['mouseover_msg'][0]['selector'] = ".container a[href^='http']";
+		$defKey['mouseover_msg'][0]['text'] = '要看看 <span style=\"color:#0099cc;\">{text}</span> 么？';
+		live2D_Utils::loopMsg('mouseover_msg','Selector',$defKey);
 		echo '<p>鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a></p>';
 	}
 	
@@ -319,14 +322,19 @@ class live2D_Advanced {
 	
 	// 鼠标点击触发提示（根据 CSS 选择器，支持多句随机）
 	public function click_msg_callback() {
-		live2D_Utils::loopMsg('click_msg','List');
+		$defKey = array();
+		$defKey['click_msg'][0] = "是…是不小心碰到了吧";
+		live2D_Utils::loopMsg('click_msg','List',$defKey);
 		echo '<p>点击看板娘会循环以上的每一行点击事件</p>';
 	}
 	
 	
 	//节日提示（日期段，支持多句随机）
 	public function seasons_msg_callback() {
-		live2D_Utils::loopMsg('seasons_msg','Selector');
+		$defKey = array();
+		$defKey['seasons_msg'][0][0] = '01/01';
+		$defKey['seasons_msg'][0][1] = '<span style=\"color:#0099cc;\">元旦</span>了呢，新的一年又开始了，今年是{year}年~';
+		live2D_Utils::loopMsg('seasons_msg','Array',$defKey,false);
 		echo '<p>在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。</p>';
 	}
 

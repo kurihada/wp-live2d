@@ -14,12 +14,18 @@ class live2D {
 		add_action( 'admin_menu', array( $this, 'live_2d__add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'live_2d_waifu_page_init' ) );
 		// 保存设置JSON的钩子 在执行update_option_live_2d_advanced_option_name时进行
-		add_action( 'update_option_live_2d_advanced_option_name' ,array( $this, 'live2D_Advanced_Save' ) );
+		add_action('updated_option', function( $option_name, $old_value, $value ) {
+			$this->live2D_Advanced_Save($option_name, $old_value, $value );
+		}, 10, 3);
+		//add_action( 'updated_option' ,array( $this, 'live2D_Advanced_Save' ) );
 	}
 
-	public function live2D_Advanced_Save($value){
-		
-		file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(''));
+	public function live2D_Advanced_Save($option_name, $old_value, $value ){
+		if($option_name == 'live_2d_advanced_option_name'){
+			$waifu_tips = new live2D_Utils();
+			$waifu_Josn = $waifu_tips -> advanced_json($value);
+			$waifu_tips -> update_Waifu_JsonFile($waifu_Josn);
+		}
 	}
 	public function live_2d__add_plugin_page() {
 		add_options_page(

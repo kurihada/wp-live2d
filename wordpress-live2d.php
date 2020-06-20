@@ -39,12 +39,12 @@ function live_2d_stop ()
 	
 }
 // 加载设置组件
-require(dirname(__FILE__)  . '/src/live2d-options.php');
+require(dirname(__FILE__)  . '/src/live2d-Main.php');
 
 
 // 实例化设置组件
 if ( is_admin() ){
-	$live_2d_ = new LiveD();
+	$live_2d_ = new live2D();
 }
 
 //进行设置

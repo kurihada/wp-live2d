@@ -136,19 +136,19 @@ class live2D_Advanced {
 	public function live_2d_advanced_sanitize($input) {
 		$sanitary_values = array();
 		if ( isset( $input['console_open_msg'] ) ) {
-			$sanitary_values['console_open_msg'] = sanitize_text_field( $input['console_open_msg'] );
+			$sanitary_values['console_open_msg'] = $input['console_open_msg'] ;
 		}
 
 		if ( isset( $input['copy_message'] ) ) {
-			$sanitary_values['copy_message'] = sanitize_text_field( $input['copy_message'] );
+			$sanitary_values['copy_message'] = $input['copy_message'] ;
 		}
 
 		if ( isset( $input['screenshot_message'] ) ) {
-			$sanitary_values['screenshot_message'] = sanitize_text_field( $input['screenshot_message'] );
+			$sanitary_values['screenshot_message'] = $input['screenshot_message'] ;
 		}
 
 		if ( isset( $input['hidden_message'] ) ) {
-			$sanitary_values['hidden_message'] = sanitize_text_field( $input['hidden_message'] );
+			$sanitary_values['hidden_message'] =  $input['hidden_message'];
 		}
 
 		if ( isset( $input['load_rand_textures'] ) ) {
@@ -332,13 +332,7 @@ class live2D_Advanced {
 
 	
 	public function live_2d_advanced_section_info() {
-		// 更新配置文件
-		/*if (isset($_GET['settings-updated'])){
-			$set_updated = $_GET['settings-updated'];
-			if($set_updated){
-				file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(live_Waifu::advanced_json()));
-			}
-		}*/
+
 	}
 
 

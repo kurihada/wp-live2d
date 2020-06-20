@@ -8,27 +8,31 @@ require(dirname(__FILE__)  . '/waifu-Advanced.php');
 require(dirname(__FILE__)  . '/waifu-Settings.php');
 class live2D {
 	
-	private $live_2d__options;
 	
-	private $waifu_options;
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'live_2d__add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'live_2d_waifu_page_init' ) );
+		// 保存设置JSON的钩子 在执行update_option_live_2d_advanced_option_name时进行
+		add_action( 'update_option_live_2d_advanced_option_name' ,array( $this, 'live2D_Advanced_Save' ) );
 	}
 
+	public function live2D_Advanced_Save($value){
+		
+		file_put_contents(plugin_dir_path(__FILE__)  . '..\\assets\\waifu-tips.json',json_encode(''));
+	}
 	public function live_2d__add_plugin_page() {
 		add_options_page(
 			'Live 2D 基础设置', // page_title
 			'Live 2D 设置', // menu_title
 			'manage_options', // capability
-			'live-2d-', // menu_slug
+			'live-2d-options', // menu_slug
 			array( $this, 'live_2d__create_admin_page' ) // function
 		);
 	}
 
 	public function live_2d__create_admin_page() {
-		$this->live_2d__options = get_option( 'live_2d__option_name' );
+		
 ?>
 
 		<div class="wrap">
@@ -39,8 +43,8 @@ class live2D {
 			<div id="settings" class="group">
 				<form method="post" action="options.php">
 				<?php
-					settings_fields( 'live_2d__option_group' );
-					do_settings_sections( 'live-2d--admin' );
+					settings_fields( 'live_2d_settings_option_group' );
+					do_settings_sections( 'live-2d-settings-admin' );
 					submit_button('','primary','submit_settings');
 				?>
 				</form>

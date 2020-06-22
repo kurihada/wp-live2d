@@ -29,15 +29,27 @@ add_action( 'get_header', 'live2D_style' );
 register_activation_hook( __FILE__, 'live_2d_install' );
 function live_2d_install()
 {
-	
+	$live_2d_Settings = new live2D_Settings();
+	$live_2d_Settings -> install_Default_Settings();
+	$live_2d_advanced = new live2D_Advanced();
+	$live_2d_advanced -> install_Default_Settings();
 }
 
 // 停用插件
 register_deactivation_hook(__FILE__, 'live_2d_stop');
 function live_2d_stop ()
 {
-	
+	//delete_option( 'live_2d_settings_option_name' );
+    //delete_option( 'live_2d_advanced_option_name' );
 }
+
+//卸载插件
+register_uninstall_hook( __FILE__, 'live_2d_uninstall' );
+function live_2d_uninstall(){
+    delete_option( 'live_2d_settings_option_name' );
+    delete_option( 'live_2d_advanced_option_name' );
+}
+
 // 加载设置组件
 require(dirname(__FILE__)  . '/src/live2d-Main.php');
 
@@ -50,7 +62,7 @@ if ( is_admin() ){
 //进行设置
 function live2D_DefMod(){
 // Retrieve this value with:
-$live_2d__options = get_option( 'live_2d__option_name' ); // Array of All Options
+$live_2d__options = get_option( 'live_2d_settings_option_name' ); // Array of All Options
 ?>
 	<div class="waifu">
         <div class="waifu-tips"></div>

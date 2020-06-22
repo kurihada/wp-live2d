@@ -4,17 +4,13 @@ class live2D_Utils{
 
     // $keyName options中的key值
 	// $type 有3个选择：Selector（用于带有选择器的数组），Array（纯数组），List（只有文本的数组列表）
-	// $defArray 是数组默认值，可在callback函数中确定默认值（必填）
     // $readonly 让第一组input 只读
-	public static function loopMsg($keyName,$type = 'List',$defArray ,$readonly = true ,$optName = 'live_2d_advanced_option_name'){
+	public static function loopMsg($keyName,$type = 'List' ,$readonly = true ,$optName = 'live_2d_advanced_option_name'){
 		$optionsArray = get_option($optName);
 		$txtCount = 1;// 以下判断不为true时 $txtCount =1
 		// 如果options中存在则先获取options的长度
 		if( isset($optionsArray[$keyName])){
 			$txtCount = count($optionsArray[$keyName]);
-		}else if(isset($defArray[$keyName])){
-			// 如果options不存在而默认array中存在则获取默认array长度
-			$txtCount = count($defArray[$keyName]);
 		}
 		// 为了防止$txtCount小于1做的强制判定
 		$txtCount = $txtCount < 1 ? $txtCount = 1 : $txtCount;
@@ -26,8 +22,8 @@ class live2D_Utils{
 						<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
 						<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
 						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : isset($defArray[$keyName][$x]['selector'])?esc_attr($defArray[$keyName][$x]['selector']):'',
-						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : isset($defArray[$keyName][$x]['text'])?esc_attr($defArray[$keyName][$x]['text']):''
+						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : '',
+						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
 					);
 				}
 				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
@@ -40,8 +36,8 @@ class live2D_Utils{
 							'<p class = "'.$keyName.'">
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
-							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?esc_attr($defArray[$keyName][$x][0]):'',
-							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?esc_attr($defArray[$keyName][$x][1]):''
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
 						);
 					}
 				} else{ //这个可能性应该是没有
@@ -51,8 +47,8 @@ class live2D_Utils{
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
 							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
 							<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : isset($defArray[$keyName][$x][0])?esc_attr($defArray[$keyName][$x][0]):'',
-							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : isset($defArray[$keyName][$x][1])?esc_attr($defArray[$keyName][$x][1]):''
+							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
+							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
 						);
 					}
 					echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
@@ -64,7 +60,7 @@ class live2D_Utils{
 						'<p class = "'.$keyName.'">
 						<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
 						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
-						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : isset($defArray[$keyName][$x])?esc_attr($defArray[$keyName][$x]):''
+						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
 					);
 				}
 				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';

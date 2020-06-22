@@ -17,23 +17,19 @@
             "default": ["嗨~ 快来逗我玩吧！"]
         },
         "referrer_message": {
-            "localhost": ["欢迎阅读<span style=\"color:#0099cc;\">『", "』</span>", " - "],
-            "baidu": ["Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">", "</span> 找到的我吗？"],
-            "so": ["Hello! 来自 360搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">", "</span> 找到的我吗？"],
-            "google": ["Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style=\"color:#0099cc;\">『", "』</span>", " - "],
-            "default": ["Hello! 来自 <span style=\"color:#0099cc;\">", "</span> 的朋友"],
-            "none": ["欢迎阅读<span style=\"color:#0099cc;\">『", "』</span>", " - "]
+            "localhost": ["欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>"],
+            "baidu": ["Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">{keyword}</span> 找到的我吗？"],
+            "so": ["Hello! 来自 360搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">{keyword}</span> 找到的我吗？"],
+            "google": ["Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>"],
+            "default": ["Hello! 来自 <span style=\"color:#0099cc;\">{website}</span> 的朋友"],
+            "none": ["欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>"]
         },
         "referrer_hostname": {
             "example.com": ["示例网站"],
             "www.fghrsh.net": ["FGHRSH 的博客"]
         },
-        "model_message": {
-            "1": ["来自 Potion Maker 的 Pio 酱 ~"],
-            "2": ["来自 Potion Maker 的 Tia 酱 ~"]  
-        },
         "hitokoto_api_message": {
-            "lwl12.com": ["这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>", "，是 <span style=\"color:#0099cc;\">{creator}</span> 投稿的", "。"],
+            "lwl12.com": ["这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>|，是 <span style=\"color:#0099cc;\">{creator}</span> 投稿的。"],
             "fghrsh.net": ["这句一言出处是 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">FGHRSH</span> 在 {date} 收藏的！"],
             "jinrishici.com": ["这句诗词出自 <span style=\"color:#0099cc;\">《{title}》</span>，是 {dynasty}诗人 {author} 创作的！"],
             "hitokoto.cn": ["这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">{creator}</span> 在 hitokoto.cn 投稿的。"]
@@ -69,8 +65,7 @@
         { "selector": "c-player div.time", "text": ["在这里可以调整<span style=\"color:#0099cc;\">播放进度</span>呢"] },
         { "selector": "c-player div.volume", "text": ["在这里可以调整<span style=\"color:#0099cc;\">音量</span>呢"] },
         { "selector": "c-player div.list-button", "text": ["<span style=\"color:#0099cc;\">播放列表</span>里都有什么呢"] },
-        { "selector": "c-player div.lyric-button", "text": ["有<span style=\"color:#0099cc;\">歌词</span>的话就能跟着一起唱呢"] },
-        { "selector": ".waifu #live2d", "text": ["干嘛呢你，快把手拿开", "鼠…鼠标放错地方了！"] }
+        { "selector": "c-player div.lyric-button", "text": ["有<span style=\"color:#0099cc;\">歌词</span>的话就能跟着一起唱呢"] }
     ],
     "click": [
         {

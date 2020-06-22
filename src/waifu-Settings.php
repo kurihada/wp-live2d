@@ -327,39 +327,39 @@ class live2D_Settings {
         }
 
         if ( isset( $input['showToolMenu'] ) ) {
-            $sanitary_values['showToolMenu'] = $input['showToolMenu'];
+            $sanitary_values['showToolMenu'] = (Boolean)$input['showToolMenu'];
         }
 
         if ( isset( $input['canCloseLive2d'] ) ) {
-            $sanitary_values['canCloseLive2d'] = $input['canCloseLive2d'];
+            $sanitary_values['canCloseLive2d'] = (Boolean)$input['canCloseLive2d'];
         }
 
         if ( isset( $input['canSwitchModel'] ) ) {
-            $sanitary_values['canSwitchModel'] = $input['canSwitchModel'];
+            $sanitary_values['canSwitchModel'] = (Boolean)$input['canSwitchModel'];
         }
 
         if ( isset( $input['canSwitchTextures'] ) ) {
-            $sanitary_values['canSwitchTextures'] = $input['canSwitchTextures'];
+            $sanitary_values['canSwitchTextures'] = (Boolean)$input['canSwitchTextures'];
         }
 
         if ( isset( $input['canSwitchHitokoto'] ) ) {
-            $sanitary_values['canSwitchHitokoto'] = $input['canSwitchHitokoto'];
+            $sanitary_values['canSwitchHitokoto'] = (Boolean)$input['canSwitchHitokoto'];
         }
 
         if ( isset( $input['canTakeScreenshot'] ) ) {
-            $sanitary_values['canTakeScreenshot'] = $input['canTakeScreenshot'];
+            $sanitary_values['canTakeScreenshot'] = (Boolean)$input['canTakeScreenshot'];
         }
 
         if ( isset( $input['canTurnToHomePage'] ) ) {
-            $sanitary_values['canTurnToHomePage'] = $input['canTurnToHomePage'];
+            $sanitary_values['canTurnToHomePage'] = (Boolean)$input['canTurnToHomePage'];
         }
 
         if ( isset( $input['canTurnToAboutPage'] ) ) {
-            $sanitary_values['canTurnToAboutPage'] = $input['canTurnToAboutPage'];
+            $sanitary_values['canTurnToAboutPage'] = (Boolean)$input['canTurnToAboutPage'];
         }
 
         if ( isset( $input['modelStorage'] ) ) {
-            $sanitary_values['modelStorage'] = $input['modelStorage'];
+            $sanitary_values['modelStorage'] = (Boolean)$input['modelStorage'];
         }
 
         if ( isset( $input['modelRandMode'] ) ) {
@@ -371,27 +371,27 @@ class live2D_Settings {
         }
 
         if ( isset( $input['showHitokoto'] ) ) {
-            $sanitary_values['showHitokoto'] = $input['showHitokoto'];
+            $sanitary_values['showHitokoto'] = (Boolean)$input['showHitokoto'];
         }
 
         if ( isset( $input['showF12Status'] ) ) {
-            $sanitary_values['showF12Status'] = $input['showF12Status'];
+            $sanitary_values['showF12Status'] = (Boolean)$input['showF12Status'];
         }
 
         if ( isset( $input['showF12Message'] ) ) {
-            $sanitary_values['showF12Message'] = $input['showF12Message'];
+            $sanitary_values['showF12Message'] = (Boolean)$input['showF12Message'];
         }
 
         if ( isset( $input['showF12OpenMsg'] ) ) {
-            $sanitary_values['showF12OpenMsg'] = $input['showF12OpenMsg'];
+            $sanitary_values['showF12OpenMsg'] = (Boolean)$input['showF12OpenMsg'];
         }
 
         if ( isset( $input['showCopyMessage'] ) ) {
-            $sanitary_values['showCopyMessage'] = $input['showCopyMessage'];
+            $sanitary_values['showCopyMessage'] = (Boolean)$input['showCopyMessage'];
         }
 
         if ( isset( $input['showWelcomeMessage'] ) ) {
-            $sanitary_values['showWelcomeMessage'] = $input['showWelcomeMessage'];
+            $sanitary_values['showWelcomeMessage'] = (Boolean)$input['showWelcomeMessage'];
         }
 
         if ( isset( $input['waifuSize'] ) ) {
@@ -431,7 +431,7 @@ class live2D_Settings {
         }
 
         if ( isset( $input['waifuDraggableRevert'] ) ) {
-            $sanitary_values['waifuDraggableRevert'] = $input['waifuDraggableRevert'];
+            $sanitary_values['waifuDraggableRevert'] = (Boolean)$input['waifuDraggableRevert'];
         }
 
         if ( isset( $input['homePageUrl'] ) ) {
@@ -454,14 +454,14 @@ class live2D_Settings {
     public function modelAPI_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelAPI]" id="modelAPI" value="%s">',
-            isset( $this->live_2d__options['modelAPI'] ) ? esc_attr( $this->live_2d__options['modelAPI']) : '//live2d.fghrsh.net/api/'
+            isset( $this->live_2d__options['modelAPI'] ) ? esc_attr( $this->live_2d__options['modelAPI']) : ''
         );
     }
 
     public function tipsMessage_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[tipsMessage]" id="tipsMessage" value="%s">',
-            isset( $this->live_2d__options['tipsMessage'] ) ? esc_attr( $this->live_2d__options['tipsMessage']) : 'waifu-tips.json'
+            isset( $this->live_2d__options['tipsMessage'] ) ? esc_attr( $this->live_2d__options['tipsMessage']) : ''
         );
     }
 
@@ -498,71 +498,71 @@ class live2D_Settings {
     public function modelTexturesId_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelTexturesId]" id="modelTexturesId" value="%s">',
-            isset( $this->live_2d__options['modelTexturesId'] ) ? esc_attr( $this->live_2d__options['modelTexturesId']) : '53'
+            isset( $this->live_2d__options['modelTexturesId'] ) ? esc_attr( $this->live_2d__options['modelTexturesId']) : ''
         );
     }
 
     public function showToolMenu_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showToolMenu'] ) && $this->live_2d__options['showToolMenu'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showToolMenu-0"><input type="radio" name="live_2d_settings_option_name[showToolMenu]" id="showToolMenu-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showToolMenu'] ) && $this->live_2d__options['showToolMenu'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showToolMenu-1"><input type="radio" name="live_2d_settings_option_name[showToolMenu]" id="showToolMenu-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showToolMenu'] ) && $this->live_2d__options['showToolMenu'] === true ) ? 'checked' : '' ; ?>
+        <label for="showToolMenu-0"><input type="radio" name="live_2d_settings_option_name[showToolMenu]" id="showToolMenu-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showToolMenu'] ) && $this->live_2d__options['showToolMenu'] === false ) ? 'checked' : '' ; ?>
+        <label for="showToolMenu-1"><input type="radio" name="live_2d_settings_option_name[showToolMenu]" id="showToolMenu-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function canCloseLive2d_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canCloseLive2d'] ) && $this->live_2d__options['canCloseLive2d'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canCloseLive2d-0"><input type="radio" name="live_2d_settings_option_name[canCloseLive2d]" id="canCloseLive2d-0" value="true" <?php echo $checked; ?>> 开启</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canCloseLive2d'] ) && $this->live_2d__options['canCloseLive2d'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canCloseLive2d-1"><input type="radio" name="live_2d_settings_option_name[canCloseLive2d]" id="canCloseLive2d-1" value="false" <?php echo $checked; ?>> 关闭</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canCloseLive2d'] ) && $this->live_2d__options['canCloseLive2d'] === true ) ? 'checked' : '' ; ?>
+        <label for="canCloseLive2d-0"><input type="radio" name="live_2d_settings_option_name[canCloseLive2d]" id="canCloseLive2d-0" value="1" <?php echo $checked; ?>> 开启</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canCloseLive2d'] ) && $this->live_2d__options['canCloseLive2d'] === false ) ? 'checked' : '' ; ?>
+        <label for="canCloseLive2d-1"><input type="radio" name="live_2d_settings_option_name[canCloseLive2d]" id="canCloseLive2d-1" value="0" <?php echo $checked; ?>> 关闭</label></fieldset> <?php
     }
 
     public function canSwitchModel_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canSwitchModel'] ) && $this->live_2d__options['canSwitchModel'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canSwitchModel-0"><input type="radio" name="live_2d_settings_option_name[canSwitchModel]" id="canSwitchModel-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canSwitchModel'] ) && $this->live_2d__options['canSwitchModel'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canSwitchModel-1"><input type="radio" name="live_2d_settings_option_name[canSwitchModel]" id="canSwitchModel-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canSwitchModel'] ) && $this->live_2d__options['canSwitchModel'] === true ) ? 'checked' : '' ; ?>
+        <label for="canSwitchModel-0"><input type="radio" name="live_2d_settings_option_name[canSwitchModel]" id="canSwitchModel-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canSwitchModel'] ) && $this->live_2d__options['canSwitchModel'] === false ) ? 'checked' : '' ; ?>
+        <label for="canSwitchModel-1"><input type="radio" name="live_2d_settings_option_name[canSwitchModel]" id="canSwitchModel-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function canSwitchTextures_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canSwitchTextures'] ) && $this->live_2d__options['canSwitchTextures'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canSwitchTextures-0"><input type="radio" name="live_2d_settings_option_name[canSwitchTextures]" id="canSwitchTextures-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canSwitchTextures'] ) && $this->live_2d__options['canSwitchTextures'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canSwitchTextures-1"><input type="radio" name="live_2d_settings_option_name[canSwitchTextures]" id="canSwitchTextures-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canSwitchTextures'] ) && $this->live_2d__options['canSwitchTextures'] === true ) ? 'checked' : '' ; ?>
+        <label for="canSwitchTextures-0"><input type="radio" name="live_2d_settings_option_name[canSwitchTextures]" id="canSwitchTextures-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canSwitchTextures'] ) && $this->live_2d__options['canSwitchTextures'] === false ) ? 'checked' : '' ; ?>
+        <label for="canSwitchTextures-1"><input type="radio" name="live_2d_settings_option_name[canSwitchTextures]" id="canSwitchTextures-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function canSwitchHitokoto_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canSwitchHitokoto'] ) && $this->live_2d__options['canSwitchHitokoto'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canSwitchHitokoto-0"><input type="radio" name="live_2d_settings_option_name[canSwitchHitokoto]" id="canSwitchHitokoto-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canSwitchHitokoto'] ) && $this->live_2d__options['canSwitchHitokoto'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canSwitchHitokoto-1"><input type="radio" name="live_2d_settings_option_name[canSwitchHitokoto]" id="canSwitchHitokoto-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canSwitchHitokoto'] ) && $this->live_2d__options['canSwitchHitokoto'] === true ) ? 'checked' : '' ; ?>
+        <label for="canSwitchHitokoto-0"><input type="radio" name="live_2d_settings_option_name[canSwitchHitokoto]" id="canSwitchHitokoto-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canSwitchHitokoto'] ) && $this->live_2d__options['canSwitchHitokoto'] === false ) ? 'checked' : '' ; ?>
+        <label for="canSwitchHitokoto-1"><input type="radio" name="live_2d_settings_option_name[canSwitchHitokoto]" id="canSwitchHitokoto-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function canTakeScreenshot_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTakeScreenshot'] ) && $this->live_2d__options['canTakeScreenshot'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canTakeScreenshot-0"><input type="radio" name="live_2d_settings_option_name[canTakeScreenshot]" id="canTakeScreenshot-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canTakeScreenshot'] ) && $this->live_2d__options['canTakeScreenshot'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canTakeScreenshot-1"><input type="radio" name="live_2d_settings_option_name[canTakeScreenshot]" id="canTakeScreenshot-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTakeScreenshot'] ) && $this->live_2d__options['canTakeScreenshot'] === true ) ? 'checked' : '' ; ?>
+        <label for="canTakeScreenshot-0"><input type="radio" name="live_2d_settings_option_name[canTakeScreenshot]" id="canTakeScreenshot-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canTakeScreenshot'] ) && $this->live_2d__options['canTakeScreenshot'] === false ) ? 'checked' : '' ; ?>
+        <label for="canTakeScreenshot-1"><input type="radio" name="live_2d_settings_option_name[canTakeScreenshot]" id="canTakeScreenshot-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function canTurnToHomePage_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTurnToHomePage'] ) && $this->live_2d__options['canTurnToHomePage'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canTurnToHomePage-0"><input type="radio" name="live_2d_settings_option_name[canTurnToHomePage]" id="canTurnToHomePage-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canTurnToHomePage'] ) && $this->live_2d__options['canTurnToHomePage'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canTurnToHomePage-1"><input type="radio" name="live_2d_settings_option_name[canTurnToHomePage]" id="canTurnToHomePage-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTurnToHomePage'] ) && $this->live_2d__options['canTurnToHomePage'] === true ) ? 'checked' : '' ; ?>
+        <label for="canTurnToHomePage-0"><input type="radio" name="live_2d_settings_option_name[canTurnToHomePage]" id="canTurnToHomePage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canTurnToHomePage'] ) && $this->live_2d__options['canTurnToHomePage'] === false ) ? 'checked' : '' ; ?>
+        <label for="canTurnToHomePage-1"><input type="radio" name="live_2d_settings_option_name[canTurnToHomePage]" id="canTurnToHomePage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function canTurnToAboutPage_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTurnToAboutPage'] ) && $this->live_2d__options['canTurnToAboutPage'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="canTurnToAboutPage-0"><input type="radio" name="live_2d_settings_option_name[canTurnToAboutPage]" id="canTurnToAboutPage-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['canTurnToAboutPage'] ) && $this->live_2d__options['canTurnToAboutPage'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="canTurnToAboutPage-1"><input type="radio" name="live_2d_settings_option_name[canTurnToAboutPage]" id="canTurnToAboutPage-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTurnToAboutPage'] ) && $this->live_2d__options['canTurnToAboutPage'] === true ) ? 'checked' : '' ; ?>
+        <label for="canTurnToAboutPage-0"><input type="radio" name="live_2d_settings_option_name[canTurnToAboutPage]" id="canTurnToAboutPage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['canTurnToAboutPage'] ) && $this->live_2d__options['canTurnToAboutPage'] === false ) ? 'checked' : '' ; ?>
+        <label for="canTurnToAboutPage-1"><input type="radio" name="live_2d_settings_option_name[canTurnToAboutPage]" id="canTurnToAboutPage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function modelStorage_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="modelStorage-0"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="modelStorage-1"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === true ) ? 'checked' : '' ; ?>
+        <label for="modelStorage-0"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === false ) ? 'checked' : '' ; ?>
+        <label for="modelStorage-1"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function modelRandMode_callback() {
@@ -578,51 +578,51 @@ class live2D_Settings {
         ?> <select name="live_2d_settings_option_name[modelTexturesRandMode]" id="modelTexturesRandMode">
             <?php $selected = (isset( $this->live_2d__options['modelTexturesRandMode'] ) && $this->live_2d__options['modelTexturesRandMode'] === 'rand') ? 'selected' : '' ; ?>
             <option value="rand" <?php echo $selected; ?>>随机</option>
-            <?php $selected = (isset( $this->live_2d__options['modelTexturesRandMode'] ) && $this->live_2d__options['modelTexturesRandMode'] === 'switch') ? 'selected' : 'selected' ; ?>
+            <?php $selected = (isset( $this->live_2d__options['modelTexturesRandMode'] ) && $this->live_2d__options['modelTexturesRandMode'] === 'switch') ? 'selected' : '' ; ?>
             <option value="switch" <?php echo $selected; ?>>顺序</option>
         </select> <?php
     }
 
     public function showHitokoto_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showHitokoto'] ) && $this->live_2d__options['showHitokoto'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showHitokoto-0"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showHitokoto'] ) && $this->live_2d__options['showHitokoto'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showHitokoto-1"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showHitokoto'] ) && $this->live_2d__options['showHitokoto'] === true ) ? 'checked' : '' ; ?>
+        <label for="showHitokoto-0"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showHitokoto'] ) && $this->live_2d__options['showHitokoto'] === false ) ? 'checked' : '' ; ?>
+        <label for="showHitokoto-1"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function showF12Status_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12Status'] ) && $this->live_2d__options['showF12Status'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showF12Status-0"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showF12Status'] ) && $this->live_2d__options['showF12Status'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showF12Status-1"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12Status'] ) && $this->live_2d__options['showF12Status'] === true ) ? 'checked' : '' ; ?>
+        <label for="showF12Status-0"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showF12Status'] ) && $this->live_2d__options['showF12Status'] === false ) ? 'checked' : '' ; ?>
+        <label for="showF12Status-1"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function showF12Message_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12Message'] ) && $this->live_2d__options['showF12Message'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showF12Message-0"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showF12Message'] ) && $this->live_2d__options['showF12Message'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showF12Message-1"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12Message'] ) && $this->live_2d__options['showF12Message'] === true ) ? 'checked' : '' ; ?>
+        <label for="showF12Message-0"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showF12Message'] ) && $this->live_2d__options['showF12Message'] === false ) ? 'checked' : '' ; ?>
+        <label for="showF12Message-1"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function showF12OpenMsg_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12OpenMsg'] ) && $this->live_2d__options['showF12OpenMsg'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showF12OpenMsg-0"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showF12OpenMsg'] ) && $this->live_2d__options['showF12OpenMsg'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showF12OpenMsg-1"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12OpenMsg'] ) && $this->live_2d__options['showF12OpenMsg'] === true ) ? 'checked' : '' ; ?>
+        <label for="showF12OpenMsg-0"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showF12OpenMsg'] ) && $this->live_2d__options['showF12OpenMsg'] === false ) ? 'checked' : '' ; ?>
+        <label for="showF12OpenMsg-1"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function showCopyMessage_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showCopyMessage'] ) && $this->live_2d__options['showCopyMessage'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showCopyMessage-0"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showCopyMessage'] ) && $this->live_2d__options['showCopyMessage'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showCopyMessage-1"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showCopyMessage'] ) && $this->live_2d__options['showCopyMessage'] === true ) ? 'checked' : '' ; ?>
+        <label for="showCopyMessage-0"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showCopyMessage'] ) && $this->live_2d__options['showCopyMessage'] === false ) ? 'checked' : '' ; ?>
+        <label for="showCopyMessage-1"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function showWelcomeMessage_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showWelcomeMessage'] ) && $this->live_2d__options['showWelcomeMessage'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="showWelcomeMessage-0"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-0" value="true" <?php echo $checked; ?>> 显示</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['showWelcomeMessage'] ) && $this->live_2d__options['showWelcomeMessage'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="showWelcomeMessage-1"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-1" value="false" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showWelcomeMessage'] ) && $this->live_2d__options['showWelcomeMessage'] === true ) ? 'checked' : '' ; ?>
+        <label for="showWelcomeMessage-0"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['showWelcomeMessage'] ) && $this->live_2d__options['showWelcomeMessage'] === false ) ? 'checked' : '' ; ?>
+        <label for="showWelcomeMessage-1"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
     }
 
     public function waifuSize_callback() {
@@ -646,42 +646,42 @@ class live2D_Settings {
     public function waifuFontSize_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuFontSize]" id="waifuFontSize" value="%s">',
-            isset( $this->live_2d__options['waifuFontSize'] ) ? esc_attr( $this->live_2d__options['waifuFontSize']) : '12px'
+            isset( $this->live_2d__options['waifuFontSize'] ) ? esc_attr( $this->live_2d__options['waifuFontSize']) : ''
         );
     }
 
     public function waifuToolFont_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuToolFont]" id="waifuToolFont" value="%s">',
-            isset( $this->live_2d__options['waifuToolFont'] ) ? esc_attr( $this->live_2d__options['waifuToolFont']) : '14px'
+            isset( $this->live_2d__options['waifuToolFont'] ) ? esc_attr( $this->live_2d__options['waifuToolFont']) : ''
         );
     }
 
     public function waifuToolLine_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuToolLine]" id="waifuToolLine" value="%s">',
-            isset( $this->live_2d__options['waifuToolLine'] ) ? esc_attr( $this->live_2d__options['waifuToolLine']) : '20px'
+            isset( $this->live_2d__options['waifuToolLine'] ) ? esc_attr( $this->live_2d__options['waifuToolLine']) : ''
         );
     }
 
     public function waifuToolTop_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuToolTop]" id="waifuToolTop" value="%s">',
-            isset( $this->live_2d__options['waifuToolTop'] ) ? esc_attr( $this->live_2d__options['waifuToolTop']) : '0px'
+            isset( $this->live_2d__options['waifuToolTop'] ) ? esc_attr( $this->live_2d__options['waifuToolTop']) : ''
         );
     }
 
     public function waifuMinWidth_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuMinWidth]" id="waifuMinWidth" value="%s">',
-            isset( $this->live_2d__options['waifuMinWidth'] ) ? esc_attr( $this->live_2d__options['waifuMinWidth']) : '768px'
+            isset( $this->live_2d__options['waifuMinWidth'] ) ? esc_attr( $this->live_2d__options['waifuMinWidth']) : ''
         );
     }
 
     public function waifuEdgeSide_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuEdgeSide]" id="waifuEdgeSide" value="%s">',
-            isset( $this->live_2d__options['waifuEdgeSide'] ) ? esc_attr( $this->live_2d__options['waifuEdgeSide']) : 'left:0'
+            isset( $this->live_2d__options['waifuEdgeSide'] ) ? esc_attr( $this->live_2d__options['waifuEdgeSide']) : ''
         );
     }
 
@@ -697,31 +697,74 @@ class live2D_Settings {
     }
 
     public function waifuDraggableRevert_callback() {
-        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['waifuDraggableRevert'] ) && $this->live_2d__options['waifuDraggableRevert'] === 'true' ) ? 'checked' : 'checked' ; ?>
-        <label for="waifuDraggableRevert-0"><input type="radio" name="live_2d_settings_option_name[waifuDraggableRevert]" id="waifuDraggableRevert-0" value="true" <?php echo $checked; ?>> 还原</label><br>
-        <?php $checked = ( isset( $this->live_2d__options['waifuDraggableRevert'] ) && $this->live_2d__options['waifuDraggableRevert'] === 'false' ) ? 'checked' : '' ; ?>
-        <label for="waifuDraggableRevert-1"><input type="radio" name="live_2d_settings_option_name[waifuDraggableRevert]" id="waifuDraggableRevert-1" value="false" <?php echo $checked; ?>> 不还原</label></fieldset> <?php
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['waifuDraggableRevert'] ) && $this->live_2d__options['waifuDraggableRevert'] === true ) ? 'checked' : '' ; ?>
+        <label for="waifuDraggableRevert-0"><input type="radio" name="live_2d_settings_option_name[waifuDraggableRevert]" id="waifuDraggableRevert-0" value="1" <?php echo $checked; ?>> 还原</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['waifuDraggableRevert'] ) && $this->live_2d__options['waifuDraggableRevert'] === false ) ? 'checked' : '' ; ?>
+        <label for="waifuDraggableRevert-1"><input type="radio" name="live_2d_settings_option_name[waifuDraggableRevert]" id="waifuDraggableRevert-1" value="0" <?php echo $checked; ?>> 不还原</label></fieldset> <?php
     }
 
     public function homePageUrl_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[homePageUrl]" id="homePageUrl" value="%s">',
-            isset( $this->live_2d__options['homePageUrl'] ) ? esc_attr( $this->live_2d__options['homePageUrl']) : 'auto'
+            isset( $this->live_2d__options['homePageUrl'] ) ? esc_attr( $this->live_2d__options['homePageUrl']) : ''
         );
     }
 
     public function aboutPageUrl_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[aboutPageUrl]" id="aboutPageUrl" value="%s">',
-            isset( $this->live_2d__options['aboutPageUrl'] ) ? esc_attr( $this->live_2d__options['aboutPageUrl']) : '#'
+            isset( $this->live_2d__options['aboutPageUrl'] ) ? esc_attr( $this->live_2d__options['aboutPageUrl']) : ''
         );
     }
 
     public function screenshotCaptureName_callback() {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[screenshotCaptureName]" id="screenshotCaptureName" value="%s">',
-            isset( $this->live_2d__options['screenshotCaptureName'] ) ? esc_attr( $this->live_2d__options['screenshotCaptureName']) : 'live2d.png'
+            isset( $this->live_2d__options['screenshotCaptureName'] ) ? esc_attr( $this->live_2d__options['screenshotCaptureName']) : ''
         );
     }
+	
+	public function install_Default_Settings(){
+		$live_2d_settings = get_option( 'live_2d_settings_option_name' );
+		if($live_2d_settings==null){
+			$defValue = array();
+			$defValue['modelAPI']='//live2d.fghrsh.net/api/';
+			$defValue['tipsMessage']='waifu-tips.json';
+			$defValue['hitokotoAPI']='lwl12.com';
+			$defValue['modelId']='1';
+			$defValue['modelTexturesId']='53';
+			$defValue['showToolMenu']=true;
+			$defValue['canCloseLive2d']=true;
+			$defValue['canSwitchModel']=true;
+			$defValue['canSwitchTextures']=true;
+			$defValue['canSwitchHitokoto']=true;
+			$defValue['canTakeScreenshot']=true;
+			$defValue['canTurnToHomePage']=true;
+			$defValue['canTurnToAboutPage']=true;
+			$defValue['modelStorage']=true;
+			$defValue['modelRandMode']='rand';
+			$defValue['modelTexturesRandMode']='switch';
+			$defValue['showHitokoto']=true;
+			$defValue['showF12Status']=true;
+			$defValue['showF12Message']=true;
+			$defValue['showF12OpenMsg']=true;
+			$defValue['showCopyMessage']=true;
+			$defValue['showWelcomeMessage']=true;
+			$defValue['waifuSize']='280x250';
+			$defValue['waifuTipsSize']='250x70';
+			$defValue['waifuFontSize']='12px';
+			$defValue['waifuToolFont']='14px';
+			$defValue['waifuToolLine']='20px';
+			$defValue['waifuToolTop']='0px';
+			$defValue['waifuMinWidth']='768px';
+			$defValue['waifuEdgeSide']='left:0';
+			$defValue['waifuDraggable']='axis-x';
+			$defValue['waifuDraggableRevert']=true;
+			$defValue['homePageUrl']='auto';
+			$defValue['aboutPageUrl']='#';
+			$defValue['screenshotCaptureName']='live2d.png';
+			add_option('live_2d_settings_option_name',$defValue);
+		}
+	}
 }
 ?>

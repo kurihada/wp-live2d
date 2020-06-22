@@ -17,10 +17,12 @@
 ### 食用方法
 
 1. 在WordPress后台添加插件压缩包安装
-2. 初始化看板娘设置（进入设置后保存）
+2. 点击启用按钮开始使用看板娘。
 
-- 定制属于你的看板娘
-  - 修改 `waifu-tips.json`，定制看板娘提示语，打造专属看板娘
+
+![20200620212435](https://user-images.githubusercontent.com/38683169/85273157-d25fed80-b4af-11ea-8b9e-074454a3575d.jpg)
+![20200620212430](https://user-images.githubusercontent.com/38683169/85273167-d7bd3800-b4af-11ea-8bcd-b5604feb9c94.png)
+
 
 ### 设置参数
 *Tips：保存设置后仅进行了部分设置，以下是作者原文，感谢年轻有为的你*

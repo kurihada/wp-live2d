@@ -3,7 +3,7 @@
 class live2D_Settings {
 
     private $live_2d__options;
-    public function live_2d__page_init() {
+    public function live_2d_settings_base_init() {
 
         $this->live_2d__options = get_option( 'live_2d_settings_option_name' );
 
@@ -17,7 +17,7 @@ class live2D_Settings {
 
         add_settings_section(
             'live_2d__setting_section', // id
-            '看板娘设置（如果切换高级设置请先保存此页面的改动）', // title
+            '看板娘设置', // title
             array( $this, 'live_2d__section_info' ), // callback
             'live-2d-settings-admin' // page
         );

@@ -18,7 +18,7 @@ class live2D_Advanced {
 
 		add_settings_section(
 			'live_2d_advanced_setting_section', // id
-			'高级设置（如果切换基础设置请先保存此页面的改动）', // title
+			'高级设置', // title
 			array( $this, 'live_2d_advanced_section_info' ), // callback
 			'live-2d-advanced-admin' // page
 		);

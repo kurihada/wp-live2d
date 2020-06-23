@@ -44,17 +44,20 @@ class live2D {
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
 				<a id="settings_btn" href="#settings" class="nav-tab">基础设置</a>
+				<a id="toolbar_btn" href="#toolba" class="nav-tab">工具栏设置</a>
+				<a id="tips_btn" href="#tips" class="nav-tab">提示消息选项</a>
+				<a id="style_btn" href="#style" class="nav-tab">看板娘样式设置</a>
 				<a id="advanced_btn" href="#advanced" class="nav-tab">高级设置</a>
 			</h2>
-			<div id="settings" class="group">
-				<form method="post" action="options.php">
-				<?php
-					settings_fields( 'live_2d_settings_option_group' );
-					do_settings_sections( 'live-2d-settings-admin' );
-					submit_button('','primary','submit_settings');
-				?>
-				</form>
-			</div>
+			<form method="post" action="options.php">
+				<div id="settings" class="group">
+					<?php
+						settings_fields( 'live_2d_settings_option_group' );
+						do_settings_sections( 'live-2d-settings-admin' );
+						submit_button('','primary','submit_settings');
+					?>
+				</div>
+			</form>
 			<div id="advanced" class="group">
 				<form method="post" action="options.php">
 				<?php
@@ -192,7 +195,7 @@ class live2D {
 	
 	public function live_2d_waifu_page_init(){
 		$waifu_set = new live2D_Settings();
-		$waifu_set->live_2d__page_init();
+		$waifu_set->live_2d_settings_base_init();
 		
 		// 加载高级设置
 		$waifu_opt = new live2D_Advanced();

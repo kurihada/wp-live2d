@@ -5,6 +5,7 @@ Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe
 Tested up to: 1.5.1
 Stable tag: 1.5.0
+License: MIT
 
 == Description ==
 

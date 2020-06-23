@@ -6,7 +6,6 @@
  * Version: 1.5.0
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
- * License: GPL-2.0
  */
 //定义目录
 define( 'LIVE2D_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );//资源目录

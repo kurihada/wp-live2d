@@ -9,7 +9,7 @@ require(dirname(__FILE__)  . '/waifu-Settings.php');
 require(dirname(__FILE__)  . '/waifu-Settings-Style.php');
 require(dirname(__FILE__)  . '/waifu-Settings-Tips.php');
 require(dirname(__FILE__)  . '/waifu-Settings-Toolbar.php');
-require(dirname(__FILE__)  . '/waifu-Settings-Sanitize.php');
+require(dirname(__FILE__)  . '/waifu-Settings-Base.php');
 class live2D {
 	
 	

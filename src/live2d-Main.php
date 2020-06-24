@@ -21,7 +21,6 @@ class live2D {
 		add_action('updated_option', function( $option_name, $old_value, $value ) {
 			$this->live2D_Advanced_Save($option_name, $old_value, $value );
 		}, 10, 3);
-		//add_action( 'updated_option' ,array( $this, 'live2D_Advanced_Save' ) );
 	}
 
 	public function live2D_Advanced_Save($option_name, $old_value, $value ){
@@ -218,11 +217,11 @@ class live2D {
         register_setting(
             'live_2d_settings_base_group', // option_group
             'live_2d_settings_option_name', // option_name
-            array( 'live2D_Settings_Sanitize', 'live_2d_settings_sanitize' ) // sanitize_callback
+            array( 'live2D_Settings', 'live_2d_settings_sanitize' ) // sanitize_callback
         );
 
 		//加载基础设置
-		$waifu_set = new live2D_Settings();
+		$waifu_set = new live2D_Settings_Base();
 		$waifu_set->live_2d_settings_base_init();
 
 		//加载样式设置

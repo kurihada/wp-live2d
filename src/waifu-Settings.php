@@ -1,162 +1,152 @@
 <?php
-class live2D_Settings {
+class live2D_Settings{
 
-    private $live_2d__options;
-    public function live_2d_settings_base_init() {
+    public function live_2d_settings_sanitize($input) {
+            
+        $sanitary_values = array();
+        if ( isset( $input['modelAPI'] ) ) {
+            $sanitary_values['modelAPI'] = sanitize_text_field( $input['modelAPI'] );
+        }
 
-        $this->live_2d__options = get_option( 'live_2d_settings_option_name' );
+        if ( isset( $input['tipsMessage'] ) ) {
+            $sanitary_values['tipsMessage'] = sanitize_text_field( $input['tipsMessage'] );
+        }
 
-        add_settings_section(
-            'live_2d_setting_base_section', // id
-            '看板娘基础设置', // title
-            array( $this, 'live_2d__section_info' ), // callback
-            'live-2d-settings-base' // page
-        );
+        if ( isset( $input['hitokotoAPI'] ) ) {
+            $sanitary_values['hitokotoAPI'] = $input['hitokotoAPI'];
+        }
 
-        add_settings_field(
-            'modelAPI', // id
-            '材质API ', // title
-            array( $this, 'modelAPI_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['modelId'] ) ) {
+            $sanitary_values['modelId'] = $input['modelId'];
+        }
 
-        add_settings_field(
-            'tipsMessage', // id
-            'waifu-tips.json 位置', // title
-            array( $this, 'tipsMessage_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['modelTexturesId'] ) ) {
+            $sanitary_values['modelTexturesId'] = sanitize_text_field( $input['modelTexturesId'] );
+        }
 
-        add_settings_field(
-            'hitokotoAPI', // id
-            '一言 API', // title
-            array( $this, 'hitokotoAPI_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['showToolMenu'] ) ) {
+            $sanitary_values['showToolMenu'] = (Boolean)$input['showToolMenu'];
+        }
 
-        add_settings_field(
-            'modelId', // id
-            '默认模型 ID', // title
-            array( $this, 'modelId_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['canCloseLive2d'] ) ) {
+            $sanitary_values['canCloseLive2d'] = (Boolean)$input['canCloseLive2d'];
+        }
 
-        add_settings_field(
-            'modelTexturesId', // id
-            '默认材质 ID', // title
-            array( $this, 'modelTexturesId_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['canSwitchModel'] ) ) {
+            $sanitary_values['canSwitchModel'] = (Boolean)$input['canSwitchModel'];
+        }
 
-        add_settings_field(
-            'homePageUrl', // id
-            '主页地址', // title
-            array( $this, 'homePageUrl_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['canSwitchTextures'] ) ) {
+            $sanitary_values['canSwitchTextures'] = (Boolean)$input['canSwitchTextures'];
+        }
 
-        add_settings_field(
-            'aboutPageUrl', // id
-            '关于页地址', // title
-            array( $this, 'aboutPageUrl_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
+        if ( isset( $input['canSwitchHitokoto'] ) ) {
+            $sanitary_values['canSwitchHitokoto'] = (Boolean)$input['canSwitchHitokoto'];
+        }
 
-        add_settings_field(
-            'screenshotCaptureName', // id
-            '看板娘截图文件名', // title
-            array( $this, 'screenshotCaptureName_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
-    }
-    
+        if ( isset( $input['canTakeScreenshot'] ) ) {
+            $sanitary_values['canTakeScreenshot'] = (Boolean)$input['canTakeScreenshot'];
+        }
 
-    public function live_2d__section_info() {
-    }
+        if ( isset( $input['canTurnToHomePage'] ) ) {
+            $sanitary_values['canTurnToHomePage'] = (Boolean)$input['canTurnToHomePage'];
+        }
 
-    public function modelAPI_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelAPI]" id="modelAPI" value="%s">',
-            isset( $this->live_2d__options['modelAPI'] ) ? esc_attr( $this->live_2d__options['modelAPI']) : ''
-        );
-    }
+        if ( isset( $input['canTurnToAboutPage'] ) ) {
+            $sanitary_values['canTurnToAboutPage'] = (Boolean)$input['canTurnToAboutPage'];
+        }
 
-    public function tipsMessage_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[tipsMessage]" id="tipsMessage" value="%s">',
-            isset( $this->live_2d__options['tipsMessage'] ) ? esc_attr( $this->live_2d__options['tipsMessage']) : ''
-        );
-    }
+        if ( isset( $input['modelStorage'] ) ) {
+            $sanitary_values['modelStorage'] = (Boolean)$input['modelStorage'];
+        }
 
-    public function hitokotoAPI_callback() {
-        ?> <select name="live_2d_settings_option_name[hitokotoAPI]" id="hitokotoAPI">
-            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'lwl12.com') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>lwl12.com</option>
-            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'hitokoto.cn') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>hitokoto.cn</option>
-            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'jinrishici.com') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>jinrishici.com</option>
-        </select> <?php
-    }
+        if ( isset( $input['modelRandMode'] ) ) {
+            $sanitary_values['modelRandMode'] = $input['modelRandMode'];
+        }
 
-    public function modelId_callback() {
-        ?> <select name="live_2d_settings_option_name[modelId]" id="modelId">
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '1') ? 'selected' : '' ; ?>
-            <option value="1" <?php echo $selected; ?>>来自药水制作师的 Pio</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '2') ? 'selected' : '' ; ?>
-            <option value="2" <?php echo $selected; ?>>来自药水制作师的 Tia</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '3') ? 'selected' : '' ; ?>
-            <option value="3" <?php echo $selected; ?>>来自 Bilibili Live 的 22</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '4') ? 'selected' : '' ; ?>
-            <option value="4" <?php echo $selected; ?>>来自 Bilibili Live 的 33</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '5') ? 'selected' : '' ; ?>
-            <option value="5" <?php echo $selected; ?>>Shizuku Talk ！这里是 Shizuku</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '6') ? 'selected' : '' ; ?>
-            <option value="6" <?php echo $selected; ?>>超次元游戏：海王星</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '7') ? 'selected' : '' ; ?>
-            <option value="7" <?php echo $selected; ?>>艦隊これくしょん / 叢雲(むらくも)</option>
-        </select> <?php
-    }
+        if ( isset( $input['modelTexturesRandMode'] ) ) {
+            $sanitary_values['modelTexturesRandMode'] = $input['modelTexturesRandMode'];
+        }
 
-    public function modelTexturesId_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelTexturesId]" id="modelTexturesId" value="%s">',
-            isset( $this->live_2d__options['modelTexturesId'] ) ? esc_attr( $this->live_2d__options['modelTexturesId']) : ''
-        );
-    }
+        if ( isset( $input['showHitokoto'] ) ) {
+            $sanitary_values['showHitokoto'] = (Boolean)$input['showHitokoto'];
+        }
 
-    
+        if ( isset( $input['showF12Status'] ) ) {
+            $sanitary_values['showF12Status'] = (Boolean)$input['showF12Status'];
+        }
 
-    public function homePageUrl_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[homePageUrl]" id="homePageUrl" value="%s">',
-            isset( $this->live_2d__options['homePageUrl'] ) ? esc_attr( $this->live_2d__options['homePageUrl']) : ''
-        );
-    }
+        if ( isset( $input['showF12Message'] ) ) {
+            $sanitary_values['showF12Message'] = (Boolean)$input['showF12Message'];
+        }
 
-    public function aboutPageUrl_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[aboutPageUrl]" id="aboutPageUrl" value="%s">',
-            isset( $this->live_2d__options['aboutPageUrl'] ) ? esc_attr( $this->live_2d__options['aboutPageUrl']) : ''
-        );
+        if ( isset( $input['showF12OpenMsg'] ) ) {
+            $sanitary_values['showF12OpenMsg'] = (Boolean)$input['showF12OpenMsg'];
+        }
+
+        if ( isset( $input['showCopyMessage'] ) ) {
+            $sanitary_values['showCopyMessage'] = (Boolean)$input['showCopyMessage'];
+        }
+
+        if ( isset( $input['showWelcomeMessage'] ) ) {
+            $sanitary_values['showWelcomeMessage'] = (Boolean)$input['showWelcomeMessage'];
+        }
+
+        if ( isset( $input['waifuSize'] ) ) {
+            $sanitary_values['waifuSize'] = $input['waifuSize'];
+        }
+
+        if ( isset( $input['waifuTipsSize'] ) ) {
+            $sanitary_values['waifuTipsSize'] = $input['waifuTipsSize'];
+        }
+
+        if ( isset( $input['waifuFontSize'] ) ) {
+            $sanitary_values['waifuFontSize'] = sanitize_text_field( $input['waifuFontSize'] );
+        }
+
+        if ( isset( $input['waifuToolFont'] ) ) {
+            $sanitary_values['waifuToolFont'] = sanitize_text_field( $input['waifuToolFont'] );
+        }
+
+        if ( isset( $input['waifuToolLine'] ) ) {
+            $sanitary_values['waifuToolLine'] = sanitize_text_field( $input['waifuToolLine'] );
+        }
+
+        if ( isset( $input['waifuToolTop'] ) ) {
+            $sanitary_values['waifuToolTop'] = sanitize_text_field( $input['waifuToolTop'] );
+        }
+
+        if ( isset( $input['waifuMinWidth'] ) ) {
+            $sanitary_values['waifuMinWidth'] = sanitize_text_field( $input['waifuMinWidth'] );
+        }
+
+        if ( isset( $input['waifuEdgeSide'] ) ) {
+            $sanitary_values['waifuEdgeSide'] = sanitize_text_field( $input['waifuEdgeSide'] );
+        }
+
+        if ( isset( $input['waifuDraggable'] ) ) {
+            $sanitary_values['waifuDraggable'] = $input['waifuDraggable'];
+        }
+
+        if ( isset( $input['waifuDraggableRevert'] ) ) {
+            $sanitary_values['waifuDraggableRevert'] = (Boolean)$input['waifuDraggableRevert'];
+        }
+
+        if ( isset( $input['homePageUrl'] ) ) {
+            $sanitary_values['homePageUrl'] = sanitize_text_field( $input['homePageUrl'] );
+        }
+
+        if ( isset( $input['aboutPageUrl'] ) ) {
+            $sanitary_values['aboutPageUrl'] = sanitize_text_field( $input['aboutPageUrl'] );
+        }
+
+        if ( isset( $input['screenshotCaptureName'] ) ) {
+            $sanitary_values['screenshotCaptureName'] = sanitize_text_field( $input['screenshotCaptureName'] );
+        }
+        return $sanitary_values;
     }
 
-    public function screenshotCaptureName_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[screenshotCaptureName]" id="screenshotCaptureName" value="%s">',
-            isset( $this->live_2d__options['screenshotCaptureName'] ) ? esc_attr( $this->live_2d__options['screenshotCaptureName']) : ''
-        );
-    }
-	
-	public function install_Default_Settings(){
+    public function install_Default_Settings(){
 		$live_2d_settings = get_option( 'live_2d_settings_option_name' );
 		if($live_2d_settings==null){
 			$defValue = array();
@@ -198,5 +188,7 @@ class live2D_Settings {
 			add_option('live_2d_settings_option_name',$defValue);
 		}
 	}
+
 }
+
 ?>

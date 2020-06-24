@@ -6,6 +6,10 @@
 
 require(dirname(__FILE__)  . '/waifu-Advanced.php');
 require(dirname(__FILE__)  . '/waifu-Settings.php');
+require(dirname(__FILE__)  . '/waifu-Settings-Style.php');
+require(dirname(__FILE__)  . '/waifu-Settings-Tips.php');
+require(dirname(__FILE__)  . '/waifu-Settings-Toolbar.php');
+require(dirname(__FILE__)  . '/waifu-Settings-Sanitize.php');
 class live2D {
 	
 	
@@ -44,19 +48,34 @@ class live2D {
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
 				<a id="settings_btn" href="#settings" class="nav-tab">基础设置</a>
-				<a id="toolbar_btn" href="#toolba" class="nav-tab">工具栏设置</a>
+				<a id="toolbar_btn" href="#toolbar" class="nav-tab">工具栏设置</a>
 				<a id="tips_btn" href="#tips" class="nav-tab">提示消息选项</a>
 				<a id="style_btn" href="#style" class="nav-tab">看板娘样式设置</a>
 				<a id="advanced_btn" href="#advanced" class="nav-tab">高级设置</a>
 			</h2>
 			<form method="post" action="options.php">
+			<?php settings_fields( 'live_2d_settings_base_group' ); ?>
 				<div id="settings" class="group">
 					<?php
-						settings_fields( 'live_2d_settings_option_group' );
-						do_settings_sections( 'live-2d-settings-admin' );
-						submit_button('','primary','submit_settings');
+						do_settings_sections( 'live-2d-settings-base' );
 					?>
 				</div>
+				<div id="toolbar" class="group">
+					<?php
+						do_settings_sections( 'live-2d-settings-toolbar' );
+					?>
+				</div>
+				<div id="tips" class="group">
+					<?php
+						do_settings_sections( 'live-2d-settings-tips' );
+					?>
+				</div>
+				<div id="style" class="group">
+					<?php
+						do_settings_sections( 'live-2d-settings-style' );
+					?>
+				</div>
+				<?php submit_button('','primary','submit_settings'); ?>
 			</form>
 			<div id="advanced" class="group">
 				<form method="post" action="options.php">
@@ -194,8 +213,29 @@ class live2D {
 	<?php }
 	
 	public function live_2d_waifu_page_init(){
+		
+		// 注册基础设置
+        register_setting(
+            'live_2d_settings_base_group', // option_group
+            'live_2d_settings_option_name', // option_name
+            array( 'live2D_Settings_Sanitize', 'live_2d_settings_sanitize' ) // sanitize_callback
+        );
+
+		//加载基础设置
 		$waifu_set = new live2D_Settings();
 		$waifu_set->live_2d_settings_base_init();
+
+		//加载样式设置
+		$waifu_style = new live2D_Settings_Style();
+		$waifu_style->live_2d_settings_style_init();
+
+		//加载提示设置
+		$waifu_tips = new live2D_Settings_Tips();
+		$waifu_tips->live_2d_settings_tips_init();
+
+		//加载工具栏设置
+		$waifu_toolbar = new live2D_Settings_Toolbar();
+		$waifu_toolbar->live_2d_settings_toolbar_init();
 		
 		// 加载高级设置
 		$waifu_opt = new live2D_Advanced();

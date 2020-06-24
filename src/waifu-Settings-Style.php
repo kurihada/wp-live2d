@@ -1,5 +1,152 @@
 <?php
 class live2D_Settings_Style {
     private $live_2d__options;
+    public function live_2d_settings_style_init() {
+        $this->live_2d__options = get_option( 'live_2d_settings_option_name' );
+
+        add_settings_section(
+            'live_2d_setting_style_section', // id
+            '这里可以设置看板娘的外观大小', // title
+            array( $this, 'live_2d_style_section_info' ), // callback
+            'live-2d-settings-style' // page
+        );
+
+        add_settings_field(
+            'modelStorage', // id
+            '记录 ID', // title
+            array( $this, 'modelStorage_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        
+        add_settings_field(
+            'modelRandMode', // id
+            '模型切换方式', // title
+            array( $this, 'modelRandMode_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        add_settings_field(
+            'modelTexturesRandMode', // id
+            '材质切换方式', // title
+            array( $this, 'modelTexturesRandMode_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        
+
+        add_settings_field(
+            'waifuSize', // id
+            '看板娘大小', // title
+            array( $this, 'waifuSize_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        add_settings_field(
+            'waifuMinWidth', // id
+            '面页小于指定宽度 隐藏看板娘 输入disable禁用', // title
+            array( $this, 'waifuMinWidth_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        add_settings_field(
+            'waifuEdgeSide', // id
+            '看板娘贴边方向', // title
+            array( $this, 'waifuEdgeSide_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        add_settings_field(
+            'waifuDraggable', // id
+            '拖拽样式', // title
+            array( $this, 'waifuDraggable_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        add_settings_field(
+            'waifuDraggableRevert', // id
+            '松开鼠标还原拖拽位置', // title
+            array( $this, 'waifuDraggableRevert_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+    }
+
+    public function live_2d_style_section_info(){
+
+    }
+
+    public function modelStorage_callback() {
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === true ) ? 'checked' : '' ; ?>
+        <label for="modelStorage-0"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === false ) ? 'checked' : '' ; ?>
+        <label for="modelStorage-1"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+    }
+
+    public function modelRandMode_callback() {
+        ?> <select name="live_2d_settings_option_name[modelRandMode]" id="modelRandMode">
+            <?php $selected = (isset( $this->live_2d__options['modelRandMode'] ) && $this->live_2d__options['modelRandMode'] === 'rand') ? 'selected' : '' ; ?>
+            <option value="rand" <?php echo $selected; ?>>随机</option>
+            <?php $selected = (isset( $this->live_2d__options['modelRandMode'] ) && $this->live_2d__options['modelRandMode'] === 'switch') ? 'selected' : '' ; ?>
+            <option value="switch" <?php echo $selected; ?>>顺序</option>
+        </select> <?php
+    }
+
+    public function modelTexturesRandMode_callback() {
+        ?> <select name="live_2d_settings_option_name[modelTexturesRandMode]" id="modelTexturesRandMode">
+            <?php $selected = (isset( $this->live_2d__options['modelTexturesRandMode'] ) && $this->live_2d__options['modelTexturesRandMode'] === 'rand') ? 'selected' : '' ; ?>
+            <option value="rand" <?php echo $selected; ?>>随机</option>
+            <?php $selected = (isset( $this->live_2d__options['modelTexturesRandMode'] ) && $this->live_2d__options['modelTexturesRandMode'] === 'switch') ? 'selected' : '' ; ?>
+            <option value="switch" <?php echo $selected; ?>>顺序</option>
+        </select> <?php
+    }
+
+    public function waifuSize_callback() {
+        ?> <select name="live_2d_settings_option_name[waifuSize]" id="waifuSize">
+            <?php $selected = (isset( $this->live_2d__options['waifuSize'] ) && $this->live_2d__options['waifuSize'] === '280x250') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>280x250</option>
+            <?php $selected = (isset( $this->live_2d__options['waifuSize'] ) && $this->live_2d__options['waifuSize'] === '600x535') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>600x535</option>
+        </select> <?php
+    }
+
+    public function waifuMinWidth_callback() {
+        printf(
+            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuMinWidth]" id="waifuMinWidth" value="%s">',
+            isset( $this->live_2d__options['waifuMinWidth'] ) ? esc_attr( $this->live_2d__options['waifuMinWidth']) : ''
+        );
+    }
+
+    public function waifuEdgeSide_callback() {
+        printf(
+            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuEdgeSide]" id="waifuEdgeSide" value="%s">',
+            isset( $this->live_2d__options['waifuEdgeSide'] ) ? esc_attr( $this->live_2d__options['waifuEdgeSide']) : ''
+        );
+    }
+
+    public function waifuDraggable_callback() {
+        ?> <select name="live_2d_settings_option_name[waifuDraggable]" id="waifuDraggable">
+            <?php $selected = (isset( $this->live_2d__options['waifuDraggable'] ) && $this->live_2d__options['waifuDraggable'] === 'disable') ? 'selected' : '' ; ?>
+            <option value="disable" <?php echo $selected; ?>>禁用</option>
+            <?php $selected = (isset( $this->live_2d__options['waifuDraggable'] ) && $this->live_2d__options['waifuDraggable'] === 'axis-x') ? 'selected' : '' ; ?>
+            <option value="axis-x" <?php echo $selected; ?>>只能水平拖拽</option>
+            <?php $selected = (isset( $this->live_2d__options['waifuDraggable'] ) && $this->live_2d__options['waifuDraggable'] === 'unlimited') ? 'selected' : '' ; ?>
+            <option value="unlimited" <?php echo $selected; ?>>自由拖拽</option>
+        </select> <?php
+    }
+
+    public function waifuDraggableRevert_callback() {
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['waifuDraggableRevert'] ) && $this->live_2d__options['waifuDraggableRevert'] === true ) ? 'checked' : '' ; ?>
+        <label for="waifuDraggableRevert-0"><input type="radio" name="live_2d_settings_option_name[waifuDraggableRevert]" id="waifuDraggableRevert-0" value="1" <?php echo $checked; ?>> 还原</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['waifuDraggableRevert'] ) && $this->live_2d__options['waifuDraggableRevert'] === false ) ? 'checked' : '' ; ?>
+        <label for="waifuDraggableRevert-1"><input type="radio" name="live_2d_settings_option_name[waifuDraggableRevert]" id="waifuDraggableRevert-1" value="0" <?php echo $checked; ?>> 不还原</label></fieldset> <?php
+    }
 }
 ?>

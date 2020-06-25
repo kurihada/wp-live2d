@@ -2,9 +2,9 @@
 
 Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
-Tags: Live2D,看板娘,萌,moe
-Tested up to: 1.5.1
-Stable tag: 1.5.0
+Tags: Live2D,看板娘,萌,moe,vtuber,二次元,loli
+Tested up to: 5.4.2
+Stable tag: 1.5.1
 License: MIT
 
 == Description ==
@@ -18,17 +18,14 @@ License: MIT
 - 增加 看板娘样式设置，可直接设置宽高度等
 - 支持多种一言接口，基于 JQuery UI 实现拖拽
 - 以上是fghrsh作者的原文
-
 - 增加：可通过WordPress后台进行所有waifu-tips.js中设置的内容
-- 直接增加JQuery UI库
 
 ## 版权声明
 
 [Flat UI Free][1]  
 [live2d_src / ©journey-ad / GPL v2.0][2]  
 [waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][3]  
-  
-Open sourced under the GPL v2.0 license.
+[fghrsh.net][4]
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
   [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
@@ -46,10 +43,6 @@ Open sourced under the GPL v2.0 license.
 
 1. 在WordPress后台添加插件压缩包安装
 2. 点击启用按钮开始使用看板娘。
-
-
-![20200620212435](https://user-images.githubusercontent.com/38683169/85273157-d25fed80-b4af-11ea-8b9e-074454a3575d.jpg)
-![20200620212430](https://user-images.githubusercontent.com/38683169/85273167-d7bd3800-b4af-11ea-8bcd-b5604feb9c94.png)
 
 
 ### 设置参数
@@ -140,11 +133,19 @@ Open sourced under the GPL v2.0 license.
 None
 
 == Screenshots ==
-1. Settings
+
+![20200620212435](https://user-images.githubusercontent.com/38683169/85273157-d25fed80-b4af-11ea-8b9e-074454a3575d.jpg)
+![20200620212430](https://user-images.githubusercontent.com/38683169/85273167-d7bd3800-b4af-11ea-8bcd-b5604feb9c94.png)
+
+
 
 == Changelog ==
 
-= 1.5 =
+= 1.5.1 =
+1. 增加了设置的快捷按钮
+2. 修正了设置页面保存按钮位置不对的问题
+
+= 1.5.0 =
 *支持高级设置
 *去除了一个鼠标事件`.waifu #live2d`可以避免鼠标每次经过看板娘的时候他就混乱的说各种话。
 

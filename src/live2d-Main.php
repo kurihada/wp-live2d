@@ -31,9 +31,10 @@ class live2D {
 		}
 	}
 	public function live_2d__add_plugin_page() {
+		$menu = __('Live 2D 设置','live-2d-options');
 		add_options_page(
-			'Live 2D 基础设置', // page_title
-			'Live 2D 设置', // menu_title
+			$menu, // page_title
+			$menu, // menu_title
 			'manage_options', // capability
 			'live-2d-options', // menu_slug
 			array( $this, 'live_2d__create_admin_page' ) // function
@@ -57,24 +58,27 @@ class live2D {
 				<div id="settings" class="group">
 					<?php
 						do_settings_sections( 'live-2d-settings-base' );
+						submit_button();
 					?>
 				</div>
 				<div id="toolbar" class="group">
 					<?php
 						do_settings_sections( 'live-2d-settings-toolbar' );
+						submit_button();
 					?>
 				</div>
 				<div id="tips" class="group">
 					<?php
 						do_settings_sections( 'live-2d-settings-tips' );
+						submit_button();
 					?>
 				</div>
 				<div id="style" class="group">
 					<?php
 						do_settings_sections( 'live-2d-settings-style' );
+						submit_button();
 					?>
 				</div>
-				<?php submit_button('','primary','submit_settings'); ?>
 			</form>
 			<div id="advanced" class="group">
 				<form method="post" action="options.php">

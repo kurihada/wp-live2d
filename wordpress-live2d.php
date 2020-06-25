@@ -3,7 +3,7 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.5.0
+ * Version: 1.5.1
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  */
@@ -34,8 +34,7 @@ function live_2d_install()
 {
 	$live_2d_Settings = new live2D_Settings();
 	$live_2d_Settings -> install_Default_Settings();
-	$live_2d_advanced = new live2D_Advanced();
-	$live_2d_advanced -> install_Default_Settings();
+	$live_2d_Settings -> install_Default_Advanced();
 }
 
 // 停用插件
@@ -51,6 +50,14 @@ register_uninstall_hook( __FILE__, 'live_2d_uninstall' );
 function live_2d_uninstall(){
     delete_option( 'live_2d_settings_option_name' );
     delete_option( 'live_2d_advanced_option_name' );
+}
+
+// 设置面板设置按钮的钩子
+add_filter('plugin_action_links_'.plugin_basename( __FILE__ ), 'live_2d_settings_link');
+function live_2d_settings_link($links) {
+    if(is_multisite() && (!is_main_site() || !is_super_admin())) return $links;
+    $setlink = array(live_2d_link('options-general.php?page=live-2d-options', __('设置','live-2d-options')));
+    return array_merge($setlink, $links);
 }
 
 
@@ -87,4 +94,14 @@ function live2D_DefMod(){
 }
 add_action( 'wp_footer', 'live2D_DefMod' );
 
+
+
+
+function live_2d_link($url, $text='', $ext=''){
+    if(empty($text)) $text = $url;
+    $button = stripos($ext, 'button') !== false ? " class='button'" : "";
+    $target = stripos($ext, 'blank') !== false ? " target='_blank'" : "";
+    $link = "<a href='{$url}'{$button}{$target}>{$text}</a>";
+    return stripos($ext, 'p') !== false ? "<p>{$link}</p>" : "{$link} ";
+}
 ?>

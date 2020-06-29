@@ -53,6 +53,7 @@ class live2D {
 				<a id="style_btn" href="#style" class="nav-tab">看板娘样式设置</a>
 				<a id="advanced_btn" href="#advanced" class="nav-tab">高级设置</a>
 			</h2>
+			<?php get_settings_errors('live_2d_advanced_option_saveFiles'); ?>
 			<form method="post" action="options.php">
 			<?php settings_fields( 'live_2d_settings_base_group' ); ?>
 				<div id="settings" class="group">

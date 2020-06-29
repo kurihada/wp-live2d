@@ -4,7 +4,7 @@ Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元
 Tested up to: 5.4.2
-Stable tag: 1.5.2
+Stable tag: 1.6.0
 License: MIT
 
 == Description ==
@@ -146,6 +146,13 @@ Do not use this plugin on commercial websites！
 
 
 == Changelog ==
+
+= 1.6.0 =
+
+1. 增加提示框的颜色设置，可对提示框的底色，边框，阴影，进行rgba设置，可以对文字颜色进行rgb设置
+2. 新增高亮显示方式，可在设置中修改高亮显示的颜色
+3. 新增帮助菜单，对高级设置进行了一些说明
+4. 修正了代码中冗余的一些内容
 
 = 1.5.2 =
 

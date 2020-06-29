@@ -7,7 +7,6 @@ class live2D_Advanced {
 	private $hour_tips_readonly = true;
 	
 	public function live_2d_advanced_init() {
-		
 		$this->live_2d_advanced_options = get_option( 'live_2d_advanced_option_name' );
 		
 		register_setting(
@@ -79,7 +78,6 @@ class live2D_Advanced {
 			'live_2d_advanced_setting_section' // section
 		);
 
-
 		add_settings_field(
 			'referrer_hostname', // id
 			'访问本站点的提示', // title
@@ -88,8 +86,6 @@ class live2D_Advanced {
 			'live_2d_advanced_setting_section' // section
 		);
 
-		
-
 		add_settings_field(
 			'hitokoto_api_message', // id
 			'一言API的消息', // title
@@ -97,7 +93,6 @@ class live2D_Advanced {
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
-
 
 		add_settings_field(
 			'mouseover_msg', // id
@@ -130,7 +125,6 @@ class live2D_Advanced {
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
 		);
-
 	}
 
 	public function live_2d_advanced_sanitize($input) {

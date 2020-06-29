@@ -95,138 +95,34 @@ class live2D_Utils{
 	// waifu节点组装，此节点主要是提示消息
 	public function waifuMsg_Json($value){
 		$msg = array();
-		if(isset($value['console_open_msg'])){
-			$msg["console_open_msg"] = $value['console_open_msg'];
-		}else{
-			$msg["console_open_msg"] = array("哈哈，你打开了控制台，是想要看看我的秘密吗？");
-		}
-
-		if(isset($value['copy_message'])){
-			$msg["copy_message"] = $value['copy_message'];
-		}else{
-			$msg["copy_message"] = array("你都复制了些什么呀，转载要记得加上出处哦");
-		}
-
-		if(isset($value['screenshot_message'])){
-			$msg["screenshot_message"] = $value['screenshot_message'];
-		}else{
-			$msg["screenshot_message"] = array("照好了嘛，是不是很可爱呢？");
-		}
-
-		if(isset($value['hidden_message'])){
-			$msg["hidden_message"] = $value['hidden_message'];
-		}else{
-			$msg["hidden_message"] = array("我们还能再见面的吧…？");
-		}
-
-		if(isset($value['load_rand_textures'])){
-			$msg["load_rand_textures"] = $value['load_rand_textures'];
-		}else{
-			$msg["load_rand_textures"] = array("我还没有其他衣服呢", "我的新衣服好看嘛");
-		}
-
-		$msg["hour_tips"] = $this->hourTips_Json($value['hour_tips']);
-		$msg["referrer_message"] = $this->referrerMsg_Json($value['referrer_message']);
-		$msg["referrer_hostname"] = $this->referrerHost_Json($value['referrer_hostname']);
-		$msg["hitokoto_api_message"] = $this->hitokotoApi_Json($value['hitokoto_api_message']);
+		$msg["console_open_msg"] = $value['console_open_msg'];
+		$msg["copy_message"] = $value['copy_message'];
+		$msg["screenshot_message"] = $value['screenshot_message'];
+		$msg["hidden_message"] = $value['hidden_message'];
+		$msg["load_rand_textures"] = $value['load_rand_textures'];
+		$msg["hour_tips"] = $this->tips_Array($value['hour_tips']);
+		$msg["referrer_message"] = $this->tips_Array($value['referrer_message']);
+		$msg["referrer_hostname"] = $this->tips_Array($value['referrer_hostname']);
+		$msg["hitokoto_api_message"] = $this->tips_Array($value['hitokoto_api_message']);
 		return $msg;
 	}
 	
-	// 时间段提示语
-	public function hourTips_Json($arr){
-		$hourTips = array();
-		if(isset($arr)){
-			foreach($arr as $value){
-				$hourTips[$value[0]]=array($value[1]);
-			}
-		} else {
-			$hourTips["t5-7"]=array("早上好！一日之计在于晨，美好的一天就要开始了");
-			$hourTips["t7-11"]=array("上午好！工作顺利嘛，不要久坐，多起来走动走动哦！");
-			$hourTips["t11-14"]=array("中午了，工作了一个上午，现在是午餐时间！");
-			$hourTips["t14-17"]=array("午后很容易犯困呢，今天的运动目标完成了吗？");
-			$hourTips["t17-19"]=array("傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~");
-			$hourTips["t19-21"]=array("晚上好，今天过得怎么样？");
-			$hourTips["t21-23"]=array("已经这么晚了呀，早点休息吧，晚安~");
-			$hourTips["t23-5"]=array("你是夜猫子呀？这么晚还不睡觉，明天起的来嘛");
-			$hourTips["default"]=array("嗨~ 快来逗我玩吧！");
+	// 把提示重组
+	public function tips_Array($arr){
+		$arrayTips = array();
+		foreach($arr as $value){
+			$arrayTips[$value[0]]=array($value[1]);
 		}
-		return $hourTips;
-	}
-	
-	// 来自搜索引擎的问候
-	public function referrerMsg_Json($arr){
-		$referrerMsg = array();
-		if(isset($arr)){
-			foreach($arr as $value){
-				$referrerMsg[$value[0]]=array($value[1]);
-			}
-		} else {
-			$referrerMsg["localhost"] = array("欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>");
-			$referrerMsg["baidu"] = array("Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">{keyword}</span> 找到的我吗？");
-			$referrerMsg["so"] = array("Hello! 来自 360搜索 的朋友<br>你是搜索 <span style=\"color:#0099cc;\">{keyword}</span> 找到的我吗？");
-			$referrerMsg["google"] = array("Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>");
-			$referrerMsg["default"] = array("Hello! 来自 <span style=\"color:#0099cc;\">{website}</span> 的朋友");
-			$referrerMsg["none"] = array("欢迎阅读<span style=\"color:#0099cc;\">『{title}』</span>");
-		}
-		return $referrerMsg;
-	}
-	
-	// 确定自己网站的域名
-	public function referrerHost_Json($arr){
-		$referrerHost = array();
-		if(isset($arr)){
-			foreach($arr as $value){
-				$referrerHost[$value[0]]=array($value[1]);
-			}
-		} else {
-			$referrerHost["example.com"] = array("示例网站");
-			$referrerHost["www.fghrsh.net"] = array("FGHRSH 的博客");
-		}
-		return $referrerHost;
-	}
-	
-	// 一言API返回的结果
-	public function hitokotoApi_Json($arr){
-		$hitokotoMsg = array();
-		if(isset($arr)){
-			foreach($arr as $value){
-				$hitokotoMsg[$value[0]]=array($value[1]);
-			}
-		} else {
-			$hitokotoMsg["lwl12.com"] = array("这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>|，是 <span style=\"color:#0099cc;\">{creator}</span> 投稿的。");
-			$hitokotoMsg["fghrsh.net"] = array("这句一言出处是 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">FGHRSH</span> 在 {date} 收藏的！");
-			$hitokotoMsg["jinrishici.com"] = array("这句诗词出自 <span style=\"color:#0099cc;\">《{title}》</span>，是 {dynasty}诗人 {author} 创作的！");
-			$hitokotoMsg["hitokoto.cn"] = array("这句一言来自 <span style=\"color:#0099cc;\">『{source}』</span>，是 <span style=\"color:#0099cc;\">{creator}</span> 在 hitokoto.cn 投稿的。");
-		}
-		return $hitokotoMsg;
+		return $arrayTips;
 	}
 	
 	// 鼠标浮动事件（可自定义）
 	public function mouseOverMsg_Json($arrOpt){
 		$mouseOverMsg = array();
-		if(isset ($arrOpt)){
-			foreach($arrOpt as $key=> $value){
-				$mouseOverMsg[$key]["selector"]= $value["selector"];
-				$mouseOverMsg[$key]["text"]= $value["text"];
-			}
-		} else {
-			$mouseOverMsg[0]["selector"]= ".fui-home";
-			$mouseOverMsg[0]["text"]= array("点击前往首页，想回到上一页可以使用浏览器的后退功能哦");
-			$mouseOverMsg[1]["selector"]= ".fui-chat";
-			$mouseOverMsg[1]["text"]= array("一言一语，一颦一笑。一字一句，一颗赛艇。");
-			$mouseOverMsg[2]["selector"]= ".fui-eye";
-			$mouseOverMsg[2]["text"]= array("嗯··· 要切换 看板娘 吗？");
-			$mouseOverMsg[3]["selector"]= ".fui-user";
-			$mouseOverMsg[3]["text"]= array("喜欢换装 Play 吗？");
-			$mouseOverMsg[4]["selector"]= ".fui-photo";
-			$mouseOverMsg[4]["text"]= array("要拍张纪念照片吗？");
-			$mouseOverMsg[5]["selector"]= ".fui-info-circle";
-			$mouseOverMsg[5]["text"]= array("这里有关于我的信息呢");
-			$mouseOverMsg[6]["selector"]= ".fui-cross";
-			$mouseOverMsg[6]["text"]= array("你不喜欢我了吗...");
+		foreach($arrOpt as $key=> $value){
+			$mouseOverMsg[$key]["selector"]= $value["selector"];
+			$mouseOverMsg[$key]["text"]= $value["text"];
 		}
-		//这里要有一个循环来自定义指定的鼠标浮动事件
-		
 		return $mouseOverMsg;
 	}
 	// 鼠标点击事件（可自定义）
@@ -234,24 +130,38 @@ class live2D_Utils{
 		$clickMsg = array();
 		$clickMsg[0]["selector"]=$selector;
 		$clickMsg[0]["text"] = $textArr;
-		//这里要有一个循环来自定义指定的鼠标点击事件
 		return $clickMsg;
 	}
 	
 	// 节日事件（可自定义）
 	public function seasonsMsg_Json($arr){
 		$seasonsMsg = array();
-		if(isset ($arr)){
-			foreach($arr as $key=> $value){
-				$seasonsMsg[$key]["date"]= $value[0];
-				$seasonsMsg[$key]["text"]= $value[1];
-			}
-		} else {
-			$seasonsMsg[0]["date"]= "01/01";
-			$seasonsMsg[0]["text"]= array("<span style=\"color:#0099cc;\">元旦</span>了呢，新的一年又开始了，今年是{year}年~");
-			//这里要有一个循环来自定义指定节日事件
+		foreach($arr as $key=> $value){
+			$seasonsMsg[$key]["date"]= $value[0];
+			$seasonsMsg[$key]["text"]= $value[1];
 		}
 		return $seasonsMsg;
+	}
+
+	public static function live_2D_help_tab(){
+		$screen = get_current_screen();
+		// 设置帮助文档
+		$screen->add_help_tab( array(
+			'id'	=> 'live_2d_advanced_help_tab',
+			'title'	=> __('高级设置帮助'),
+			'content'	=> '<p>高级设置中点击&nbsp;<input class="button" type="button" value="+ 点击此处增加一条" id="show_btn">&nbsp;就会在同一个事件中增加随机语言。</p>
+			<p>关于特殊标记，目前只有以下功能可以使用特殊标记：</p>
+			<ul>
+			<li>鼠标悬停时的消息提示：{text}触发事件的内容、{highlight}高亮样式</li>
+			<li>鼠标点击时的消息提示：{text}触发事件的内容、{highlight}高亮样式</li>
+			<li>节日事件：{year}年份、{highlight}高亮样式</li>
+			<li>搜索引擎入站提示：{title}网站标题、{keyword}关键词、{website}站点名称、{highlight}高亮样式。注意：不是所有搜索引擎都可用这些标记，具体请看预设值。</li>
+			<li>访问本站点的提示：{website}站点名称、{highlight}高亮样式</li>
+			<li>一言API的消息：{title}、{source}、{creator}、{date}、{dynasty}、{author}、{highlight} 。注意：不是所有消息都可用这些标记，具体请看预设值。</li>
+			</ul>
+			<p>设置高亮的规则：'.esc_attr('<span style="{highlight}"></span>').'，您可以在任意一个style中增加{highlight}标记，高亮颜色请前往【提示消息选项】中查看</p>
+			<p>如果您想恢复初始设置，可以删除插件后重新安装，所有内容会恢复初始化。</p>'
+		) );
 	}
 }
 

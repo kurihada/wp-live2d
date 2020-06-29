@@ -1,74 +1,8 @@
-window.live2d_settings = Array(); /*
-
-    く__,.ヘヽ.　　　　/　,ー､ 〉
-    　　　　　＼ ', !-─‐-i　/　/´
-    　　　 　 ／｀ｰ'　　　 L/／｀ヽ､            Live2D 看板娘 参数设置
-    　　 　 /　 ／,　 /|　 ,　 ,　　　 ',                                           Version 1.4.2
-    　　　ｲ 　/ /-‐/　ｉ　L_ ﾊ ヽ!　 i                            Update 2018.11.12
-    　　　 ﾚ ﾍ 7ｲ｀ﾄ　 ﾚ'ｧ-ﾄ､!ハ|　 |  
-    　　　　 !,/7 '0'　　 ´0iソ| 　 |　　　
-    　　　　 |.从"　　_　　 ,,,, / |./ 　 |             网页添加 Live2D 看板娘
-    　　　　 ﾚ'| i＞.､,,__　_,.イ / 　.i 　|                    https://www.fghrsh.net/post/123.html
-    　　　　　 ﾚ'| | / k_７_/ﾚ'ヽ,　ﾊ.　|           
-    　　　　　　 | |/i 〈|/　 i　,.ﾍ |　i　|    Thanks
-    　　　　　　.|/ /　ｉ： 　 ﾍ!　　＼　|          journey-ad / https://github.com/journey-ad/live2d_src
-    　　　 　 　 kヽ>､ﾊ 　 _,.ﾍ､ 　 /､!            xiazeyu / https://github.com/xiazeyu/live2d-widget.js
-    　　　　　　 !'〈//｀Ｔ´', ＼ ｀'7'ｰr'          Live2d Cubism SDK WebGL 2.1 Projrct & All model authors.
-    　　　　　　 ﾚ'ヽL__|___i,___,ンﾚ|ノ
-    　　　　　 　　　ﾄ-,/　|___./
-    　　　　　 　　　'ｰ'　　!_,.:*********************************************************************************/
-
-/*
-// 后端接口
-live2d_settings['modelAPI']             = '//live2d.fghrsh.net/api/';   // 自建 API 修改这里
-live2d_settings['tipsMessage']          = 'waifu-tips.json';            // 同目录下可省略路径
-live2d_settings['hitokotoAPI']          = 'lwl12.com';                  // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
-
-// 默认模型
-live2d_settings['modelId']              = 1;            // 默认模型 ID，可在 F12 控制台找到
-live2d_settings['modelTexturesId']      = 53;           // 默认材质 ID，可在 F12 控制台找到
-
-// 工具栏设置
-live2d_settings['showToolMenu']         = true;         // 显示 工具栏          ，可选 true(真), false(假)
-live2d_settings['canCloseLive2d']       = true;         // 显示 关闭看板娘  按钮，可选 true(真), false(假)
-live2d_settings['canSwitchModel']       = true;         // 显示 模型切换    按钮，可选 true(真), false(假)
-live2d_settings['canSwitchTextures']    = true;         // 显示 材质切换    按钮，可选 true(真), false(假)
-live2d_settings['canSwitchHitokoto']    = true;         // 显示 一言切换    按钮，可选 true(真), false(假)
-live2d_settings['canTakeScreenshot']    = true;         // 显示 看板娘截图  按钮，可选 true(真), false(假)
-live2d_settings['canTurnToHomePage']    = true;         // 显示 返回首页    按钮，可选 true(真), false(假)
-live2d_settings['canTurnToAboutPage']   = true;         // 显示 跳转关于页  按钮，可选 true(真), false(假)
-
-// 模型切换模式
-live2d_settings['modelStorage']         = true;         // 记录 ID (刷新后恢复)，可选 true(真), false(假)
-live2d_settings['modelRandMode']        = 'switch';     // 模型切换，可选 'rand'(随机), 'switch'(顺序)
-live2d_settings['modelTexturesRandMode']= 'rand';       // 材质切换，可选 'rand'(随机), 'switch'(顺序)
-
-// 提示消息选项
-live2d_settings['showHitokoto']         = true;         // 显示一言
-live2d_settings['showF12Status']        = true;         // 显示加载状态
-live2d_settings['showF12Message']       = false;        // 显示看板娘消息
-live2d_settings['showF12OpenMsg']       = true;         // 显示控制台打开提示
-live2d_settings['showCopyMessage']      = true;         // 显示 复制内容 提示
-live2d_settings['showWelcomeMessage']   = true;         // 显示进入面页欢迎词
-
-//看板娘样式设置
-live2d_settings['waifuSize']            = '280x250';    // 看板娘大小，例如 '280x250', '600x535'
-live2d_settings['waifuTipsSize']        = '250x70';     // 提示框大小，例如 '250x70', '570x150'
-live2d_settings['waifuFontSize']        = '12px';       // 提示框字体，例如 '12px', '30px'
-live2d_settings['waifuToolFont']        = '14px';       // 工具栏字体，例如 '14px', '36px'
-live2d_settings['waifuToolLine']        = '20px';       // 工具栏行高，例如 '20px', '36px'
-live2d_settings['waifuToolTop']         = '0px'         // 工具栏顶部边距，例如 '0px', '-60px'
-live2d_settings['waifuMinWidth']        = '768px';      // 面页小于 指定宽度 隐藏看板娘，例如 'disable'(禁用), '768px'
-live2d_settings['waifuEdgeSide']        = 'left:0';     // 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)
-live2d_settings['waifuDraggable']       = 'disable';    // 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)
-live2d_settings['waifuDraggableRevert'] = true;         // 松开鼠标还原拖拽位置，可选 true(真), false(假)
-
-// 其他杂项设置
-live2d_settings['homePageUrl']          = 'auto';       // 主页地址，可选 'auto'(自动), '{URL 网址}'
-live2d_settings['aboutPageUrl']         = '#';   // 关于页地址, '{URL 网址}'
-live2d_settings['screenshotCaptureName']= 'live2d.png'; // 看板娘截图文件名，例如 'live2d.png'
-
-/****************************************************************************************************/
+//全局变量
+window.live2d_settings = Array(); 
+var re = /x/;
+var hltips = 'color:';//定义highlight标记
+console.log(re);
 
 String.prototype.render = function(context) {
     var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
@@ -88,9 +22,6 @@ String.prototype.render = function(context) {
         return currentObject;
     });
 };
-
-var re = /x/;
-console.log(re);
 
 function empty(obj) {return typeof obj=="undefined"||obj==null||obj==""?true:false}
 function getRandText(text) {return Array.isArray(text) ? text[Math.floor(Math.random() * text.length + 1)-1] : text}
@@ -136,6 +67,13 @@ function initModel(waifuPath, settingsJson) {
     $(".waifu-tips").height(live2d_settings.waifuTipsSize[1]);
     $(".waifu-tips").css("top",live2d_settings.waifuToolTop);
     $(".waifu-tips").css("font-size",live2d_settings.waifuFontSize);
+    //----------从JSON中获取颜色定义----------
+    $(".waifu-tips").css("border","1px solid "+live2d_settings.waifuBorderColor);
+    $(".waifu-tips").css("background-color",live2d_settings.waifuTipsColor);
+    $(".waifu-tips").css("box-shadow","0 3px 15px 2px "+live2d_settings.waifuShadowColor );
+    $(".waifu-tips").css("color",live2d_settings.waifuFontsColor);
+    hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个样式所以必须;结尾
+   //--------------只是分割线而已-------------
     $(".waifu-tool").css("font-size",live2d_settings.waifuToolFont);
     $(".waifu-tool span").css("line-height",live2d_settings.waifuToolLine);
     
@@ -208,14 +146,14 @@ function loadTipsMessage(result) {
     $.each(result.mouseover, function (index, tips){
         $(document).on("mouseover", tips.selector, function (){
             var text = getRandText(tips.text);
-            text = text.render({text: $(this).text()});
+            text = text.render({text: $(this).text(),highlight: hltips});
             showMessage(text, 3000);
         });
     });
     $.each(result.click, function (index, tips){
         $(document).on("click", tips.selector, function (){
             var text = getRandText(tips.text);
-            text = text.render({text: $(this).text()});
+            text = text.render({text: $(this).text(),highlight: hltips});
             showMessage(text, 3000, true);
         });
     });
@@ -227,7 +165,7 @@ function loadTipsMessage(result) {
         if((after.split('/')[0] <= now.getMonth()+1 && now.getMonth()+1 <= before.split('/')[0]) && 
            (after.split('/')[1] <= now.getDate() && now.getDate() <= before.split('/')[1])){
             var text = getRandText(tips.text);
-            text = text.render({year: now.getFullYear()});
+            text = text.render({year: now.getFullYear(),highlight: hltips});
             showMessage(text, 6000, true);
         }
     });
@@ -282,29 +220,29 @@ function loadTipsMessage(result) {
                 if (window.location.hostname == referrer.hostname){
                     //text = referrer_message.localhost[0] + document.title.split(referrer_message.localhost[2])[0] + referrer_message.localhost[1];
 					text = referrer_message.localhost[0];
-					text = text.render({title: titleStr});
+					text = text.render({title: titleStr,highlight: hltips});
 				} else if (domain == 'baidu'){
                     //text = referrer_message.baidu[0] + referrer.search.split('&wd=')[1].split('&')[0] + referrer_message.baidu[1];
 					text = referrer_message.baidu[0];
-					text = text.render({keyword: referrer.search.split('&wd=')[1].split('&')[0]});
+					text = text.render({keyword: referrer.search.split('&wd=')[1].split('&')[0],highlight: hltips});
 				} else if (domain == 'so'){
                     //text = referrer_message.so[0] + referrer.search.split('&q=')[1].split('&')[0] + referrer_message.so[1];
 					text = referrer_message.so[0];
-					text = text.render({keyword: referrer.search.split('&q=')[1].split('&')[0]});
+					text = text.render({keyword: referrer.search.split('&q=')[1].split('&')[0],highlight: hltips});
                 } else if (domain == 'google'){
                     //text = referrer_message.google[0] + document.title.split(referrer_message.google[2])[0] + referrer_message.google[1];
 					text = referrer_message.google[0];
-					text = text.render({title: titleStr});
+					text = text.render({title: titleStr,highlight: hltips});
 				} else {
                     $.each(result.waifu.referrer_hostname, function(i,val) {if (i==referrer.hostname) referrer.hostname = getRandText(val)});
                     //text = referrer_message.default[0] + referrer.hostname + referrer_message.default[1];
 					text = referrer_message.default[0];
-					text = text.render({website: referrer.hostname});
+					text = text.render({website: referrer.hostname,highlight: hltips});
                 }
             } else{ 
 				//text = referrer_message.none[0] + document.title.split(referrer_message.none[2])[0] + referrer_message.none[1];
 				text = referrer_message.none[0];
-				text = text.render({title: titleStr});
+				text = text.render({title: titleStr,highlight: hltips});
 			}
         }
         showMessage(text, 6000);
@@ -382,7 +320,7 @@ function loadTipsMessage(result) {
 						if(txtArr.length > 1){
 							if (!empty(result.author)) text += txtArr[1];
 						}
-                        text = text.render({source: result.source, creator: result.author});
+                        text = text.render({source: result.source, creator: result.author,highlight: hltips});
                         window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
                     } showMessage(result.text, 5000, true);
                 });break;
@@ -390,7 +328,7 @@ function loadTipsMessage(result) {
     	        $.getJSON('https://api.fghrsh.net/hitokoto/rand/?encode=jsc&uid=3335',function(result){
             	    if (!empty(result.source)) {
                         var text = waifu_tips.hitokoto_api_message['fghrsh.net'][0];
-                        text = text.render({source: result.source, date: result.date});
+                        text = text.render({source: result.source, date: result.date,highlight: hltips});
                         window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
                         showMessage(result.hitokoto, 5000, true);
             	    }
@@ -402,7 +340,7 @@ function loadTipsMessage(result) {
                     success: function (result, status) {
                         if (!empty(result.data.origin.title)) {
                             var text = waifu_tips.hitokoto_api_message['jinrishici.com'][0];
-                            text = text.render({title: result.data.origin.title, dynasty: result.data.origin.dynasty, author:result.data.origin.author});
+                            text = text.render({title: result.data.origin.title, dynasty: result.data.origin.dynasty, author:result.data.origin.author,highlight: hltips});
                             window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
                         } showMessage(result.data.content, 5000, true);
                     }
@@ -411,12 +349,23 @@ function loadTipsMessage(result) {
     	        $.getJSON('https://v1.hitokoto.cn',function(result){
             	    if (!empty(result.from)) {
                         var text = waifu_tips.hitokoto_api_message['hitokoto.cn'][0];
-                        text = text.render({source: result.from, creator: result.creator});
+                        text = text.render({source: result.from, creator: result.creator,highlight: hltips});
                         window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
             	    }
                     showMessage(result.hitokoto, 5000, true);
                 });
     	}
+    }
+    function rgbToRgba(color,alp){
+        var r,g,b;
+        var rgbaAttr = color.match(/[\d.]+/g);
+        if(rgbaAttr.length >=3){
+            var r,g,b;
+            r = rgbaAttr[0];
+            g = rgbaAttr[1];
+            b = rgbaAttr[2];
+            return 'rgba('+r+','+g+','+b+','+alp+')';
+        }
     }
     
     $('.waifu-tool .fui-eye').click(function (){loadOtherModel()});

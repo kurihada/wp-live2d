@@ -75,6 +75,46 @@ class live2D_Settings_Tips {
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
         );
+
+        add_settings_field(
+            'waifuTipsColor', // id
+            '提示框背景色', // title
+            array( $this, 'waifuTipsColor_callback' ), // callback
+            'live-2d-settings-tips', // page
+            'live_2d_setting_tips_section' // section
+        );
+
+        add_settings_field(
+            'waifuBorderColor', // id
+            '边框颜色', // title
+            array( $this, 'waifuBorderColor_callback' ), // callback
+            'live-2d-settings-tips', // page
+            'live_2d_setting_tips_section' // section
+        );
+
+        add_settings_field(
+            'waifuShadowColor', // id
+            '阴影颜色', // title
+            array( $this, 'waifuShadowColor_callback' ), // callback
+            'live-2d-settings-tips', // page
+            'live_2d_setting_tips_section' // section
+        );
+
+        add_settings_field(
+            'waifuFontsColor', // id
+            '提示框文字颜色', // title
+            array( $this, 'waifuFontsColor_callback' ), // callback
+            'live-2d-settings-tips', // page
+            'live_2d_setting_tips_section' // section
+        );
+
+        add_settings_field(
+            'waifuHighlightColor', // id
+            '高亮文字颜色', // title
+            array( $this, 'waifuHighlightColor_callback' ), // callback
+            'live-2d-settings-tips', // page
+            'live_2d_setting_tips_section' // section
+        );
     }
 
     public function live_2d_tips_section_info(){
@@ -136,6 +176,41 @@ class live2D_Settings_Tips {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuFontSize]" id="waifuFontSize" value="%s">',
             isset( $this->live_2d__options['waifuFontSize'] ) ? esc_attr( $this->live_2d__options['waifuFontSize']) : ''
+        );
+    }
+
+    public function waifuTipsColor_callback(){
+        printf(
+            '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuTipsColor]" id="waifuTipsColor" value="%s" />',
+            isset( $this->live_2d__options['waifuTipsColor'] ) ? esc_attr( $this->live_2d__options['waifuTipsColor']) : ''
+        );
+    }
+
+    public function waifuBorderColor_callback(){
+        printf(
+            '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuBorderColor]" id="waifuBorderColor" value="%s" />',
+            isset( $this->live_2d__options['waifuBorderColor'] ) ? esc_attr( $this->live_2d__options['waifuBorderColor']) : ''
+        );
+    }
+
+    public function waifuShadowColor_callback(){
+        printf(
+            '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuShadowColor]" id="waifuShadowColor" value="%s" />',
+            isset( $this->live_2d__options['waifuShadowColor'] ) ? esc_attr( $this->live_2d__options['waifuShadowColor']) : ''
+        );
+    }
+
+    public function waifuFontsColor_callback(){
+        printf(
+            '<input type="text" class="color-picker" name="live_2d_settings_option_name[waifuFontsColor]" id="waifuFontsColor" value="%s"  />',
+            isset( $this->live_2d__options['waifuFontsColor'] ) ? esc_attr( $this->live_2d__options['waifuFontsColor']) : ''
+        );
+    }
+
+    public function waifuHighlightColor_callback(){
+        printf(
+            '<input type="text" class="color-picker" name="live_2d_settings_option_name[waifuHighlightColor]" id="waifuHighlightColor" value="%s"  />',
+            isset( $this->live_2d__options['waifuHighlightColor'] ) ? esc_attr( $this->live_2d__options['waifuHighlightColor']) : ''
         );
     }
 }

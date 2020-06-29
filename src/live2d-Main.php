@@ -32,17 +32,19 @@ class live2D {
 	}
 	public function live_2d__add_plugin_page() {
 		$menu = __('Live 2D 设置','live-2d-options');
-		add_options_page(
+		$my_admin_page = add_options_page(
 			$menu, // page_title
 			$menu, // menu_title
 			'manage_options', // capability
 			'live-2d-options', // menu_slug
 			array( $this, 'live_2d__create_admin_page' ) // function
 		);
+		add_action('load-'.$my_admin_page, array('live2D_Utils','live_2D_help_tab'));
 	}
 
+	
+
 	public function live_2d__create_admin_page() {
-		
 ?>
 
 		<div class="wrap">
@@ -217,7 +219,8 @@ class live2D {
 	<?php }
 	
 	public function live_2d_waifu_page_init(){
-		
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wp-color-picker-alpha',plugin_dir_url( __FILE__ ) . '../assets/wp-color-picker-alpha.min.js',array( 'wp-color-picker' ) );
 		// 注册基础设置
         register_setting(
             'live_2d_settings_base_group', // option_group

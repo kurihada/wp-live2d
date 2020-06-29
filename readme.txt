@@ -2,9 +2,9 @@
 
 Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
-Tags: Live2D,看板娘,萌,moe,vtuber,二次元,loli
+Tags: Live2D,看板娘,萌,moe,vtuber,二次元
 Tested up to: 5.4.2
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: MIT
 
 == Description ==
@@ -17,7 +17,6 @@ License: MIT
 - 增加 参数设置 一键定制看板娘，易用性++
 - 增加 看板娘样式设置，可直接设置宽高度等
 - 支持多种一言接口，基于 JQuery UI 实现拖拽
-- 以上是fghrsh作者的原文
 - 增加：可通过WordPress后台进行所有waifu-tips.js中设置的内容
 
 ## 版权声明
@@ -26,11 +25,13 @@ License: MIT
 [live2d_src / ©journey-ad / GPL v2.0][2]  
 [waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][3]  
 [fghrsh.net][4]
+请勿将本插件使用在商业网站中！
+Do not use this plugin on commercial websites！
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
   [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
   [3]: https://imjad.cn/ "猫与向日葵"
-  [4]: https://github.com/fghrsh/live2d_demo "fghrsh.net"
+  [4]: https://www.fghrsh.net/post/123.html "fghrsh.net"
 
 == Installation ==
 
@@ -130,7 +131,12 @@ License: MIT
 
 == Frequently Asked Questions ==
 
-None
+原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个
+1. 模型文件太大了，我从https://github.com/fghrsh/live2d_api 上面下载，200多MB啊！
+2. API没有加密传输，如果你本人搭建了这套API，之后被别人发现了（可以从源代码中找到）会导致大量调用
+
+所以不是很建议自己搭建，不过我也有考虑做一个承载这个用的服务器，配合aliyun OSS进行数据传递。
+后续到2.0或者3.0版本我会发布这个功能（挖深坑）
 
 == Screenshots ==
 
@@ -140,6 +146,10 @@ None
 
 
 == Changelog ==
+
+= 1.5.2 =
+
+修复保存文件的异常情况，并在无法保存文件时给出明确错误提示
 
 = 1.5.1 =
 1. 增加了设置的快捷按钮

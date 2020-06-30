@@ -1,7 +1,7 @@
 # Live2D WordPress 插件
 
-基于Live2D 看板娘前端 HTML 源码改写
-插件可在WordPress后台通过插件搜索获得 https://wordpress.org/plugins/live-2d/ 记得给个好评！
+- 基于Live2D 看板娘前端 HTML 源码改写
+- 插件可在WordPress后台通过插件搜索获得 https://wordpress.org/plugins/live-2d/ 记得给个好评！
 
 ### 更新
 
@@ -14,11 +14,11 @@
 5. 更新请注意，更新完成后请重新设置提示框的颜色，否则提示框是透明的。
 
 以下是默认值：
-提示框背景色：rgba(236, 217, 188, 0.5)
-边框颜色：rgba(224, 186, 140, 0.62)
-阴影颜色：rgba(191, 158, 118, 0.2)
-字体颜色：#32373c
-高亮提醒颜色：#0099cc
+- 提示框背景色：rgba(236, 217, 188, 0.5)
+- 边框颜色：rgba(224, 186, 140, 0.62)
+- 阴影颜色：rgba(191, 158, 118, 0.2)
+- 字体颜色：#32373c
+- 高亮提醒颜色：#0099cc
 
 ### 特性
 
@@ -52,5 +52,5 @@
   [3]: https://imjad.cn/ "猫与向日葵"
   [4]: https://www.fghrsh.net/post/123.html "fghrsh.net"
   
-请勿将本插件使用在商业网站中！
-Do not use this plugin on commercial websites！
+- 请勿将本插件使用在商业网站中！
+- Do not use this plugin on commercial websites！

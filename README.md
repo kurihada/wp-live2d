@@ -1,6 +1,7 @@
 # Live2D WordPress 插件
 
-基于Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 的前端 HTML 源码改写
+基于Live2D 看板娘前端 HTML 源码改写
+插件可在WordPress后台通过插件搜索获得 https://wordpress.org/plugins/live-2d/ 记得给个好评！
 
 ### 更新
 
@@ -44,10 +45,12 @@
 [live2d_src / ©journey-ad / GPL v2.0][2]  
 [waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][3]  
 [fghrsh.net][4]
-请勿将本插件使用在商业网站中！
-Do not use this plugin on commercial websites！
+
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
   [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
   [3]: https://imjad.cn/ "猫与向日葵"
   [4]: https://www.fghrsh.net/post/123.html "fghrsh.net"
+  
+请勿将本插件使用在商业网站中！
+Do not use this plugin on commercial websites！

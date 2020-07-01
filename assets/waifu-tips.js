@@ -1,6 +1,6 @@
 //全局变量
 window.live2d_settings = Array(); 
-var re = 'WP-Live2D 1.7.0';
+var re = 'WP-Live2D 1.6.1';
 var hltips = 'color:';//定义highlight标记
 console.log(re);
 

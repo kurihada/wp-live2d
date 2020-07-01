@@ -78,7 +78,7 @@ class live2D_Settings_Toolbar {
 
         add_settings_field(
             'waifuToolFont', // id
-            '工具栏字体', // title
+            '工具栏图标（字体）大小', // title
             array( $this, 'waifuToolFont_callback' ), // callback
             'live-2d-settings-toolbar', // page
             'live_2d_setting_toolbar_section' // section
@@ -163,21 +163,21 @@ class live2D_Settings_Toolbar {
 
     public function waifuToolFont_callback() {
         printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuToolFont]" id="waifuToolFont" value="%s">',
+            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuToolFont]" id="waifuToolFont" value="%s">',
             isset( $this->live_2d__options['waifuToolFont'] ) ? esc_attr( $this->live_2d__options['waifuToolFont']) : ''
         );
     }
 
     public function waifuToolLine_callback() {
         printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuToolLine]" id="waifuToolLine" value="%s">',
+            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuToolLine]" id="waifuToolLine" value="%s">',
             isset( $this->live_2d__options['waifuToolLine'] ) ? esc_attr( $this->live_2d__options['waifuToolLine']) : ''
         );
     }
 
     public function waifuToolTop_callback() {
         printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuToolTop]" id="waifuToolTop" value="%s">',
+            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuToolTop]" id="waifuToolTop" value="%s">',
             isset( $this->live_2d__options['waifuToolTop'] ) ? esc_attr( $this->live_2d__options['waifuToolTop']) : ''
         );
     }

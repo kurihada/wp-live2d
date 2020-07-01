@@ -13,7 +13,7 @@ class live2D_Settings_Style {
 
         add_settings_field(
             'modelStorage', // id
-            '记录 ID', // title
+            '是否记录用户上次选择的样式', // title
             array( $this, 'modelStorage_callback' ), // callback
             'live-2d-settings-style', // page
             'live_2d_setting_style_section' // section
@@ -48,7 +48,7 @@ class live2D_Settings_Style {
 
         add_settings_field(
             'waifuMinWidth', // id
-            '面页小于指定宽度 隐藏看板娘 输入disable禁用', // title
+            '面页小于指定宽度 隐藏看板娘', // title
             array( $this, 'waifuMinWidth_callback' ), // callback
             'live-2d-settings-style', // page
             'live_2d_setting_style_section' // section
@@ -58,6 +58,14 @@ class live2D_Settings_Style {
             'waifuEdgeSide', // id
             '看板娘贴边方向', // title
             array( $this, 'waifuEdgeSide_callback' ), // callback
+            'live-2d-settings-style', // page
+            'live_2d_setting_style_section' // section
+        );
+
+        add_settings_field(
+            'waifuEdgeSize', // id
+            '看板娘贴边距离', // title
+            array( $this, 'waifuEdgeSize_callback' ), // callback
             'live-2d-settings-style', // page
             'live_2d_setting_style_section' // section
         );
@@ -85,9 +93,9 @@ class live2D_Settings_Style {
 
     public function modelStorage_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === true ) ? 'checked' : '' ; ?>
-        <label for="modelStorage-0"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="modelStorage-0"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-0" value="1" <?php echo $checked; ?>> 是</label><br>
         <?php $checked = ( isset( $this->live_2d__options['modelStorage'] ) && $this->live_2d__options['modelStorage'] === false ) ? 'checked' : '' ; ?>
-        <label for="modelStorage-1"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="modelStorage-1"><input type="radio" name="live_2d_settings_option_name[modelStorage]" id="modelStorage-1" value="0" <?php echo $checked; ?>> 否</label></fieldset> <?php
     }
 
     public function modelRandMode_callback() {
@@ -119,15 +127,23 @@ class live2D_Settings_Style {
 
     public function waifuMinWidth_callback() {
         printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuMinWidth]" id="waifuMinWidth" value="%s">',
+            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuMinWidth]" id="waifuMinWidth" value="%s" min="0" max="1024" />
+            <p>0为禁用</p>',
             isset( $this->live_2d__options['waifuMinWidth'] ) ? esc_attr( $this->live_2d__options['waifuMinWidth']) : ''
         );
     }
 
     public function waifuEdgeSide_callback() {
+        ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['waifuEdgeSide'] ) && $this->live_2d__options['waifuEdgeSide'] === 'left' ) ? 'checked' : '' ; ?>
+        <label for="waifuEdgeSide-0"><input type="radio" name="live_2d_settings_option_name[waifuEdgeSide]" id="waifuEdgeSide-0" value="left" <?php echo $checked; ?>> 左</label><br>
+        <?php $checked = ( isset( $this->live_2d__options['waifuEdgeSide'] ) && $this->live_2d__options['waifuEdgeSide'] === 'right' ) ? 'checked' : '' ; ?>
+        <label for="waifuEdgeSide-1"><input type="radio" name="live_2d_settings_option_name[waifuEdgeSide]" id="waifuEdgeSide-1" value="right" <?php echo $checked; ?>> 右</label></fieldset> <?php
+    }
+
+    public function waifuEdgeSize_callback() {
         printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[waifuEdgeSide]" id="waifuEdgeSide" value="%s">',
-            isset( $this->live_2d__options['waifuEdgeSide'] ) ? esc_attr( $this->live_2d__options['waifuEdgeSide']) : ''
+            '<input class="regular-text" type="range" name="live_2d_settings_option_name[waifuEdgeSize]" id="waifuEdgeSize" value="%s" min="0" max="1024" /><span class="result"></span>',
+            isset( $this->live_2d__options['waifuEdgeSize'] ) ? esc_attr( $this->live_2d__options['waifuEdgeSize']) : ''
         );
     }
 

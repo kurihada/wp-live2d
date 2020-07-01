@@ -1,6 +1,6 @@
 //全局变量
 window.live2d_settings = Array(); 
-var re = /x/;
+var re = 'WP-Live2D 1.7.0';
 var hltips = 'color:';//定义highlight标记
 console.log(re);
 
@@ -48,7 +48,10 @@ function hideMessage(timeout) {
 }
 
 function initModel(waifuPath, settingsJson) {
-	live2d_settings = settingsJson;
+    live2d_settings = settingsJson;
+    
+    //设置一个单位为px的文字
+    var unitType = 'px';
 
     /* 判断 JQuery */
 	if($ != null){
@@ -59,29 +62,28 @@ function initModel(waifuPath, settingsJson) {
     /* 加载看板娘样式 */
     live2d_settings.waifuSize = live2d_settings.waifuSize.split('x');
     live2d_settings.waifuTipsSize = live2d_settings.waifuTipsSize.split('x');
-    live2d_settings.waifuEdgeSide = live2d_settings.waifuEdgeSide.split(':');
     
     $("#live2d").attr("width",live2d_settings.waifuSize[0]);
     $("#live2d").attr("height",live2d_settings.waifuSize[1]);
     $(".waifu-tips").width(live2d_settings.waifuTipsSize[0]);
     $(".waifu-tips").height(live2d_settings.waifuTipsSize[1]);
-    $(".waifu-tips").css("top",live2d_settings.waifuToolTop);
-    $(".waifu-tips").css("font-size",live2d_settings.waifuFontSize);
+    $(".waifu-tips").css("top",live2d_settings.waifuToolTop + unitType);
+    $(".waifu-tips").css("font-size",live2d_settings.waifuFontSize + unitType);
     //----------从JSON中获取颜色定义----------
     $(".waifu-tips").css("border","1px solid "+live2d_settings.waifuBorderColor);
     $(".waifu-tips").css("background-color",live2d_settings.waifuTipsColor);
     $(".waifu-tips").css("box-shadow","0 3px 15px 2px "+live2d_settings.waifuShadowColor );
     $(".waifu-tips").css("color",live2d_settings.waifuFontsColor);
-    hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个样式所以必须;结尾
+    hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个css所以必须;结尾
    //--------------只是分割线而已-------------
-    $(".waifu-tool").css("font-size",live2d_settings.waifuToolFont);
-    $(".waifu-tool span").css("line-height",live2d_settings.waifuToolLine);
+    $(".waifu-tool").css("font-size",live2d_settings.waifuToolFont + unitType);
+    $(".waifu-tool span").css("line-height",live2d_settings.waifuToolLine + unitType);
     
-    if (live2d_settings.waifuEdgeSide[0] == 'left') $(".waifu").css("left",live2d_settings.waifuEdgeSide[1]+'px');
-    else if (live2d_settings.waifuEdgeSide[0] == 'right') $(".waifu").css("right",live2d_settings.waifuEdgeSide[1]+'px');
+    if (live2d_settings.waifuEdgeSide == 'left') $(".waifu").css("left",live2d_settings.waifuEdgeSize + unitType);
+    else if (live2d_settings.waifuEdgeSide == 'right') $(".waifu").css("right",live2d_settings.waifuEdgeSize + unitType);
     
-    window.waifuResize = function() { $(window).width() <= Number(live2d_settings.waifuMinWidth.replace('px','')) ? $(".waifu").hide() : $(".waifu").show(); };
-    if (live2d_settings.waifuMinWidth != 'disable') { waifuResize(); $(window).resize(function() {waifuResize()}); }
+    window.waifuResize = function() { $(window).width() <= live2d_settings.waifuMinWidth ? $(".waifu").hide() : $(".waifu").show(); };
+    if (live2d_settings.waifuMinWidth != 0) { waifuResize(); $(window).resize(function() {waifuResize()}); }
     
     try {
         if (live2d_settings.waifuDraggable == 'axis-x') $(".waifu").draggable({ axis: "x", revert: live2d_settings.waifuDraggableRevert });

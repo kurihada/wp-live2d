@@ -101,27 +101,31 @@ class live2D_Settings{
         }
 
         if ( isset( $input['waifuFontSize'] ) ) {
-            $sanitary_values['waifuFontSize'] = sanitize_text_field( $input['waifuFontSize'] );
+            $sanitary_values['waifuFontSize'] = (int) $input['waifuFontSize'] ;
         }
 
         if ( isset( $input['waifuToolFont'] ) ) {
-            $sanitary_values['waifuToolFont'] = sanitize_text_field( $input['waifuToolFont'] );
+            $sanitary_values['waifuToolFont'] = (int)$input['waifuToolFont'];
         }
 
         if ( isset( $input['waifuToolLine'] ) ) {
-            $sanitary_values['waifuToolLine'] = sanitize_text_field( $input['waifuToolLine'] );
+            $sanitary_values['waifuToolLine'] = (int)$input['waifuToolLine'];
         }
 
         if ( isset( $input['waifuToolTop'] ) ) {
-            $sanitary_values['waifuToolTop'] = sanitize_text_field( $input['waifuToolTop'] );
+            $sanitary_values['waifuToolTop'] = (int) $input['waifuToolTop'] ;
         }
 
         if ( isset( $input['waifuMinWidth'] ) ) {
-            $sanitary_values['waifuMinWidth'] = sanitize_text_field( $input['waifuMinWidth'] );
+            $sanitary_values['waifuMinWidth'] = (int) $input['waifuMinWidth'] ;
+		}
+		
+		if ( isset( $input['waifuEdgeSide'] ) ) {
+            $sanitary_values['waifuEdgeSide'] = sanitize_text_field( $input['waifuEdgeSide'] );
         }
 
-        if ( isset( $input['waifuEdgeSide'] ) ) {
-            $sanitary_values['waifuEdgeSide'] = sanitize_text_field( $input['waifuEdgeSide'] );
+        if ( isset( $input['waifuEdgeSize'] ) ) {
+            $sanitary_values['waifuEdgeSize'] = (int) $input['waifuEdgeSize'] ;
         }
 
         if ( isset( $input['waifuDraggable'] ) ) {
@@ -195,12 +199,13 @@ class live2D_Settings{
 			$defValue['showWelcomeMessage']=true;
 			$defValue['waifuSize']='280x250';
 			$defValue['waifuTipsSize']='250x70';
-			$defValue['waifuFontSize']='12px';
-			$defValue['waifuToolFont']='14px';
-			$defValue['waifuToolLine']='20px';
-			$defValue['waifuToolTop']='0px';
-			$defValue['waifuMinWidth']='768px';
-			$defValue['waifuEdgeSide']='left:0';
+			$defValue['waifuFontSize']=12;
+			$defValue['waifuToolFont']=14;
+			$defValue['waifuToolLine']=20;
+			$defValue['waifuToolTop']=0;
+			$defValue['waifuMinWidth']=768;
+			$defValue['waifuEdgeSide']='left';
+			$defValue['waifuEdgeSize']=0;
 			$defValue['waifuDraggable']='axis-x';
 			$defValue['waifuDraggableRevert']=true;
 			$defValue['homePageUrl']='auto';

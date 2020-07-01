@@ -146,6 +146,9 @@ class live2D {
 					delMsgInput(keyName,this,arrType);
 				});
 
+				$('input[type=range]').bind('input propertychange', function() {  
+					jQuery(this).next('.result').html(jQuery(this).val());
+				});
 			});
 			
 			function addMsgInput(clsName,obj,typeName){

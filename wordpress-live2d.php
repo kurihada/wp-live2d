@@ -3,7 +3,7 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.6.0
+ * Version: 1.7.0
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  */
@@ -23,8 +23,8 @@ function live2D_style(){
 	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'jquery-ui-draggable');
-    wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js',array('jquery-ui-draggable'));
-	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js',array('live2d_js'));
+    wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js');
+	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js',array('jquery-ui-draggable','live2d_js'));
 }
 add_action( 'get_header', 'live2D_style' );
 

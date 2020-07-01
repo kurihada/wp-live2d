@@ -78,7 +78,7 @@ class live2D_Settings_Toolbar {
 
         add_settings_field(
             'waifuToolFont', // id
-            '工具栏图标（字体）大小', // title
+            '工具栏图标大小(px)', // title
             array( $this, 'waifuToolFont_callback' ), // callback
             'live-2d-settings-toolbar', // page
             'live_2d_setting_toolbar_section' // section
@@ -86,7 +86,7 @@ class live2D_Settings_Toolbar {
 
         add_settings_field(
             'waifuToolLine', // id
-            '工具栏行高', // title
+            '工具栏行高(px)', // title
             array( $this, 'waifuToolLine_callback' ), // callback
             'live-2d-settings-toolbar', // page
             'live_2d_setting_toolbar_section' // section
@@ -94,8 +94,24 @@ class live2D_Settings_Toolbar {
 
         add_settings_field(
             'waifuToolTop', // id
-            '工具栏顶部边距', // title
+            '工具栏顶部边距(px)', // title
             array( $this, 'waifuToolTop_callback' ), // callback
+            'live-2d-settings-toolbar', // page
+            'live_2d_setting_toolbar_section' // section
+        );
+
+        add_settings_field(
+            'waifuToolColor', // id
+            '工具栏图标颜色', // title
+            array( $this, 'waifuToolColor_callback' ), // callback
+            'live-2d-settings-toolbar', // page
+            'live_2d_setting_toolbar_section' // section
+        );
+
+        add_settings_field(
+            'waifuToolHover', // id
+            '鼠标触碰时图标颜色', // title
+            array( $this, 'waifuToolHover_callback' ), // callback
             'live-2d-settings-toolbar', // page
             'live_2d_setting_toolbar_section' // section
         );
@@ -163,22 +179,36 @@ class live2D_Settings_Toolbar {
 
     public function waifuToolFont_callback() {
         printf(
-            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuToolFont]" id="waifuToolFont" value="%s">',
+            '<input type="number" name="live_2d_settings_option_name[waifuToolFont]" id="waifuToolFont" value="%s" min = "0" max="50" >',
             isset( $this->live_2d__options['waifuToolFont'] ) ? esc_attr( $this->live_2d__options['waifuToolFont']) : ''
         );
     }
 
     public function waifuToolLine_callback() {
         printf(
-            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuToolLine]" id="waifuToolLine" value="%s">',
+            '<input type="number" name="live_2d_settings_option_name[waifuToolLine]" id="waifuToolLine" value="%s" min = "0" max="50" >',
             isset( $this->live_2d__options['waifuToolLine'] ) ? esc_attr( $this->live_2d__options['waifuToolLine']) : ''
         );
     }
 
     public function waifuToolTop_callback() {
         printf(
-            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuToolTop]" id="waifuToolTop" value="%s">',
+            '<input type="number" name="live_2d_settings_option_name[waifuToolTop]" id="waifuToolTop" value="%s" min = "-1000" max="1000" >',
             isset( $this->live_2d__options['waifuToolTop'] ) ? esc_attr( $this->live_2d__options['waifuToolTop']) : ''
+        );
+    }
+
+    public function waifuToolColor_callback(){
+        printf(
+            '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuToolColor]" id="waifuToolColor" value="%s"  />',
+            isset( $this->live_2d__options['waifuToolColor'] ) ? esc_attr( $this->live_2d__options['waifuToolColor']) : ''
+        );
+    }
+
+    public function waifuToolHover_callback(){
+        printf(
+            '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuToolHover]" id="waifuToolHover" value="%s"  />',
+            isset( $this->live_2d__options['waifuToolHover'] ) ? esc_attr( $this->live_2d__options['waifuToolHover']) : ''
         );
     }
 }

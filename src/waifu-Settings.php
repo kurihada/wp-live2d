@@ -167,6 +167,14 @@ class live2D_Settings{
 		if ( isset( $input['waifuHighlightColor'] ) ) {
             $sanitary_values['waifuHighlightColor'] = sanitize_text_field( $input['waifuHighlightColor'] );
 		}
+		//新增了工具栏的颜色 工具栏是字体组成的 
+		if ( isset( $input['waifuToolColor'] ) ) {
+            $sanitary_values['waifuToolColor'] = sanitize_text_field( $input['waifuToolColor'] );
+		}
+
+		if ( isset( $input['waifuToolHover'] ) ) {
+            $sanitary_values['waifuToolHover'] = sanitize_text_field( $input['waifuToolHover'] );
+		}
 
         return $sanitary_values;
     }
@@ -216,6 +224,8 @@ class live2D_Settings{
 			$defValue['waifuShadowColor']='rgba(191, 158, 118, 0.2)';
 			$defValue['waifuFontsColor']='#32373c';
 			$defValue['waifuHighlightColor']='#0099cc';
+			$defValue['waifuToolColor']='#5b6c7d';
+			$defValue['waifuToolHover']='#34495e';
 			add_option('live_2d_settings_option_name',$defValue);
 		}
     }

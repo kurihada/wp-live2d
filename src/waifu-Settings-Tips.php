@@ -70,7 +70,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuFontSize', // id
-            '提示框字号', // title
+            '提示框字号(px)', // title
             array( $this, 'waifuFontSize_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -174,7 +174,7 @@ class live2D_Settings_Tips {
 
     public function waifuFontSize_callback() {
         printf(
-            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuFontSize]" id="waifuFontSize" value="%s">',
+            '<input type="number" name="live_2d_settings_option_name[waifuFontSize]" id="waifuFontSize" value="%s" min = "0" max="50" >',
             isset( $this->live_2d__options['waifuFontSize'] ) ? esc_attr( $this->live_2d__options['waifuFontSize']) : ''
         );
     }

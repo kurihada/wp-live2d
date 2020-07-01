@@ -48,7 +48,7 @@ class live2D_Settings_Style {
 
         add_settings_field(
             'waifuMinWidth', // id
-            '面页小于指定宽度 隐藏看板娘', // title
+            '面页小于指定宽度(px) <br/>隐藏看板娘', // title
             array( $this, 'waifuMinWidth_callback' ), // callback
             'live-2d-settings-style', // page
             'live_2d_setting_style_section' // section
@@ -64,7 +64,7 @@ class live2D_Settings_Style {
 
         add_settings_field(
             'waifuEdgeSize', // id
-            '看板娘贴边距离', // title
+            '看板娘贴边距离(px)', // title
             array( $this, 'waifuEdgeSize_callback' ), // callback
             'live-2d-settings-style', // page
             'live_2d_setting_style_section' // section
@@ -127,8 +127,8 @@ class live2D_Settings_Style {
 
     public function waifuMinWidth_callback() {
         printf(
-            '<input class="regular-text" type="number" name="live_2d_settings_option_name[waifuMinWidth]" id="waifuMinWidth" value="%s" min="0" max="1024" />
-            <p>0为禁用</p>',
+            '<input type="number" name="live_2d_settings_option_name[waifuMinWidth]" id="waifuMinWidth" value="%s" min="0" max="1024" />
+            <p>设置为 0 时禁用</p>',
             isset( $this->live_2d__options['waifuMinWidth'] ) ? esc_attr( $this->live_2d__options['waifuMinWidth']) : ''
         );
     }

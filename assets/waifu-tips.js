@@ -75,6 +75,11 @@ function initModel(waifuPath, settingsJson) {
     $(".waifu-tips").css("box-shadow","0 3px 15px 2px "+live2d_settings.waifuShadowColor );
     $(".waifu-tips").css("color",live2d_settings.waifuFontsColor);
     hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个css所以必须;结尾
+    $(".waifu-tool span").hover(function (){
+        jQuery(this).css("color",live2d_settings.waifuToolHover);
+    }).mouseout(function () {
+        jQuery(this).css("color",live2d_settings.waifuToolColor);
+    }).css("color",live2d_settings.waifuToolColor);
    //--------------只是分割线而已-------------
     $(".waifu-tool").css("font-size",live2d_settings.waifuToolFont + unitType);
     $(".waifu-tool span").css("line-height",live2d_settings.waifuToolLine + unitType);

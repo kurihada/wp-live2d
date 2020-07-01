@@ -54,9 +54,6 @@
 2. 点击启用按钮开始使用看板娘。
 
 
-![20200620212435](https://user-images.githubusercontent.com/38683169/85273157-d25fed80-b4af-11ea-8b9e-074454a3575d.jpg)
-![20200620212430](https://user-images.githubusercontent.com/38683169/85273167-d7bd3800-b4af-11ea-8bcd-b5604feb9c94.png)
-
 ## 版权声明
 
 > ( ˃ ˄ ˂̥̥ ) 都看到这了，点个 Star 吧 ~

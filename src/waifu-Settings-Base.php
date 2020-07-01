@@ -104,6 +104,8 @@ class live2D_Settings_Base {
             <option <?php echo $selected; ?>>hitokoto.cn</option>
             <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'jinrishici.com') ? 'selected' : '' ; ?>
             <option <?php echo $selected; ?>>jinrishici.com</option>
+            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'fghrsh.net') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>fghrsh.net</option>
         </select> <?php
     }
 

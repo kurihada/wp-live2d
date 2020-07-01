@@ -12,6 +12,9 @@
 3. 修正设置文案准确性
 4. 修正文本框与数字类型内容，强类型语言应该有的样子
 5. type="range" 不是很好用，我觉得不够直观，只在一个功能上使用了
+6. 减少了一个设置项
+7. 删除了一些没有什么用处的JS判断，精简waifu-tips.js的代码
+8. 修正了一个Chrome浏览器中的警告
 
 以下是默认值：
 - 工具栏图标颜色：#5b6c7d
@@ -59,15 +62,15 @@
 > ( ˃ ˄ ˂̥̥ ) 都看到这了，点个 Star 吧 ~
 
 [Flat UI Free][1]  
-[live2d_src / ©journey-ad / GPL v2.0][2]  
-[waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][3]  
-[fghrsh.net][4]
+[waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][2]  
+[fghrsh.net][3]  
+[hclonely.com][4]
 
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
-  [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
-  [3]: https://imjad.cn/ "猫与向日葵"
-  [4]: https://www.fghrsh.net/post/123.html "fghrsh.net"
+  [2]: https://imjad.cn/ "猫与向日葵"
+  [3]: https://www.fghrsh.net/post/123.html "fghrsh.net"
+  [4]: https://github.com/HCLonely/Live2dV3 "hclonely.com 的Live2D v3版本基础上进行修改"
   
 - 请勿将本插件使用在商业网站中！
 - Do not use this plugin on commercial websites！

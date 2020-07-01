@@ -180,35 +180,35 @@ class live2D_Settings_Toolbar {
     public function waifuToolFont_callback() {
         printf(
             '<input type="number" name="live_2d_settings_option_name[waifuToolFont]" id="waifuToolFont" value="%s" min = "0" max="50" >',
-            isset( $this->live_2d__options['waifuToolFont'] ) ? esc_attr( $this->live_2d__options['waifuToolFont']) : ''
+            isset( $this->live_2d__options['waifuToolFont'] ) ? esc_attr( $this->live_2d__options['waifuToolFont']) : 14
         );
     }
 
     public function waifuToolLine_callback() {
         printf(
             '<input type="number" name="live_2d_settings_option_name[waifuToolLine]" id="waifuToolLine" value="%s" min = "0" max="50" >',
-            isset( $this->live_2d__options['waifuToolLine'] ) ? esc_attr( $this->live_2d__options['waifuToolLine']) : ''
+            isset( $this->live_2d__options['waifuToolLine'] ) ? esc_attr( $this->live_2d__options['waifuToolLine']) : 20
         );
     }
 
     public function waifuToolTop_callback() {
         printf(
             '<input type="number" name="live_2d_settings_option_name[waifuToolTop]" id="waifuToolTop" value="%s" min = "-1000" max="1000" >',
-            isset( $this->live_2d__options['waifuToolTop'] ) ? esc_attr( $this->live_2d__options['waifuToolTop']) : ''
+            isset( $this->live_2d__options['waifuToolTop'] ) ? esc_attr( $this->live_2d__options['waifuToolTop']) : 0
         );
     }
 
     public function waifuToolColor_callback(){
         printf(
             '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuToolColor]" id="waifuToolColor" value="%s"  />',
-            isset( $this->live_2d__options['waifuToolColor'] ) ? esc_attr( $this->live_2d__options['waifuToolColor']) : ''
+            isset( $this->live_2d__options['waifuToolColor'] ) ? esc_attr( $this->live_2d__options['waifuToolColor']) : '#5b6c7d'
         );
     }
 
     public function waifuToolHover_callback(){
         printf(
             '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuToolHover]" id="waifuToolHover" value="%s"  />',
-            isset( $this->live_2d__options['waifuToolHover'] ) ? esc_attr( $this->live_2d__options['waifuToolHover']) : ''
+            isset( $this->live_2d__options['waifuToolHover'] ) ? esc_attr( $this->live_2d__options['waifuToolHover']) : '#34495e'
         );
     }
 }

@@ -59,28 +59,34 @@ function initModel(waifuPath, settingsJson) {
    }else{
 	   window.$ = jQuery;
    }
-    /* 加载看板娘样式 */
-    $("#live2d").attr("width",live2d_settings.waifuSize['width']);
-    $("#live2d").attr("height",live2d_settings.waifuSize['height']);
-    $(".waifu-tips").width(live2d_settings.waifuTipsSize['width']);
-    $(".waifu-tips").height(live2d_settings.waifuTipsSize['height']);
-    $(".waifu-tips").css("top",live2d_settings.waifuToolTop + unitType);
-    $(".waifu-tips").css("font-size",live2d_settings.waifuFontSize + unitType);
+    /* 加载Live2D容器样式 */
+    $("#live2d").attr({
+        "width":live2d_settings.waifuSize['width'],
+        "height":live2d_settings.waifuSize['height']
+    });
     //----------从JSON中获取颜色定义----------
-    $(".waifu-tips").css("border","1px solid "+live2d_settings.waifuBorderColor);
-    $(".waifu-tips").css("background-color",live2d_settings.waifuTipsColor);
-    $(".waifu-tips").css("box-shadow","0 3px 15px 2px "+live2d_settings.waifuShadowColor );
-    $(".waifu-tips").css("color",live2d_settings.waifuFontsColor);
-    hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个css所以必须;结尾
+    $(".waifu-tips").css({
+        "width":live2d_settings.waifuTipsSize['width'] + unitType,      //宽度
+        "height":live2d_settings.waifuTipsSize['height'] + unitType,    //高度
+        "top":live2d_settings.waifuToolTop + unitType,                  //上方位置可以是负数
+        "font-size":live2d_settings.waifuFontSize + unitType,           //字号
+        "border":"1px solid "+live2d_settings.waifuBorderColor,         //边框颜色 固定值是1px实心线条
+        "background-color":live2d_settings.waifuTipsColor,              //背景色
+        "box-shadow":"0 3px 15px 2px "+live2d_settings.waifuShadowColor,//影子的颜色 有4个位置默认值
+        "color":live2d_settings.waifuFontsColor                         //字体颜色
+    });
     $(".waifu-tool span").hover(function (){
         jQuery(this).css("color",live2d_settings.waifuToolHover);
     }).mouseout(function () {
         jQuery(this).css("color",live2d_settings.waifuToolColor);
-    }).css("color",live2d_settings.waifuToolColor);
-   //--------------只是分割线而已-------------
+    }).css({
+        "color":live2d_settings.waifuToolColor,
+        "line-height":live2d_settings.waifuToolLine + unitType
+    });
+    //--------------只是分割线而已-------------
     $(".waifu-tool").css("font-size",live2d_settings.waifuToolFont + unitType);
-    $(".waifu-tool span").css("line-height",live2d_settings.waifuToolLine + unitType);
-    
+    hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个css所以必须;结尾
+
     if (live2d_settings.waifuEdgeSide == 'left') $(".waifu").css("left",live2d_settings.waifuEdgeSize + unitType);
     else if (live2d_settings.waifuEdgeSide == 'right') $(".waifu").css("right",live2d_settings.waifuEdgeSize + unitType);
     
@@ -105,15 +111,13 @@ function initModel(waifuPath, settingsJson) {
         //window.open('https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-02');
         window.open(live2d_settings.aboutPageUrl);
     });
-    
-    if (typeof(waifuPath) == "object") loadTipsMessage(waifuPath); else {
-        $.ajax({
-            cache: true,
-            url: waifuPath == '' ? live2d_settings.tipsMessage : (waifuPath.substr(waifuPath.length-15)=='waifu-tips.json'?waifuPath:waifuPath+'waifu-tips.json'),
-            dataType: "json",
-            success: function (result){ loadTipsMessage(result); }
-        });
-    }
+
+    $.ajax({
+        cache: true,
+        url: waifuPath,
+        dataType: "json",
+        success: function (result){ loadTipsMessage(result); }
+    });
     
     if (!live2d_settings.showToolMenu) $('.waifu-tool').hide();
     if (!live2d_settings.canCloseLive2d) $('.waifu-tool .fui-cross').hide();
@@ -124,7 +128,6 @@ function initModel(waifuPath, settingsJson) {
     if (!live2d_settings.canTurnToHomePage) $('.waifu-tool .fui-home').hide();
     if (!live2d_settings.canTurnToAboutPage) $('.waifu-tool .fui-info-circle').hide();
 
-    if (waifuPath === undefined) waifuPath = '';
     var modelId = localStorage.getItem('modelId');
     var modelTexturesId = localStorage.getItem('modelTexturesId');
     

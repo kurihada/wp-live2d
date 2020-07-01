@@ -184,7 +184,6 @@ class live2D_Settings{
 		$defValue = array();
 		if(FALSE === $live_2d_settings){
 			$defValue['modelAPI']='//live2d.fghrsh.net/api/';
-			$defValue['tipsMessage']='waifu-tips.json';
 			$defValue['hitokotoAPI']='lwl12.com';
 			$defValue['modelId']='1';
 			$defValue['modelTexturesId']='53';

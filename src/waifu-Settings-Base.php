@@ -22,14 +22,6 @@ class live2D_Settings_Base {
         );
 
         add_settings_field(
-            'tipsMessage', // id
-            'waifu-tips.json 位置', // title
-            array( $this, 'tipsMessage_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
-
-        add_settings_field(
             'hitokotoAPI', // id
             '一言 API', // title
             array( $this, 'hitokotoAPI_callback' ), // callback
@@ -78,7 +70,6 @@ class live2D_Settings_Base {
         );
     }
     
-
     public function live_2d__section_info() {
     }
 
@@ -86,13 +77,6 @@ class live2D_Settings_Base {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelAPI]" id="modelAPI" value="%s">',
             isset( $this->live_2d__options['modelAPI'] ) ? esc_attr( $this->live_2d__options['modelAPI']) : ''
-        );
-    }
-
-    public function tipsMessage_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[tipsMessage]" id="tipsMessage" value="%s">',
-            isset( $this->live_2d__options['tipsMessage'] ) ? esc_attr( $this->live_2d__options['tipsMessage']) : ''
         );
     }
 

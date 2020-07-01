@@ -164,12 +164,13 @@ class live2D_Settings_Tips {
     }
     
     public function waifuTipsSize_callback() {
-        ?> <select name="live_2d_settings_option_name[waifuTipsSize]" id="waifuTipsSize">
-            <?php $selected = (isset( $this->live_2d__options['waifuTipsSize'] ) && $this->live_2d__options['waifuTipsSize'] === '250x70') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>250x70</option>
-            <?php $selected = (isset( $this->live_2d__options['waifuTipsSize'] ) && $this->live_2d__options['waifuTipsSize'] === '570x150') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>570x150</option>
-        </select> <?php
+        printf(
+            '<input type="number" name="live_2d_settings_option_name[waifuTipsSize][width]" id="waifuTipsSize_width" value="%s" min = "0" max="1024" > x
+            <input type="number" name="live_2d_settings_option_name[waifuTipsSize][height]" id="waifuTipsSize_height" value="%s" min = "0" max="1024" >
+            <p>由于提示大小不同，请自行设置：宽度 x 高度</p>',
+            isset( $this->live_2d__options['waifuTipsSize']['width'] ) ? esc_attr( $this->live_2d__options['waifuTipsSize']['width']) : '250',
+            isset( $this->live_2d__options['waifuTipsSize']['height'] ) ? esc_attr( $this->live_2d__options['waifuTipsSize']['height']) : '70'
+        );
     }
 
     public function waifuFontSize_callback() {

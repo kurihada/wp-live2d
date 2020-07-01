@@ -60,13 +60,10 @@ function initModel(waifuPath, settingsJson) {
 	   window.$ = jQuery;
    }
     /* 加载看板娘样式 */
-    live2d_settings.waifuSize = live2d_settings.waifuSize.split('x');
-    live2d_settings.waifuTipsSize = live2d_settings.waifuTipsSize.split('x');
-    
-    $("#live2d").attr("width",live2d_settings.waifuSize[0]);
-    $("#live2d").attr("height",live2d_settings.waifuSize[1]);
-    $(".waifu-tips").width(live2d_settings.waifuTipsSize[0]);
-    $(".waifu-tips").height(live2d_settings.waifuTipsSize[1]);
+    $("#live2d").attr("width",live2d_settings.waifuSize['width']);
+    $("#live2d").attr("height",live2d_settings.waifuSize['height']);
+    $(".waifu-tips").width(live2d_settings.waifuTipsSize['width']);
+    $(".waifu-tips").height(live2d_settings.waifuTipsSize['height']);
     $(".waifu-tips").css("top",live2d_settings.waifuToolTop + unitType);
     $(".waifu-tips").css("font-size",live2d_settings.waifuFontSize + unitType);
     //----------从JSON中获取颜色定义----------

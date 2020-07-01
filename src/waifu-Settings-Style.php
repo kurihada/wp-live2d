@@ -117,12 +117,13 @@ class live2D_Settings_Style {
     }
 
     public function waifuSize_callback() {
-        ?> <select name="live_2d_settings_option_name[waifuSize]" id="waifuSize">
-            <?php $selected = (isset( $this->live_2d__options['waifuSize'] ) && $this->live_2d__options['waifuSize'] === '280x250') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>280x250</option>
-            <?php $selected = (isset( $this->live_2d__options['waifuSize'] ) && $this->live_2d__options['waifuSize'] === '600x535') ? 'selected' : '' ; ?>
-            <option <?php echo $selected; ?>>600x535</option>
-        </select> <?php
+         printf(
+            '<input type="number" name="live_2d_settings_option_name[waifuSize][width]" id="waifuSize_width" value="%s" min="0" max="1024" /> x
+            <input type="number" name="live_2d_settings_option_name[waifuSize][height]" id="waifuSize_height" value="%s" min="0" max="1024" />
+            <p>由于看板娘大小不同，请自行设置：宽度 x 高度</p>',
+            isset( $this->live_2d__options['waifuSize']['width'] ) ? esc_attr( $this->live_2d__options['waifuSize']['width']) : '280',
+            isset( $this->live_2d__options['waifuSize']['height'] ) ? esc_attr( $this->live_2d__options['waifuSize']['height']) : '250'
+        );
     }
 
     public function waifuMinWidth_callback() {

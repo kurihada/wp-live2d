@@ -205,8 +205,10 @@ class live2D_Settings{
 			$defValue['showF12OpenMsg']=true;
 			$defValue['showCopyMessage']=true;
 			$defValue['showWelcomeMessage']=true;
-			$defValue['waifuSize']='280x250';
-			$defValue['waifuTipsSize']='250x70';
+			$defValue['waifuSize']['width']=280;
+			$defValue['waifuSize']['height']=250;
+			$defValue['waifuTipsSize']['width']=250;
+			$defValue['waifuTipsSize']['height']=70;
 			$defValue['waifuFontSize']=12;
 			$defValue['waifuToolFont']=14;
 			$defValue['waifuToolLine']=20;

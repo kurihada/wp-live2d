@@ -72,6 +72,7 @@ if ( is_admin() ){
 function live2D_DefMod(){
     // Retrieve this value with:
     $live_2d__options = get_option( 'live_2d_settings_option_name' ); // Array of All Options
+    
     ?>
         <div class="waifu">
             <div class="waifu-tips"></div>

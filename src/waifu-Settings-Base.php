@@ -46,14 +46,6 @@ class live2D_Settings_Base {
         );
 
         add_settings_field(
-            'homePageUrl', // id
-            '主页地址', // title
-            array( $this, 'homePageUrl_callback' ), // callback
-            'live-2d-settings-base', // page
-            'live_2d_setting_base_section' // section
-        );
-
-        add_settings_field(
             'aboutPageUrl', // id
             '关于页地址', // title
             array( $this, 'aboutPageUrl_callback' ), // callback
@@ -71,6 +63,10 @@ class live2D_Settings_Base {
     }
     
     public function live_2d__section_info() {
+        printf(
+            '<input type="hidden" name="live_2d_settings_option_name[homePageUrl]" id="homePageUrl" value="%s">',
+            get_home_url()
+        );
     }
 
     public function modelAPI_callback() {
@@ -116,15 +112,6 @@ class live2D_Settings_Base {
         printf(
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelTexturesId]" id="modelTexturesId" value="%s">',
             isset( $this->live_2d__options['modelTexturesId'] ) ? esc_attr( $this->live_2d__options['modelTexturesId']) : ''
-        );
-    }
-
-    
-
-    public function homePageUrl_callback() {
-        printf(
-            '<input class="regular-text" type="text" name="live_2d_settings_option_name[homePageUrl]" id="homePageUrl" value="%s">',
-            isset( $this->live_2d__options['homePageUrl'] ) ? esc_attr( $this->live_2d__options['homePageUrl']) : ''
         );
     }
 

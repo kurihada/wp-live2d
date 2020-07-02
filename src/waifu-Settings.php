@@ -217,7 +217,7 @@ class live2D_Settings{
 			$defValue['waifuEdgeSize']=0;
 			$defValue['waifuDraggable']='axis-x';
 			$defValue['waifuDraggableRevert']=true;
-			$defValue['homePageUrl']='auto';
+			$defValue['homePageUrl']=get_home_url();
 			$defValue['aboutPageUrl']='#';
 			$defValue['screenshotCaptureName']='live2d.png';
 			$defValue['waifuTipsColor']='rgba(236, 217, 188, 0.5)';

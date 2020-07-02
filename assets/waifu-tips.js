@@ -97,18 +97,13 @@ function initModel(waifuPath, settingsJson) {
         if (live2d_settings.waifuDraggable == 'axis-x') $(".waifu").draggable({ axis: "x", revert: live2d_settings.waifuDraggableRevert });
         else if (live2d_settings.waifuDraggable == 'unlimited') $(".waifu").draggable({ revert: live2d_settings.waifuDraggableRevert });
         else $(".waifu").css("transition", 'all .3s ease-in-out');
-    } catch(err) { console.log('[Error] JQuery UI is not defined.') }
-    
-    live2d_settings.homePageUrl = live2d_settings.homePageUrl == 'auto' ? window.location.protocol+'//'+window.location.hostname+'/' : live2d_settings.homePageUrl;
-    if (window.location.protocol == 'file:' && live2d_settings.modelAPI.substr(0,2) == '//') live2d_settings.modelAPI = 'http:'+live2d_settings.modelAPI;
+    } catch(err) { console.info('[Error] JQuery UI is not defined.'+ err) }
     
     $('.waifu-tool .fui-home').click(function (){
-        //window.location = 'https://www.fghrsh.net/';
         window.location = live2d_settings.homePageUrl;
     });
     
     $('.waifu-tool .fui-info-circle').click(function (){
-        //window.open('https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-02');
         window.open(live2d_settings.aboutPageUrl);
     });
 

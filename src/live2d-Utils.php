@@ -147,6 +147,14 @@ class live2D_Utils{
 		$screen = get_current_screen();
 		// 设置帮助文档
 		$screen->add_help_tab( array(
+			'id'	=> 'live_2d_base_help_tab',
+			'title'	=> __('基础设置帮助'),
+			'content'	=> '<p>默认模型 ID：由于怕用户设置错误，此项目暂时不开放设置。</p>'.
+			'<p>关于页地址：请填写完整的URL或相对路径。</p>'.
+			'<p>看板娘截图文件名：当您点击工具栏中的截图按钮时，保存文件的默认名称。</p>'
+		) );
+
+		$screen->add_help_tab( array(
 			'id'	=> 'live_2d_advanced_help_tab',
 			'title'	=> __('高级设置帮助'),
 			'content'	=> '<p>高级设置中点击&nbsp;<input class="button" type="button" value="+ 点击此处增加一条" id="show_btn">&nbsp;就会在同一个事件中增加随机语言。</p>

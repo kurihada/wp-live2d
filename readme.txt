@@ -113,19 +113,19 @@ License: MIT
 
 == Frequently Asked Questions ==
 
-原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个
+- 在樱花庄的白猫主题中测试兼容性正常，请在使用之前清理之前安装的Live2D功能避免JS冲突
+
+- 版本更新将在每周四进行，感谢各位的支持。
+
+- 2.0版本更新预计在7月下旬，将支持moc3模型显示，以兼容4.0生成的Live2D模型
+
+- 原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个
 1. 模型文件太大了，我从https://github.com/fghrsh/live2d_api 上面下载，200多MB啊！
 2. API没有加密传输，如果你本人搭建了这套API，之后被别人发现了（可以从源代码中找到）会导致大量调用
 
-所以不是很建议自己搭建，不过我也有考虑做一个承载这个用的服务器，配合aliyun OSS进行数据传递。
-后续到2.0或者3.0版本我会发布这个功能（挖深坑）
 
 == Screenshots ==
-
-![20200620212435](https://user-images.githubusercontent.com/38683169/85273157-d25fed80-b4af-11ea-8b9e-074454a3575d.jpg)
-![20200620212430](https://user-images.githubusercontent.com/38683169/85273167-d7bd3800-b4af-11ea-8bcd-b5604feb9c94.png)
-
-
+None
 
 == Changelog ==
 
@@ -137,7 +137,7 @@ License: MIT
 4. 修正文本框与数字类型内容，强类型语言应该有的样子
 5. type="range" 不是很好用，我觉得不够直观，只在一个功能上使用了
 6. 减少了设置项：
-- waifu-tips.js位置没有必要进行设置，我不说您都不知道是什么
+- waifu-tips.js位置没有必要进行设置，有可能带来不必要的麻烦
 - 主页地址设置，您已经在WordPress中设置过了，没有必要再设置一次，我将会自己读取他
 7. 删除了一些没有什么用处的JS判断，精简waifu-tips.js的代码
 8. 修正了一个Chrome浏览器中的警告

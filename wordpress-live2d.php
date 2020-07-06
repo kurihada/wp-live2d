@@ -23,9 +23,14 @@ function live2D_style(){
 	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'jquery-ui-draggable');
+	// 加载V4 SDK
     wp_enqueue_script( 'live2dv3_core' ,LIVE2D_ASSETS.'live2dcubismcore.min.js');
-    wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js',array('live2dv3_core'));
-	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js',array('jquery-ui-draggable','live2d_js'));
+	// 加载依赖分包
+	wp_enqueue_script( 'live2d_vendors_js' ,LIVE2D_ASSETS.'live2d_vendors~main.js');
+	wp_enqueue_script( 'live2d_framework_js' ,LIVE2D_ASSETS.'live2d_framework~main.js',array('live2dv3_core','live2d_vendors_js'));
+	
+    wp_enqueue_script( 'live2d_main_js' ,LIVE2D_ASSETS.'live2d.js',array('live2d_framework_js'));
+	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js',array('jquery-ui-draggable','live2d_main_js'));
 }
 add_action( 'get_header', 'live2D_style' );
 

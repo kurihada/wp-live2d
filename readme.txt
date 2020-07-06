@@ -22,15 +22,12 @@ License: MIT
 ## 版权声明
 
 [Flat UI Free][1]  
-[waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][2]  
+[live2d_src / ©journey-ad / GPL v2.0][2]  
 [fghrsh.net][3]  
-[hclonely.com][4]
-
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
-  [2]: https://imjad.cn/ "猫与向日葵"
+  [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
   [3]: https://www.fghrsh.net/post/123.html "fghrsh.net"
-  [4]: https://github.com/HCLonely/Live2dV3 "hclonely.com 的Live2D v3版本基础上进行修改"
   
 - 请勿将本插件使用在商业网站中！
 - Do not use this plugin on commercial websites！
@@ -113,13 +110,13 @@ License: MIT
 
 == Frequently Asked Questions ==
 
-- 在樱花庄的白猫主题中测试兼容性正常，请在使用之前清理之前安装的Live2D功能避免JS冲突
+- 2.0版本更新预计在7月下旬，将支持moc3模型显示，以兼容4.0生成的Live2D模型
 
 - 版本更新将在每周四进行，感谢各位的支持。
 
-- 2.0版本更新预计在7月下旬，将支持moc3模型显示，以兼容4.0生成的Live2D模型
+- 3.0版本将进行繁体中文版本开发。从而便于多语言支持
 
-- 原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个
+- 原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个：
 1. 模型文件太大了，我从https://github.com/fghrsh/live2d_api 上面下载，200多MB啊！
 2. API没有加密传输，如果你本人搭建了这套API，之后被别人发现了（可以从源代码中找到）会导致大量调用
 
@@ -136,6 +133,7 @@ None
 3. 修正：默认模型 ID改为手动填写（我通过来访页面找到了各位的网站，发现我如果固定这个选项会给各位带来不便）
 4. 如果有问题欢迎在Github上反馈[issues](https://github.com/jiangweifang/wp-live2d/issues)
 5. 本次更新不会改变您当前的任何设置。
+6. 在樱花庄的白猫主题中测试兼容性正常，请在使用之前清理之前安装的Live2D功能避免JS冲突
 
 = 1.6.1 =
 

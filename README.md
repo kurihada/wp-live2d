@@ -67,18 +67,13 @@
 
 ## 版权声明
 
-> ( ˃ ˄ ˂̥̥ ) 都看到这了，点个 Star 吧 ~
-
 [Flat UI Free][1]  
-[waifu-tips.js / ©journey-ad / CC BY-NC-SA 4.0][2]  
+[live2d_src / ©journey-ad / GPL v2.0][2]  
 [fghrsh.net][3]  
-[hclonely.com][4]
-
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
-  [2]: https://imjad.cn/ "猫与向日葵"
+  [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
   [3]: https://www.fghrsh.net/post/123.html "fghrsh.net"
-  [4]: https://github.com/HCLonely/Live2dV3 "hclonely.com 的Live2D v3版本基础上进行修改"
   
 - 请勿将本插件使用在商业网站中！
 - Do not use this plugin on commercial websites！

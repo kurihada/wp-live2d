@@ -90,22 +90,11 @@ class live2D_Settings_Base {
     }
 
     public function modelId_callback() {
-        ?> <select name="live_2d_settings_option_name[modelId]" id="modelId">
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '1') ? 'selected' : '' ; ?>
-            <option value="1" <?php echo $selected; ?>>来自药水制作师的 Pio</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '2') ? 'selected' : '' ; ?>
-            <option value="2" <?php echo $selected; ?>>来自药水制作师的 Tia</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '3') ? 'selected' : '' ; ?>
-            <option value="3" <?php echo $selected; ?>>来自 Bilibili Live 的 22</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '4') ? 'selected' : '' ; ?>
-            <option value="4" <?php echo $selected; ?>>来自 Bilibili Live 的 33</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '5') ? 'selected' : '' ; ?>
-            <option value="5" <?php echo $selected; ?>>Shizuku Talk ！这里是 Shizuku</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '6') ? 'selected' : '' ; ?>
-            <option value="6" <?php echo $selected; ?>>超次元游戏：海王星</option>
-            <?php $selected = (isset( $this->live_2d__options['modelId'] ) && $this->live_2d__options['modelId'] === '7') ? 'selected' : '' ; ?>
-            <option value="7" <?php echo $selected; ?>>艦隊これくしょん / 叢雲(むらくも)</option>
-        </select> <?php
+        printf(
+            '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelId]" id="modelId" value="%s">',
+            isset( $this->live_2d__options['modelId'] ) ? esc_attr( $this->live_2d__options['modelId']) : ''
+        );
+        echo '<p>您可以在此处直接填写模型ID</p>';
     }
 
     public function modelTexturesId_callback() {
@@ -113,6 +102,7 @@ class live2D_Settings_Base {
             '<input class="regular-text" type="text" name="live_2d_settings_option_name[modelTexturesId]" id="modelTexturesId" value="%s">',
             isset( $this->live_2d__options['modelTexturesId'] ) ? esc_attr( $this->live_2d__options['modelTexturesId']) : ''
         );
+        echo '<p>您可以在此处直接填写皮肤ID</p>';
     }
 
     public function aboutPageUrl_callback() {

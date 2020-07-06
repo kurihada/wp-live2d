@@ -1,8 +1,8 @@
 //全局变量
 window.live2d_settings = Array(); 
-var re = 'WP-Live2D 1.6.1';
+var re = /x/;
 var hltips = 'color:';//定义highlight标记
-console.log(re);
+console.log(re + 'WP-Live2D 1.6.2');
 
 String.prototype.render = function(context) {
     var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;

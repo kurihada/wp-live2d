@@ -4,7 +4,7 @@ Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: MIT
 
 == Description ==
@@ -128,6 +128,14 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.6.2 =
+
+1. 本次更新将会实装 Cubism Live2D SDK 4.0 以便测试版本
+2. 由于打包JS文件变大，我会尽量在2.0上线之前进行拆分
+3. 修正：默认模型 ID改为手动填写（我通过来访页面找到了各位的网站，发现我如果固定这个选项会给各位带来不便）
+4. 如果有问题欢迎在Github上反馈[issues](https://github.com/jiangweifang/wp-live2d/issues)
+5. 本次更新不会改变您当前的任何设置。
 
 = 1.6.1 =
 

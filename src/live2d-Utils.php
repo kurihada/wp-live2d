@@ -149,7 +149,7 @@ class live2D_Utils{
 		$screen->add_help_tab( array(
 			'id'	=> 'live_2d_base_help_tab',
 			'title'	=> __('基础设置帮助'),
-			'content'	=> '<p>默认模型 ID：由于怕用户设置错误，此项目暂时不开放设置。</p>'.
+			'content'	=> ''.
 			'<p>关于页地址：请填写完整的URL或相对路径。</p>'.
 			'<p>看板娘截图文件名：当您点击工具栏中的截图按钮时，保存文件的默认名称。</p>'
 		) );

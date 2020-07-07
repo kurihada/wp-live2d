@@ -46,6 +46,14 @@ class live2D_Settings_Base {
         );
 
         add_settings_field(
+            'modelZoomNumberV2', // id
+            '模型缩放倍数', // title
+            array( $this, 'modelZoomNumberV2_callback' ), // callback
+            'live-2d-settings-base', // page
+            'live_2d_setting_base_section' // section
+        );
+
+        add_settings_field(
             'aboutPageUrl', // id
             '关于页地址', // title
             array( $this, 'aboutPageUrl_callback' ), // callback
@@ -103,6 +111,14 @@ class live2D_Settings_Base {
             isset( $this->live_2d__options['modelTexturesId'] ) ? esc_attr( $this->live_2d__options['modelTexturesId']) : ''
         );
         echo '<p>您可以在此处直接填写皮肤ID</p>';
+    }
+
+    public function modelZoomNumberV2_callback(){
+        printf(
+            '<input type="number" name="live_2d_settings_option_name[modelZoomNumberV2]" id="modelZoomNumberV2" value="%s" step="0.1" min="1.0" max="10.0" />
+            <p>设置看板娘在画框中的缩放比例，最小1倍，最大10倍，可以有小数点</p>',
+            isset( $this->live_2d__options['modelZoomNumberV2'] ) ? esc_attr( $this->live_2d__options['modelZoomNumberV2']) : '1.0'
+        );
     }
 
     public function aboutPageUrl_callback() {

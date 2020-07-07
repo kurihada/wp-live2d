@@ -22,7 +22,11 @@ class live2D_Settings{
 
         if ( isset( $input['modelTexturesId'] ) ) {
             $sanitary_values['modelTexturesId'] = sanitize_text_field( $input['modelTexturesId'] );
-        }
+		}
+		
+		if ( isset( $input['modelZoomNumberV2'] ) ) {
+            $sanitary_values['modelZoomNumberV2'] = number_format($input['modelZoomNumberV2'],1);
+		}
 
         if ( isset( $input['showToolMenu'] ) ) {
             $sanitary_values['showToolMenu'] = (Boolean)$input['showToolMenu'];
@@ -187,6 +191,7 @@ class live2D_Settings{
 			$defValue['hitokotoAPI']='lwl12.com';
 			$defValue['modelId']='1';
 			$defValue['modelTexturesId']='53';
+			$defValue['modelZoomNumberV2']='1.0';
 			$defValue['showToolMenu']=true;
 			$defValue['canCloseLive2d']=true;
 			$defValue['canSwitchModel']=true;

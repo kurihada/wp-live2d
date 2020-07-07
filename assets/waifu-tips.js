@@ -220,31 +220,35 @@ function loadTipsMessage(result) {
 			var titleStr = document.title.split(' – ')[0];
 			// 在document.referrer不为空的时候执行
             if (document.referrer !== '') {
-                var referrer = document.createElement('a');
-                referrer.href = document.referrer;
-                var domain = referrer.hostname.split('.')[1];
-                if (window.location.hostname == referrer.hostname){
-                    //text = referrer_message.localhost[0] + document.title.split(referrer_message.localhost[2])[0] + referrer_message.localhost[1];
-					text = referrer_message.localhost[0];
-					text = text.render({title: titleStr,highlight: hltips});
-				} else if (domain == 'baidu'){
-                    //text = referrer_message.baidu[0] + referrer.search.split('&wd=')[1].split('&')[0] + referrer_message.baidu[1];
-					text = referrer_message.baidu[0];
-					text = text.render({keyword: referrer.search.split('&wd=')[1].split('&')[0],highlight: hltips});
-				} else if (domain == 'so'){
-                    //text = referrer_message.so[0] + referrer.search.split('&q=')[1].split('&')[0] + referrer_message.so[1];
-					text = referrer_message.so[0];
-					text = text.render({keyword: referrer.search.split('&q=')[1].split('&')[0],highlight: hltips});
-                } else if (domain == 'google'){
-                    //text = referrer_message.google[0] + document.title.split(referrer_message.google[2])[0] + referrer_message.google[1];
-					text = referrer_message.google[0];
-					text = text.render({title: titleStr,highlight: hltips});
-				} else {
-                    $.each(result.waifu.referrer_hostname, function(i,val) {if (i==referrer.hostname) referrer.hostname = getRandText(val)});
-                    //text = referrer_message.default[0] + referrer.hostname + referrer_message.default[1];
-					text = referrer_message.default[0];
-					text = text.render({website: referrer.hostname,highlight: hltips});
-                }
+				try{
+					var referrer = document.createElement('a');
+					referrer.href = document.referrer;
+					var domain = referrer.hostname.split('.')[1];
+					if (window.location.hostname == referrer.hostname){
+						//text = referrer_message.localhost[0] + document.title.split(referrer_message.localhost[2])[0] + referrer_message.localhost[1];
+						text = referrer_message.localhost[0];
+						text = text.render({title: titleStr,highlight: hltips});
+					} else if (domain == 'baidu'){
+						//text = referrer_message.baidu[0] + referrer.search.split('&wd=')[1].split('&')[0] + referrer_message.baidu[1];
+						text = referrer_message.baidu[0];
+						text = text.render({keyword: referrer.search.split('&wd=')[1].split('&')[0],highlight: hltips});
+					} else if (domain == 'so'){
+						//text = referrer_message.so[0] + referrer.search.split('&q=')[1].split('&')[0] + referrer_message.so[1];
+						text = referrer_message.so[0];
+						text = text.render({keyword: referrer.search.split('&q=')[1].split('&')[0],highlight: hltips});
+					} else if (domain == 'google'){
+						//text = referrer_message.google[0] + document.title.split(referrer_message.google[2])[0] + referrer_message.google[1];
+						text = referrer_message.google[0];
+						text = text.render({title: titleStr,highlight: hltips});
+					} else {
+						$.each(result.waifu.referrer_hostname, function(i,val) {if (i==referrer.hostname) referrer.hostname = getRandText(val)});
+						//text = referrer_message.default[0] + referrer.hostname + referrer_message.default[1];
+						text = referrer_message.default[0];
+						text = text.render({website: referrer.hostname,highlight: hltips});
+					}
+				}catch(err){
+					console.log('It is not important Exception '+ err)
+				}
             } else{ 
 				//text = referrer_message.none[0] + document.title.split(referrer_message.none[2])[0] + referrer_message.none[1];
 				text = referrer_message.none[0];

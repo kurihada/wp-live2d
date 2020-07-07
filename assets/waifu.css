@@ -26,6 +26,7 @@
     animation-timing-function: ease-in-out;
 }
 .waifu-tool {
+    z-index: 22;
     display: none;
     color: #aaa;
     top: 60px;

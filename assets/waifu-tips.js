@@ -260,6 +260,9 @@ function loadTipsMessage(result) {
     
     var waifu_tips = result.waifu;
     
+    /**
+     * 读取其他的模型
+     */
     function loadOtherModel() {
         var modelId = modelStorageGetItem('modelId');
         var modelRandMode = live2d_settings.modelRandMode;
@@ -276,7 +279,9 @@ function loadTipsMessage(result) {
             }
         });
     }
-    
+    /**
+     * 读取模型更多的皮肤
+     */
     function loadRandTextures() {
         var modelId = modelStorageGetItem('modelId');
         var modelTexturesId = modelStorageGetItem('modelTexturesId');

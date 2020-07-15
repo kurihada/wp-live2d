@@ -3,7 +3,7 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.6.2
+ * Version: 1.6.3
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  */

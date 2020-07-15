@@ -2,7 +2,7 @@
 window.live2d_settings = Array(); 
 var re = /x/;
 var hltips = 'color:';//定义highlight标记
-console.log(re + 'WP-Live2D 1.6.2');
+console.log(re + 'WP-Live2D 1.6.3');
 
 String.prototype.render = function(context) {
     var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
@@ -140,7 +140,13 @@ function loadModel(modelId, modelTexturesId=0,zoom = 1.0) {
         sessionStorage.setItem('modelId', modelId);
         sessionStorage.setItem('modelTexturesId', modelTexturesId);
     } 
-    loadlive2d('live2d', live2d_settings.modelAPI+'get/?id='+modelId+'-'+modelTexturesId,
+    let modelPath;
+    if(live2d_settings.modelAPI.indexOf('model3.json') > 0 ){
+        modelPath = live2d_settings.modelAPI;
+    }else{
+        modelPath = live2d_settings.modelAPI+'get/?id='+modelId+'-'+modelTexturesId;
+    }
+    loadlive2d('live2d', modelPath,
         (live2d_settings.showF12Status ? console.log('[Status]','live2d','模型',modelId+'-'+modelTexturesId,'加载完成'):null),
         zoom
     );
@@ -260,9 +266,6 @@ function loadTipsMessage(result) {
     
     var waifu_tips = result.waifu;
     
-    /**
-     * 读取其他的模型
-     */
     function loadOtherModel() {
         var modelId = modelStorageGetItem('modelId');
         var modelRandMode = live2d_settings.modelRandMode;
@@ -279,9 +282,7 @@ function loadTipsMessage(result) {
             }
         });
     }
-    /**
-     * 读取模型更多的皮肤
-     */
+    
     function loadRandTextures() {
         var modelId = modelStorageGetItem('modelId');
         var modelTexturesId = modelStorageGetItem('modelTexturesId');

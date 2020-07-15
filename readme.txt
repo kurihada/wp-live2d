@@ -4,7 +4,7 @@ Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 License: MIT
 
 == Description ==
@@ -125,6 +125,15 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.6.3 =
+
+今后大部分更新针对live2d.js文件，请更新之后清理您的cdn加速，以便缓存新版本js文件
+
+1. 对于Cubism Live2D SDK 4.0的鼠标事件进行算法修改
+2. moc3模型的鼠标跟随视角更宽广
+3. moc3模型背景透明
+4. 您可以直接将后台api地址更换为model3.json的相对地址，以展示moc3的模型，这个地址可以是一个jsdelivr.com
 
 = 1.6.2 =
 

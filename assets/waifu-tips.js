@@ -68,7 +68,7 @@ function initModel(waifuPath, settingsJson) {
     $(".waifu-tips").css({
         "width":live2d_settings.waifuTipsSize['width'] + unitType,      //宽度
         "height":live2d_settings.waifuTipsSize['height'] + unitType,    //高度
-        "top":live2d_settings.waifuToolTop + unitType,                  //上方位置可以是负数
+        "top":(0 - live2d_settings.waifuTipTop) + unitType,                  //上方位置可以是负数
         "font-size":live2d_settings.waifuFontSize + unitType,           //字号
         "border":"1px solid "+live2d_settings.waifuBorderColor,         //边框颜色 固定值是1px实心线条
         "background-color":live2d_settings.waifuTipsColor,              //背景色
@@ -84,7 +84,10 @@ function initModel(waifuPath, settingsJson) {
         "line-height":live2d_settings.waifuToolLine + unitType
     });
     //--------------只是分割线而已-------------
-    $(".waifu-tool").css("font-size",live2d_settings.waifuToolFont + unitType);
+    $(".waifu-tool").css({
+        "font-size":live2d_settings.waifuToolFont + unitType,
+        "top":live2d_settings.waifuToolTop + unitType
+    });
     hltips += live2d_settings.waifuHighlightColor + ';';//定义highlight标记并赋值，因为是一个css所以必须;结尾
 
     if (live2d_settings.waifuEdgeSide == 'left') $(".waifu").css("left",live2d_settings.waifuEdgeSize + unitType);

@@ -179,6 +179,10 @@ class live2D_Settings{
 		if ( isset( $input['waifuToolHover'] ) ) {
             $sanitary_values['waifuToolHover'] = sanitize_text_field( $input['waifuToolHover'] );
 		}
+		// 新增tips位置
+		if ( isset( $input['waifuTipTop'] ) ) {
+            $sanitary_values['waifuTipTop'] = (int) $input['waifuTipTop'] ;
+        }
 
         return $sanitary_values;
     }

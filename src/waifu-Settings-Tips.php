@@ -75,6 +75,13 @@ class live2D_Settings_Tips {
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
         );
+        add_settings_field(
+            'waifuTipTop', // id
+            '提示框位置(px)', // title
+            array( $this, 'waifuTipTop_callback' ), // callback
+            'live-2d-settings-tips', // page
+            'live_2d_setting_tips_section' // section
+        );
 
         add_settings_field(
             'waifuTipsColor', // id
@@ -177,6 +184,13 @@ class live2D_Settings_Tips {
         printf(
             '<input type="number" name="live_2d_settings_option_name[waifuFontSize]" id="waifuFontSize" value="%s" min = "0" max="50" >',
             isset( $this->live_2d__options['waifuFontSize'] ) ? esc_attr( $this->live_2d__options['waifuFontSize']) : 12
+        );
+    }
+
+    public function waifuTipTop_callback() {
+        printf(
+            '<input type="number" name="live_2d_settings_option_name[waifuTipTop]" id="waifuTipTop" value="%s"  min = "-1000" max="1000" >',
+            isset( $this->live_2d__options['waifuTipTop'] ) ? esc_attr( $this->live_2d__options['waifuTipTop']) : 0
         );
     }
 

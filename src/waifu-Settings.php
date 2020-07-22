@@ -220,7 +220,7 @@ class live2D_Settings{
 			$defValue['waifuFontSize']=12;
 			$defValue['waifuToolFont']=14;
 			$defValue['waifuToolLine']=20;
-			$defValue['waifuToolTop']=0;
+			$defValue['waifuToolTop']=20;
 			$defValue['waifuMinWidth']=768;
 			$defValue['waifuEdgeSide']='left';
 			$defValue['waifuEdgeSize']=0;

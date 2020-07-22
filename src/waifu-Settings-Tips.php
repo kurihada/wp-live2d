@@ -189,7 +189,8 @@ class live2D_Settings_Tips {
 
     public function waifuTipTop_callback() {
         printf(
-            '<input type="number" name="live_2d_settings_option_name[waifuTipTop]" id="waifuTipTop" value="%s"  min = "-1000" max="1000" >',
+            '<input type="number" name="live_2d_settings_option_name[waifuTipTop]" id="waifuTipTop" value="%s"  min = "-1000" max="1000" >
+            <p>数字越大越靠上</p>',
             isset( $this->live_2d__options['waifuTipTop'] ) ? esc_attr( $this->live_2d__options['waifuTipTop']) : 0
         );
     }

@@ -4,7 +4,7 @@ Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
-Stable tag: 1.6.3
+Stable tag: 1.7.0
 License: MIT
 
 == Description ==
@@ -125,6 +125,13 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.7.0 =
+
+1. 对moc3 鼠标事件进行算法修改，现在模型头部可正确的看鼠标行动了
+2. 新增moc3截图功能，可以点击截图按钮拍下看板娘了
+3. 去掉对moc3模型自动x2倍的缩放算法，改为用户自行调整
+4. 追加了帮助信息，您可以通过后台查看帮助了解具体内容。
 
 = 1.6.3 =
 

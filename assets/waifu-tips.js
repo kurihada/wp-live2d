@@ -2,7 +2,7 @@
 window.live2d_settings = Array(); 
 var re = /x/;
 var hltips = 'color:';//定义highlight标记
-console.log(re + 'WP-Live2D 1.6.3');
+console.log(re + 'WP-Live2D 1.7.0');
 
 String.prototype.render = function(context) {
     var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
@@ -200,8 +200,7 @@ function loadTipsMessage(result) {
     
     $('.waifu-tool .fui-photo').click(function(){
         showMessage(getRandText(result.waifu.screenshot_message), 5000, true);
-        window.Live2D.captureName = live2d_settings.screenshotCaptureName;
-        window.Live2D.captureFrame = true;
+        screenshot(live2d_settings.screenshotCaptureName,true);
     });
     
     $('.waifu-tool .fui-cross').click(function(){

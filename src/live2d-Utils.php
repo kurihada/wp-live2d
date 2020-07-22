@@ -150,6 +150,8 @@ class live2D_Utils{
 			'id'	=> 'live_2d_base_help_tab',
 			'title'	=> __('基础设置帮助'),
 			'content'	=> ''.
+			'<p>模型ID：您可以参考 <a target="_blank" href="https://cdn.jsdelivr.net/gh/fghrsh/live2d_api@1.0.1/model_list.json">model_list.json</a> 了解ID序号，如果您自己搭建模型API请酌情填写。 </p>'.
+			'<p>模型缩放倍数：您可以适当调节模型在容器中的缩放比例。</p>'.
 			'<p>关于页地址：请填写完整的URL或相对路径。</p>'.
 			'<p>看板娘截图文件名：当您点击工具栏中的截图按钮时，保存文件的默认名称。</p>'
 		) );

@@ -110,11 +110,15 @@ License: MIT
 
 == Frequently Asked Questions ==
 
-- 2.0版本更新预计在7月下旬，将支持moc3模型显示，以兼容4.0生成的Live2D模型
+- 1.7版本已更新完成，下面讲解如何使用moc3（最高支持到live2D 4.0）模型
+1. 将你准备好的moc3模型上传至目录当中，如果您准备存放github中，可以直接存储至Public项目。
+2. 然后请了解存放路径，并给材质API选项中填写此路径至*.model3.json。例如：https://cdn.jsdelivr.net/gh/jiangweifang/live2d_api@live2d_api_v4/model/kiritan/kiritan.model3.json
+3. 刷新页面后，您将会看到moc3模型展示至前台。
+4. moc3的缩放比例可能会比较小，所以您需要将模型缩放比例调整至合适大小，建议2.0，我没有进行控制是因为如果我在代码中写入2.0，其计算方式将会x2 ，例如1.1 实际计算结果将会是2.2。
 
 - 为了不打扰您的使用，除严重bug外，版本更新每周进行一次，感谢各位的支持。
 
-- 3.0版本将进行繁体中文版本开发。从而便于多语言支持
+- 1.8版本将进行繁体中文版本开发。从而便于多语言支持
 
 - 原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个：
 1. 模型文件太大了，我从https://github.com/fghrsh/live2d_api 上面下载，200多MB啊！

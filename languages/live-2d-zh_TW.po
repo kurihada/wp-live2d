@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Live 2D\n"
-"POT-Creation-Date: 2020-07-24 10:55+0800\n"
-"PO-Revision-Date: 2020-07-24 11:19+0800\n"
+"POT-Creation-Date: 2020-07-24 11:52+0800\n"
+"PO-Revision-Date: 2020-07-24 13:05+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.2\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wordpress-live2d.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "基礎設定幫助"
 
 #: src/live2d-Utils.php:161
 msgid "高级设置帮助"
-msgstr "搞基設定幫助"
+msgstr "高級設定幫助"
 
 #: src/waifu-Advanced.php:27
 msgid "打开控制台提示"

@@ -148,7 +148,7 @@ class live2D_Utils{
 		// 设置帮助文档
 		$screen->add_help_tab( array(
 			'id'	=> 'live_2d_base_help_tab',
-			'title'	=> __('基础设置帮助'),
+			'title'	=> __('基础设置帮助','base_settings_help'),
 			'content'	=> ''.
 			'<p>模型ID：您可以参考 <a target="_blank" href="https://cdn.jsdelivr.net/gh/fghrsh/live2d_api@1.0.1/model_list.json">model_list.json</a> 了解ID序号，如果您自己搭建模型API请酌情填写。 </p>'.
 			'<p>模型缩放倍数：您可以适当调节模型在容器中的缩放比例。</p>'.
@@ -158,7 +158,7 @@ class live2D_Utils{
 
 		$screen->add_help_tab( array(
 			'id'	=> 'live_2d_advanced_help_tab',
-			'title'	=> __('高级设置帮助'),
+			'title'	=> __('高级设置帮助','advanced_settings_help'),
 			'content'	=> '<p>高级设置中点击&nbsp;<input class="button" type="button" value="+ 点击此处增加一条" id="show_btn">&nbsp;就会在同一个事件中增加随机语言。</p>
 			<p>关于特殊标记，目前只有以下功能可以使用特殊标记：</p>
 			<ul>

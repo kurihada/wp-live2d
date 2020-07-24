@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Live 2D\n"
+"POT-Creation-Date: 2020-07-24 10:55+0800\n"
+"PO-Revision-Date: 2020-07-24 11:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wordpress-live2d.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: src/live2d-Main.php:34
+msgid "Live 2D 设置"
+msgstr "Live 2D 設定"
+
+#: src/live2d-Main.php:52
+msgid "基础设置"
+msgstr "基本設定"
+
+#: src/live2d-Main.php:53
+msgid "工具栏设置"
+msgstr "工具條設定"
+
+#: src/live2d-Main.php:54
+msgid "提示消息选项"
+msgstr "提示消息設定"
+
+#: src/live2d-Main.php:55
+msgid "看板娘样式设置"
+msgstr "模型樣式設定"
+
+#: src/live2d-Main.php:56 src/waifu-Advanced.php:20
+msgid "高级设置"
+msgstr "進階設定"
+
+#: src/live2d-Utils.php:151
+msgid "基础设置帮助"
+msgstr "基礎設定幫助"
+
+#: src/live2d-Utils.php:161
+msgid "高级设置帮助"
+msgstr "搞基設定幫助"
+
+#: src/waifu-Advanced.php:27
+msgid "打开控制台提示"
+msgstr "打開Console提示語"
+
+#: src/waifu-Advanced.php:35
+msgid "复制信息时的提示"
+msgstr "Copy信息時的提示語"
+
+#: src/waifu-Advanced.php:43
+msgid "截图时的提示"
+msgstr "拍屏的提示語"
+
+#: src/waifu-Advanced.php:51
+msgid "隐藏看板娘的提示"
+msgstr "隱藏模型提示"
+
+#: src/waifu-Advanced.php:59
+msgid "更换服装时的提示"
+msgstr "換裝提示語"
+
+#: src/waifu-Advanced.php:67
+msgid "每小时提示"
+msgstr "每小時事件提示"
+
+#: src/waifu-Advanced.php:75
+msgid "搜索引擎入站提示"
+msgstr "搜尋引擎入站提示"
+
+#: src/waifu-Advanced.php:83
+msgid "访问本站点的提示"
+msgstr "訪問站點提示語"
+
+#: src/waifu-Advanced.php:91
+msgid "一言API的消息"
+msgstr "一言一語API消息"
+
+#: src/waifu-Advanced.php:99
+msgid "鼠标悬停时的消息提示"
+msgstr "滑鼠懸停消息提示"
+
+#: src/waifu-Advanced.php:107
+msgid "鼠标点击选择器"
+msgstr "滑鼠點擊選擇器"
+
+#: src/waifu-Advanced.php:115
+msgid "鼠标点击时的消息提示"
+msgstr "滑鼠點擊消息提示"
+
+#: src/waifu-Advanced.php:123
+msgid "节日事件"
+msgstr "節日事件"
+
+#: wordpress-live2d.php:62
+msgid "设置"
+msgstr "設定"
+
+#. Plugin Name of the plugin/theme
+msgid "Live 2D"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://5ri.org"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "看板娘插件"
+msgstr "動漫形象插件"
+
+#. Author of the plugin/theme
+msgid "Chiang Weifang"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/jiangweifang/wp-live2d"
+msgstr ""

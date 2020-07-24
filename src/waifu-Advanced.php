@@ -17,14 +17,14 @@ class live2D_Advanced {
 
 		add_settings_section(
 			'live_2d_advanced_setting_section', // id
-			'高级设置', // title
+			__('高级设置','advanced_settings_section'), // title
 			array( $this, 'live_2d_advanced_section_info' ), // callback
 			'live-2d-advanced-admin' // page
 		);
 
 		add_settings_field(
 			'console_open_msg', // id
-			'打开控制台提示', // title
+			__('打开控制台提示','advanced_settings_console_open_msg'), // title
 			array( $this, 'console_open_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -32,7 +32,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'copy_message', // id
-			'复制信息时的提示', // title
+			__('复制信息时的提示','advanced_settings_copy_message'), // title
 			array( $this, 'copy_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -40,7 +40,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'screenshot_message', // id
-			'截图时的提示', // title
+			__('截图时的提示','advanced_settings_screenshot_message'), // title
 			array( $this, 'screenshot_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -48,7 +48,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'hidden_message', // id
-			'隐藏看板娘的提示', // title
+			__('隐藏看板娘的提示','advanced_settings_hidden_message'), // title
 			array( $this, 'hidden_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -56,7 +56,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'load_rand_textures', // id
-			'更换服装时的提示', // title
+			__('更换服装时的提示','advanced_settings_load_rand_textures'), // title
 			array( $this, 'load_rand_textures_callback'), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -64,7 +64,7 @@ class live2D_Advanced {
 		
 		add_settings_field(
 			'hour_tips', // id
-			'每小时提示', // title
+			__('每小时提示','advanced_settings_hour_tips'), // title
 			array( $this, 'hour_tips_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -72,7 +72,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'referrer_message', // id
-			'搜索引擎入站提示', // title
+			__('搜索引擎入站提示','advanced_settings_referrer_message'), // title
 			array( $this, 'referrer_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -80,7 +80,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'referrer_hostname', // id
-			'访问本站点的提示', // title
+			__('访问本站点的提示','advanced_settings_referrer_hostname'), // title
 			array( $this, 'referrer_hostname_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -88,7 +88,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'hitokoto_api_message', // id
-			'一言API的消息', // title
+			__('一言API的消息','advanced_settings_hitokoto_api_message'), // title
 			array( $this, 'hitokoto_api_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -96,7 +96,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'mouseover_msg', // id
-			'鼠标悬停时的消息提示', // title
+			__('鼠标悬停时的消息提示','advanced_settings_mouseover_msg'), // title
 			array( $this, 'mouseover_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -104,7 +104,7 @@ class live2D_Advanced {
 		
 		add_settings_field(
 			'click_selector', // id
-			'鼠标点击选择器', // title
+			__('鼠标点击选择器','advanced_settings_click_selector'), // title
 			array( $this, 'click_selector_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -112,7 +112,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'click_msg', // id
-			'鼠标点击时的消息提示', // title
+			__('鼠标点击时的消息提示','advanced_settings_click_msg'), // title
 			array( $this, 'click_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -120,7 +120,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'seasons_msg', // id
-			'节日事件', // title
+			__('节日事件','advanced_settings_seasons_msg'), // title
 			array( $this, 'seasons_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section

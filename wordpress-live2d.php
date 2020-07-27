@@ -7,7 +7,7 @@
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  * Text Domain: live-2d
- * Domain Path: /languages
+ * Domain Path: /languages/
  */
 
 
@@ -58,7 +58,7 @@ function live_2d_uninstall(){
 add_filter('plugin_action_links_'.plugin_basename( __FILE__ ), 'live_2d_settings_link');
 function live_2d_settings_link($links) {
     if(is_multisite() && (!is_main_site() || !is_super_admin())) return $links;
-    $setlink = array(live_2d_link('options-general.php?page=live-2d-options', __('设置','live-2d-options')));
+    $setlink = array(live_2d_link('options-general.php?page=live-2d-options', __('设置','live-2d')));
     return array_merge($setlink, $links);
 }
 

@@ -17,14 +17,14 @@ class live2D_Advanced {
 
 		add_settings_section(
 			'live_2d_advanced_setting_section', // id
-			__('高级设置','advanced_settings_section'), // title
+			__('高级设置','live-2d'), // title
 			array( $this, 'live_2d_advanced_section_info' ), // callback
 			'live-2d-advanced-admin' // page
 		);
 
 		add_settings_field(
 			'console_open_msg', // id
-			__('打开控制台提示','advanced_settings_console_open_msg'), // title
+			__('打开控制台提示','live-2d'), // title
 			array( $this, 'console_open_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -32,7 +32,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'copy_message', // id
-			__('复制信息时的提示','advanced_settings_copy_message'), // title
+			__('复制信息时的提示','live-2d'), // title
 			array( $this, 'copy_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -40,7 +40,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'screenshot_message', // id
-			__('截图时的提示','advanced_settings_screenshot_message'), // title
+			__('截图时的提示','live-2d'), // title
 			array( $this, 'screenshot_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -48,7 +48,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'hidden_message', // id
-			__('隐藏看板娘的提示','advanced_settings_hidden_message'), // title
+			__('隐藏看板娘的提示','live-2d'), // title
 			array( $this, 'hidden_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -56,7 +56,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'load_rand_textures', // id
-			__('更换服装时的提示','advanced_settings_load_rand_textures'), // title
+			__('更换服装时的提示','live-2d'), // title
 			array( $this, 'load_rand_textures_callback'), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -64,7 +64,7 @@ class live2D_Advanced {
 		
 		add_settings_field(
 			'hour_tips', // id
-			__('每小时提示','advanced_settings_hour_tips'), // title
+			__('每小时提示','live-2d'), // title
 			array( $this, 'hour_tips_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -72,7 +72,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'referrer_message', // id
-			__('搜索引擎入站提示','advanced_settings_referrer_message'), // title
+			__('搜索引擎入站提示','live-2d'), // title
 			array( $this, 'referrer_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -80,7 +80,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'referrer_hostname', // id
-			__('访问本站点的提示','advanced_settings_referrer_hostname'), // title
+			__('访问本站点的提示','live-2d'), // title
 			array( $this, 'referrer_hostname_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -88,7 +88,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'hitokoto_api_message', // id
-			__('一言API的消息','advanced_settings_hitokoto_api_message'), // title
+			__('一言API的消息','live-2d'), // title
 			array( $this, 'hitokoto_api_message_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -96,7 +96,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'mouseover_msg', // id
-			__('鼠标悬停时的消息提示','advanced_settings_mouseover_msg'), // title
+			__('鼠标悬停时的消息提示','live-2d'), // title
 			array( $this, 'mouseover_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -104,7 +104,7 @@ class live2D_Advanced {
 		
 		add_settings_field(
 			'click_selector', // id
-			__('鼠标点击选择器','advanced_settings_click_selector'), // title
+			__('鼠标点击选择器','live-2d'), // title
 			array( $this, 'click_selector_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -112,7 +112,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'click_msg', // id
-			__('鼠标点击时的消息提示','advanced_settings_click_msg'), // title
+			__('鼠标点击时的消息提示','live-2d'), // title
 			array( $this, 'click_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -120,7 +120,7 @@ class live2D_Advanced {
 
 		add_settings_field(
 			'seasons_msg', // id
-			__('节日事件','advanced_settings_seasons_msg'), // title
+			__('节日事件','live-2d'), // title
 			array( $this, 'seasons_msg_callback' ), // callback
 			'live-2d-advanced-admin', // page
 			'live_2d_advanced_setting_section' // section
@@ -208,7 +208,7 @@ class live2D_Advanced {
 		printf(
 			'<input class="regular-text" style="width: 280px"  type="text" name="live_2d_advanced_option_name[load_rand_textures][0]" id="load_rand_textures_0" value="%s" placeholder = "没有服装时的提示">
 			 <input class="regular-text" style="width: 280px" type="text" name="live_2d_advanced_option_name[load_rand_textures][1]" id="load_rand_textures_1" value="%s" placeholder = "切换时的提示"><br />
-			 <p>'.esc_html__('请在第一个输入框输入没有服装时的默认提示，第二个输入框输入每次切换时的提示消息').'</p>
+			 <p>'.esc_html__('请在第一个输入框输入没有服装时的默认提示，第二个输入框输入每次切换时的提示消息','live-2d').'</p>
 			',
 			isset( $this->live_2d_advanced_options['load_rand_textures'][0] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][0]) : '',
 			isset( $this->live_2d_advanced_options['load_rand_textures'][1] ) ? esc_attr( $this->live_2d_advanced_options['load_rand_textures'][1]) : ''
@@ -217,14 +217,14 @@ class live2D_Advanced {
 	//时间段欢迎语（支持多句随机）
 	public function hour_tips_callback() {
 		live2D_Utils::loopMsg('hour_tips','Array');
-		echo '<p>'.esc_html__('时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）').'</p>';
+		echo '<p>'.esc_html__('时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）','live-2d').'</p>';
 	}
 
 
 	// 请求来源欢迎语（不支持多句）
 	public function referrer_message_callback() {
 		live2D_Utils::loopMsg('referrer_message','Array');
-		echo '<p>'.esc_html__('请务必不要修改{}中的内容，{title}网站标题、{keyword}关键词、{website}站点名称').'</p>';
+		echo '<p>'.esc_html__('请务必不要修改{}中的内容，{title}网站标题、{keyword}关键词、{website}站点名称','live-2d').'</p>';
 	}
 	//请求来源自定义名称（根据 host，支持多句随机）
 	public function referrer_hostname_callback() {
@@ -234,12 +234,12 @@ class live2D_Advanced {
 	//一言 API 输出模板（不支持多句随机）
 	public function hitokoto_api_message_callback() {
 		live2D_Utils::loopMsg('hitokoto_api_message','Array');
-		echo '<p>'.esc_html__('请务必不要修改{}中的内容，lwl12.com接口会有没有作者的情况语句中需要用“|”进行分割').'</p>';//lwl12.com会有没有作者的情况
+		echo '<p>'.esc_html__('请务必不要修改{}中的内容，lwl12.com接口会有没有作者的情况语句中需要用“|”进行分割','live-2d').'</p>';//lwl12.com会有没有作者的情况
 	}
 	//鼠标触发提示（根据 CSS 选择器，支持多句随机）
 	public function mouseover_msg_callback() {	
 		live2D_Utils::loopMsg('mouseover_msg','Selector');
-		echo '<p>'.__('鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a>').'</p>';
+		echo '<p>'.__('鼠标悬停位置的<a href="https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank">jQuery选择器</a>','live-2d').'</p>';
 	}
 	
 	public function click_selector_callback(){
@@ -259,7 +259,7 @@ class live2D_Advanced {
 	//节日提示（日期段，支持多句随机）
 	public function seasons_msg_callback() {
 		live2D_Utils::loopMsg('seasons_msg','Array',false);
-		echo '<p>'.esc_html__('在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。').'</p>';
+		echo '<p>'.esc_html__('在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。','live-2d').'</p>';
 	}
 
 	public function live_2d_advanced_section_info() {

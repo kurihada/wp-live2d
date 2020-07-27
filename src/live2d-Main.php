@@ -31,7 +31,7 @@ class live2D {
 		}
 	}
 	public function live_2d__add_plugin_page() {
-		$menu = __('Live 2D 设置','live-2d-options');
+		$menu = __('Live 2D 设置','live-2d');
 		$my_admin_page = add_options_page(
 			$menu, // page_title
 			$menu, // menu_title
@@ -49,11 +49,11 @@ class live2D {
 
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
-				<a id="settings_btn" href="#settings" class="nav-tab"><?php esc_html_e('基础设置','base_settings') ?></a>
-				<a id="toolbar_btn" href="#toolbar" class="nav-tab"><?php esc_html_e('工具栏设置','toolbar_settings') ?></a>
-				<a id="tips_btn" href="#tips" class="nav-tab"><?php esc_html_e('提示消息选项','tips_setting') ?></a>
-				<a id="style_btn" href="#style" class="nav-tab"><?php esc_html_e('看板娘样式设置','style_setting') ?></a>
-				<a id="advanced_btn" href="#advanced" class="nav-tab"><?php esc_html_e('高级设置','advanced_setting') ?></a>
+				<a id="settings_btn" href="#settings" class="nav-tab"><?php esc_html_e('基础设置','live-2d') ?></a>
+				<a id="toolbar_btn" href="#toolbar" class="nav-tab"><?php esc_html_e('工具栏设置','live-2d') ?></a>
+				<a id="tips_btn" href="#tips" class="nav-tab"><?php esc_html_e('提示消息选项','live-2d') ?></a>
+				<a id="style_btn" href="#style" class="nav-tab"><?php esc_html_e('看板娘样式设置','live-2d') ?></a>
+				<a id="advanced_btn" href="#advanced" class="nav-tab"><?php esc_html_e('高级设置','live-2d') ?></a>
 			</h2>
 			<?php get_settings_errors('live_2d_advanced_option_saveFiles'); ?>
 			<form method="post" action="options.php">

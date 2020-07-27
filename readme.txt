@@ -4,6 +4,7 @@ Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
+Requires at least: 4.6
 Stable tag: 1.7.0
 License: MIT
 
@@ -118,7 +119,7 @@ License: MIT
 
 - 为了不打扰您的使用，除严重bug外，版本更新每周进行一次，感谢各位的支持。
 
-- 1.8版本将进行繁体中文版本开发。从而便于多语言支持
+- 1.8版本将进行繁体中文版本开发，从而便于多语言支持。您可以使用https://translate.wordpress.org/projects/wp-plugins/live-2d/ 对插件的语言进行翻译。
 
 - 原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个：
 1. 模型文件太大了，我从https://github.com/fghrsh/live2d_api 上面下载，200多MB啊！

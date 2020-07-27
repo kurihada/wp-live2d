@@ -49,11 +49,11 @@ class live2D {
 
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
-				<a id="settings_btn" href="#settings" class="nav-tab">基础设置</a>
-				<a id="toolbar_btn" href="#toolbar" class="nav-tab">工具栏设置</a>
-				<a id="tips_btn" href="#tips" class="nav-tab">提示消息选项</a>
-				<a id="style_btn" href="#style" class="nav-tab">看板娘样式设置</a>
-				<a id="advanced_btn" href="#advanced" class="nav-tab">高级设置</a>
+				<a id="settings_btn" href="#settings" class="nav-tab"><?php esc_html_e('基础设置','base_settings') ?></a>
+				<a id="toolbar_btn" href="#toolbar" class="nav-tab"><?php esc_html_e('工具栏设置','toolbar_settings') ?></a>
+				<a id="tips_btn" href="#tips" class="nav-tab"><?php esc_html_e('提示消息选项','tips_setting') ?></a>
+				<a id="style_btn" href="#style" class="nav-tab"><?php esc_html_e('看板娘样式设置','style_setting') ?></a>
+				<a id="advanced_btn" href="#advanced" class="nav-tab"><?php esc_html_e('高级设置','advanced_setting') ?></a>
 			</h2>
 			<?php get_settings_errors('live_2d_advanced_option_saveFiles'); ?>
 			<form method="post" action="options.php">

@@ -7,14 +7,14 @@ class live2D_Settings_Tips {
 
         add_settings_section(
             'live_2d_setting_tips_section', // id
-            '提示框设置', // title
+            __('提示框设置','tips_settings_section'), // title
             array( $this, 'live_2d_tips_section_info' ), // callback
             'live-2d-settings-tips' // page
         );
 
         add_settings_field(
             'showHitokoto', // id
-            '显示一言', // title
+            __('显示一言','tips_settings_showHitokoto'), // title
             array( $this, 'showHitokoto_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -22,7 +22,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'showF12Status', // id
-            '显示加载状态', // title
+            __('显示加载状态','tips_settings_showF12Status'), // title
             array( $this, 'showF12Status_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -30,7 +30,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'showF12Message', // id
-            '显示看板娘消息', // title
+            __('显示看板娘消息','tips_settings_showF12Message'), // title
             array( $this, 'showF12Message_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -38,7 +38,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'showF12OpenMsg', // id
-            '显示控制台打开提示', // title
+            __('显示控制台打开提示','tips_settings_showF12OpenMsg'), // title
             array( $this, 'showF12OpenMsg_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -46,7 +46,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'showCopyMessage', // id
-            '显示 复制内容 提示', // title
+            __('显示“复制内容”提示','tips_settings_showCopyMessage'), // title
             array( $this, 'showCopyMessage_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -54,7 +54,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'showWelcomeMessage', // id
-            '显示进入面页欢迎词', // title
+            __('显示进入面页欢迎词','tips_settings_showWelcomeMessage'), // title
             array( $this, 'showWelcomeMessage_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -62,7 +62,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuTipsSize', // id
-            '提示框大小', // title
+            __('提示框大小','tips_settings_waifuTipsSize'), // title
             array( $this, 'waifuTipsSize_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -70,14 +70,14 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuFontSize', // id
-            '提示框字号(px)', // title
+            __('提示框字号(px)','tips_settings_waifuFontSize'), // title
             array( $this, 'waifuFontSize_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
         );
         add_settings_field(
             'waifuTipTop', // id
-            '提示框位置(px)', // title
+            __('提示框位置(px)','tips_settings_waifuTipTop'), // title
             array( $this, 'waifuTipTop_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -85,7 +85,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuTipsColor', // id
-            '提示框背景色', // title
+            __('提示框背景色','tips_settings_waifuTipsColor'), // title
             array( $this, 'waifuTipsColor_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -93,7 +93,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuBorderColor', // id
-            '边框颜色', // title
+            __('边框颜色','tips_settings_waifuBorderColor'), // title
             array( $this, 'waifuBorderColor_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -101,7 +101,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuShadowColor', // id
-            '阴影颜色', // title
+            __('阴影颜色','tips_settings_waifuShadowColor'), // title
             array( $this, 'waifuShadowColor_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -109,7 +109,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuFontsColor', // id
-            '提示框文字颜色', // title
+            __('提示框文字颜色','tips_settings_waifuFontsColor'), // title
             array( $this, 'waifuFontsColor_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -117,7 +117,7 @@ class live2D_Settings_Tips {
 
         add_settings_field(
             'waifuHighlightColor', // id
-            '高亮文字颜色', // title
+            __('高亮文字颜色','tips_settings_waifuHighlightColor'), // title
             array( $this, 'waifuHighlightColor_callback' ), // callback
             'live-2d-settings-tips', // page
             'live_2d_setting_tips_section' // section
@@ -130,51 +130,51 @@ class live2D_Settings_Tips {
 
     public function showHitokoto_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showHitokoto'] ) && $this->live_2d__options['showHitokoto'] === true ) ? 'checked' : '' ; ?>
-        <label for="showHitokoto-0"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="showHitokoto-0"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','settings_Show') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['showHitokoto'] ) && $this->live_2d__options['showHitokoto'] === false ) ? 'checked' : '' ; ?>
-        <label for="showHitokoto-1"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="showHitokoto-1"><input type="radio" name="live_2d_settings_option_name[showHitokoto]" id="showHitokoto-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','settings_Hide') ?></label></fieldset> <?php
     }
 
     public function showF12Status_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12Status'] ) && $this->live_2d__options['showF12Status'] === true ) ? 'checked' : '' ; ?>
-        <label for="showF12Status-0"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="showF12Status-0"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','settings_Show') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['showF12Status'] ) && $this->live_2d__options['showF12Status'] === false ) ? 'checked' : '' ; ?>
-        <label for="showF12Status-1"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="showF12Status-1"><input type="radio" name="live_2d_settings_option_name[showF12Status]" id="showF12Status-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','settings_Hide') ?></label></fieldset> <?php
     }
 
     public function showF12Message_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12Message'] ) && $this->live_2d__options['showF12Message'] === true ) ? 'checked' : '' ; ?>
-        <label for="showF12Message-0"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="showF12Message-0"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','settings_Show') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['showF12Message'] ) && $this->live_2d__options['showF12Message'] === false ) ? 'checked' : '' ; ?>
-        <label for="showF12Message-1"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="showF12Message-1"><input type="radio" name="live_2d_settings_option_name[showF12Message]" id="showF12Message-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','settings_Hide') ?></label></fieldset> <?php
     }
 
     public function showF12OpenMsg_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showF12OpenMsg'] ) && $this->live_2d__options['showF12OpenMsg'] === true ) ? 'checked' : '' ; ?>
-        <label for="showF12OpenMsg-0"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="showF12OpenMsg-0"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','settings_Show') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['showF12OpenMsg'] ) && $this->live_2d__options['showF12OpenMsg'] === false ) ? 'checked' : '' ; ?>
-        <label for="showF12OpenMsg-1"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="showF12OpenMsg-1"><input type="radio" name="live_2d_settings_option_name[showF12OpenMsg]" id="showF12OpenMsg-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','settings_Hide') ?></label></fieldset> <?php
     }
 
     public function showCopyMessage_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showCopyMessage'] ) && $this->live_2d__options['showCopyMessage'] === true ) ? 'checked' : '' ; ?>
-        <label for="showCopyMessage-0"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="showCopyMessage-0"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','settings_Show') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['showCopyMessage'] ) && $this->live_2d__options['showCopyMessage'] === false ) ? 'checked' : '' ; ?>
-        <label for="showCopyMessage-1"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="showCopyMessage-1"><input type="radio" name="live_2d_settings_option_name[showCopyMessage]" id="showCopyMessage-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','settings_Hide') ?></label></fieldset> <?php
     }
 
     public function showWelcomeMessage_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['showWelcomeMessage'] ) && $this->live_2d__options['showWelcomeMessage'] === true ) ? 'checked' : '' ; ?>
-        <label for="showWelcomeMessage-0"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-0" value="1" <?php echo $checked; ?>> 显示</label><br>
+        <label for="showWelcomeMessage-0"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','settings_Show') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['showWelcomeMessage'] ) && $this->live_2d__options['showWelcomeMessage'] === false ) ? 'checked' : '' ; ?>
-        <label for="showWelcomeMessage-1"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-1" value="0" <?php echo $checked; ?>> 隐藏</label></fieldset> <?php
+        <label for="showWelcomeMessage-1"><input type="radio" name="live_2d_settings_option_name[showWelcomeMessage]" id="showWelcomeMessage-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','settings_Hide') ?></label></fieldset> <?php
     }
     
     public function waifuTipsSize_callback() {
         printf(
             '<input type="number" name="live_2d_settings_option_name[waifuTipsSize][width]" id="waifuTipsSize_width" value="%s" min = "0" max="1024" > x
             <input type="number" name="live_2d_settings_option_name[waifuTipsSize][height]" id="waifuTipsSize_height" value="%s" min = "0" max="1024" >
-            <p>由于提示大小不同，请自行设置：宽度 x 高度</p>',
+            <p>'.esc_html__('由于提示大小不同，请自行设置：宽度 x 高度').'</p>',
             isset( $this->live_2d__options['waifuTipsSize']['width'] ) ? esc_attr( $this->live_2d__options['waifuTipsSize']['width']) : 250,
             isset( $this->live_2d__options['waifuTipsSize']['height'] ) ? esc_attr( $this->live_2d__options['waifuTipsSize']['height']) : 70
         );
@@ -190,7 +190,7 @@ class live2D_Settings_Tips {
     public function waifuTipTop_callback() {
         printf(
             '<input type="number" name="live_2d_settings_option_name[waifuTipTop]" id="waifuTipTop" value="%s"  min = "-1000" max="1000" >
-            <p>数字越大越靠上</p>',
+            <p>'.esc_html__('数字越大越靠上').'</p>',
             isset( $this->live_2d__options['waifuTipTop'] ) ? esc_attr( $this->live_2d__options['waifuTipTop']) : 0
         );
     }

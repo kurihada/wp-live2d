@@ -13,8 +13,7 @@
 
 //定义目录
 define( 'LIVE2D_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );//资源目录
-define('LIVE2D_BASEFOLDER', plugin_basename(dirname(__FILE__)));//基础目录
-define('LIVE2D_SETTINGPAGE', plugin_basename(__FILE__));//设置页面
+define('LIVE2D_LANGUAGES', basename(dirname(__FILE__)).'/languages/');//基础目录
 
 // 加载设置组件
 require(dirname(__FILE__)  . '/src/live2d-Main.php');
@@ -63,8 +62,10 @@ function live_2d_settings_link($links) {
     return array_merge($setlink, $links);
 }
 
-
-
+function live2d_load_plugin_textdomain(){
+    load_plugin_textdomain('live-2d', false, LIVE2D_LANGUAGES);
+}
+add_action('plugins_loaded','live2d_load_plugin_textdomain');
 
 // 实例化设置组件
 if ( is_admin() ){

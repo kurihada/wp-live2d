@@ -7,6 +7,7 @@
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  * Text Domain: live-2d
+ * Domain Path: /languages
  */
 
 

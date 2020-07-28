@@ -26,7 +26,7 @@ class live2D_Utils{
 						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
 					);
 				}
-				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
 			break;
 			case 'Array':
 				if($readonly){
@@ -51,7 +51,7 @@ class live2D_Utils{
 							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
 						);
 					}
-					echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+					echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
 				}
 			break;
 			case 'List':
@@ -63,7 +63,7 @@ class live2D_Utils{
 						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
 					);
 				}
-				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ 点击此处增加一条" id="'.$keyName.'_addbtn" /></p>';
+				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
 			break;
 		}
     }
@@ -159,7 +159,7 @@ class live2D_Utils{
 		$screen->add_help_tab( array(
 			'id'	=> 'live_2d_advanced_help_tab',
 			'title'	=> __('高级设置帮助','live-2d'),
-			'content'	=> '<p>高级设置中点击&nbsp;<input class="button" type="button" value="+ 点击此处增加一条" id="show_btn">&nbsp;就会在同一个事件中增加随机语言。</p>
+			'content'	=> '<p>高级设置中点击&nbsp;<input class="button" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="show_btn">&nbsp;就会在同一个事件中增加随机语言。</p>
 			<p>关于特殊标记，目前只有以下功能可以使用特殊标记：</p>
 			<ul>
 			<li>鼠标悬停时的消息提示：{text}触发事件的内容、{highlight}高亮样式</li>

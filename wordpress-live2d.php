@@ -7,13 +7,13 @@
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  * Text Domain: live-2d
- * Domain Path: /languages/
+ * Domain Path: /languages
  */
 
 
 //定义目录
 define( 'LIVE2D_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );//资源目录
-define('LIVE2D_LANGUAGES', basename(dirname(__FILE__)).'/languages/');//基础目录
+define('LIVE2D_LANGUAGES', basename(dirname(__FILE__)).'/languages');//基础目录
 
 // 加载设置组件
 require(dirname(__FILE__)  . '/src/live2d-Main.php');

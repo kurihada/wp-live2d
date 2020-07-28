@@ -5,7 +5,7 @@ Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
 Requires at least: 4.6
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: MIT
 
 == Description ==
@@ -130,6 +130,14 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.7.1 =
+
+本周更新提前啦
+- 新增多语言支持，目前支持繁体中文和英文。
+- Added multilingual version support
+- Added Traditional Chinese of Taiwan
+- Added English
 
 = 1.7.0 =
 

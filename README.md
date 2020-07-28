@@ -5,6 +5,14 @@
 
 ### 更新
 
+= 1.7.1 =
+
+本周更新提前啦
+- 新增多语言支持，目前支持繁体中文和英文。
+- Added multilingual version support
+- Added Traditional Chinese of Taiwan
+- Added English
+
 = 1.7.0 =
 
 1. 对moc3 鼠标事件进行算法修改，现在模型头部可正确的看鼠标行动了

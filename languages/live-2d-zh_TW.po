@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Live 2D\n"
-"POT-Creation-Date: 2020-07-28 04:29+0000\n"
-"PO-Revision-Date: 2020-07-28 04:30+0000\n"
+"POT-Creation-Date: 2020-07-28 07:42+0000\n"
+"PO-Revision-Date: 2020-07-28 07:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: 繁體中文\n"
 "Language: zh_TW\n"
@@ -55,7 +55,7 @@ msgstr "進階設定"
 #: src/live2d-Utils.php:29 src/live2d-Utils.php:54 src/live2d-Utils.php:66
 #: src/live2d-Utils.php:162
 msgid "点击此处增加一条"
-msgstr "點擊此處增加一條"
+msgstr "點觸此處增加一條"
 
 #: src/live2d-Utils.php:151
 msgid "基础设置帮助"
@@ -118,12 +118,12 @@ msgstr "滑鼠懸停訊息提示"
 #. id
 #: src/waifu-Advanced.php:107
 msgid "鼠标点击选择器"
-msgstr "滑鼠點擊選擇器"
+msgstr "滑鼠點觸選擇器"
 
 #. id
 #: src/waifu-Advanced.php:115
 msgid "鼠标点击时的消息提示"
-msgstr "滑鼠點擊訊息提示"
+msgstr "滑鼠點觸訊息提示"
 
 #. id
 #: src/waifu-Advanced.php:123
@@ -153,6 +153,10 @@ msgid ""
 msgstr ""
 "滑鼠懸停位置的<a href=\"https://www.w3school.com.cn/jquery/jquery_ref_selectors."
 "asp\" target=\"_blank\">jQuery選擇器</a>"
+
+#: src/waifu-Advanced.php:255
+msgid "点击看板娘会循环以上的每一行点击事件"
+msgstr "點觸看板娘將循環以上的每一行點觸事件"
 
 #: src/waifu-Advanced.php:262
 msgid "在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。"

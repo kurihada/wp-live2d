@@ -252,7 +252,7 @@ class live2D_Advanced {
 	// 鼠标点击触发提示（根据 CSS 选择器，支持多句随机）
 	public function click_msg_callback() {
 		live2D_Utils::loopMsg('click_msg','List');
-		echo '<p>'.esc_html__('点击看板娘会循环以上的每一行点击事件').'</p>';
+		echo '<p>'.esc_html__('点击看板娘会循环以上的每一行点击事件','live-2d').'</p>';
 	}
 	
 	

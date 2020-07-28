@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Live 2D\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 04:29+0000\n"
-"PO-Revision-Date: 2020-07-28 04:38+0000\n"
+"POT-Creation-Date: 2020-07-28 07:42+0000\n"
+"PO-Revision-Date: 2020-07-28 07:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -146,6 +146,10 @@ msgid ""
 msgstr ""
 "<a href=\"https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp\" "
 "target=\"_blank\">JQuery selector</a> of mouse hover"
+
+#: src/waifu-Advanced.php:255
+msgid "点击看板娘会循环以上的每一行点击事件"
+msgstr "Clicking on Live 2D will loop through each row ."
 
 #: src/waifu-Advanced.php:262
 msgid "在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。"

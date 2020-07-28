@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Live 2D\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 04:29+0000\n"
+"POT-Creation-Date: 2020-07-28 07:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -140,6 +140,10 @@ msgstr ""
 msgid ""
 "鼠标悬停位置的<a href=\"https://www.w3school.com.cn/jquery/jquery_ref_selectors."
 "asp\" target=\"_blank\">jQuery选择器</a>"
+msgstr ""
+
+#: src/waifu-Advanced.php:255
+msgid "点击看板娘会循环以上的每一行点击事件"
 msgstr ""
 
 #: src/waifu-Advanced.php:262

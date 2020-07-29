@@ -92,8 +92,10 @@ function live2D_DefMod(){
             </div>
         </div>
         <script type="text/javascript">
-            var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
-           initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
+            window.onload = function(){
+                var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
+                initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
+            }
         </script>
     <?php
 }

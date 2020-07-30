@@ -5,6 +5,16 @@
 
 ### 更新
 
+= 1.7.2 =
+
+修复加载顺序错误问题，感谢 [LemoFire][1] 和 [picpo][2] 
+更新了禁止分发的引用，感谢 [railzy][3]
+
+  [1]: https://www.ito.fun/
+  [2]: http://picpo.top/ 
+  [3]: https://github.com/railzy
+
+
 = 1.7.1 =
 
 本周更新提前啦

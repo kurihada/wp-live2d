@@ -5,7 +5,7 @@ Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
 Requires at least: 4.6
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: MIT
 
 == Description ==
@@ -130,6 +130,15 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.7.2 =
+
+修复加载顺序错误问题，感谢 [LemoFire][1] 和 [picpo][2] 
+更新了禁止分发的引用，感谢 [railzy][3]
+
+  [1]: https://www.ito.fun/
+  [2]: http://picpo.top/ 
+  [3]: https://github.com/railzy
 
 = 1.7.1 =
 

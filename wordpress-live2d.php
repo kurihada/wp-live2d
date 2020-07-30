@@ -3,7 +3,7 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.7.1
+ * Version: 1.7.2
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  * Text Domain: live-2d
@@ -24,11 +24,11 @@ function live2D_style(){
 	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'jquery-ui-draggable');
-    wp_enqueue_script( 'live2dv3_core' ,LIVE2D_ASSETS.'live2dcubismcore.min.js');
+    wp_enqueue_script( 'live2dv3_core' ,'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js');
     wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js',array('live2dv3_core'));
 	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js',array('jquery-ui-draggable','live2d_js'));
 }
-add_action( 'get_header', 'live2D_style' );
+add_action( 'wp_head', 'live2D_style' );
 
 // 启用插件
 register_activation_hook( __FILE__, 'live_2d_install' );
@@ -92,10 +92,17 @@ function live2D_DefMod(){
             </div>
         </div>
         <script type="text/javascript">
-            window.onload = function(){
-                var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
-                initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
-            }
+        /* 判断 JQuery */
+	    if($ != null){
+            if (typeof($.ajax) != 'function') typeof(jQuery.ajax) == 'function' ? window.$ = jQuery : console.log('[Error] JQuery is not defined.');
+        }else{
+	        window.$ = jQuery;
+        }
+        var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
+        $(function(){
+            initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
+        });
+        
         </script>
     <?php
 }

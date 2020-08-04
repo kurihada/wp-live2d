@@ -5,7 +5,7 @@ Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
 Requires at least: 4.6
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 License: MIT
 
 == Description ==
@@ -131,6 +131,11 @@ None
 
 == Changelog ==
 
+= 1.7.3 =
+
+修复https://github.com/mashirozx/Sakura 的兼容性问题
+本来兼容是正确的，被我改错了，实在抱歉...
+
 = 1.7.2 =
 
 修复加载顺序错误问题，感谢 [LemoFire][1] 和 [picpo][2] 
@@ -172,7 +177,7 @@ None
 4. 修正：默认模型 ID改为手动填写（我通过来访页面找到了各位的网站，发现我如果固定这个选项会给各位带来不便）
 5. 如果有问题欢迎在Github上反馈[issues](https://github.com/jiangweifang/wp-live2d/issues)
 6. 本次更新不会改变您当前的任何设置。
-7. 在樱花庄的白猫主题中测试兼容性正常，请在使用之前清理之前安装的Live2D功能避免JS冲突
+7. 请在使用之前清理之前安装的Live2D功能避免JS冲突
 
 = 1.6.1 =
 

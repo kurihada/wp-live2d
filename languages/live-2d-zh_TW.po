@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Live 2D\n"
 "POT-Creation-Date: 2020-07-28 07:42+0000\n"
-"PO-Revision-Date: 2020-07-28 07:46+0000\n"
+"PO-Revision-Date: 2020-07-31 01:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: 繁體中文\n"
 "Language: zh_TW\n"
@@ -55,7 +55,7 @@ msgstr "進階設定"
 #: src/live2d-Utils.php:29 src/live2d-Utils.php:54 src/live2d-Utils.php:66
 #: src/live2d-Utils.php:162
 msgid "点击此处增加一条"
-msgstr "點觸此處增加一條"
+msgstr "點選此處增加一條"
 
 #: src/live2d-Utils.php:151
 msgid "基础设置帮助"
@@ -68,12 +68,12 @@ msgstr "進階設定幫助"
 #. id
 #: src/waifu-Advanced.php:27
 msgid "打开控制台提示"
-msgstr "打開Console提示語"
+msgstr "開啟Console提示語"
 
 #. id
 #: src/waifu-Advanced.php:35
 msgid "复制信息时的提示"
-msgstr "Copy信息時的提示語"
+msgstr "複製資訊時的提示"
 
 #. id
 #: src/waifu-Advanced.php:43
@@ -132,7 +132,7 @@ msgstr "節日事件"
 
 #: src/waifu-Advanced.php:211
 msgid "请在第一个输入框输入没有服装时的默认提示，第二个输入框输入每次切换时的提示消息"
-msgstr "請在第一個輸入框輸入沒有服裝時的默認提示，第二個輸入框輸入每次切換時的提示訊息"
+msgstr "请在第一个输入框输入没有服装时的默认提示，第二个输入框输入每次切换时的提示消息"
 
 #: src/waifu-Advanced.php:220
 msgid "时间按照t{开始小时}-{结束小时}的方式填写，例如：t5-7或t7-11（避免改错，目前此项无法更改）"
@@ -144,7 +144,7 @@ msgstr "請務必不要修改{}中的內容，{title}網站標題、{keyword}關
 
 #: src/waifu-Advanced.php:237
 msgid "请务必不要修改{}中的内容，lwl12.com接口会有没有作者的情况语句中需要用“|”进行分割"
-msgstr "請務必不要修改{}中的內容，lwl12.com接口會有沒有作者的情況語句中需要用“|”進行分割"
+msgstr "請務必不要修改{}中的內容，lwl12.com介面會有「沒有作者」的情況語句中需要用“|”進行分割"
 
 #: src/waifu-Advanced.php:242
 msgid ""
@@ -156,7 +156,7 @@ msgstr ""
 
 #: src/waifu-Advanced.php:255
 msgid "点击看板娘会循环以上的每一行点击事件"
-msgstr "點觸看板娘將循環以上的每一行點觸事件"
+msgstr "點選看板娘會迴圈以上的每一行點選事件"
 
 #: src/waifu-Advanced.php:262
 msgid "在指定的日期说提示语，日期的规则为MM/dd，例如2月14日为 02/14，可填写一个时间区间，格式为11/05-11/12。"
@@ -175,12 +175,12 @@ msgstr "一言API"
 #. id
 #: src/waifu-Settings-Base.php:34
 msgid "默认模型 ID"
-msgstr "默認模型 ID"
+msgstr "預設模型 ID"
 
 #. id
 #: src/waifu-Settings-Base.php:42
 msgid "默认材质 ID"
-msgstr "默認材質 ID"
+msgstr "預設材質 ID"
 
 #. id
 #: src/waifu-Settings-Base.php:50
@@ -203,7 +203,7 @@ msgstr "您可以在此處直接填寫模型ID"
 
 #: src/waifu-Settings-Base.php:113
 msgid "您可以在此处直接填写皮肤ID"
-msgstr "您可以在此處直接填寫皮膚ID"
+msgstr "您可以在此處直接填寫面板ID"
 
 #: src/waifu-Settings-Base.php:119
 msgid "设置看板娘在画框中的缩放比例，最小1倍，最大10倍，可以有小数点"
@@ -281,7 +281,7 @@ msgstr "由於看板娘大小不同，請自行設置：寬度 x 高度"
 
 #: src/waifu-Settings-Style.php:130
 msgid "设置为 0 时禁用"
-msgstr "設置為 0 時禁用"
+msgstr "設定為 0 時禁用"
 
 #: src/waifu-Settings-Style.php:137
 msgid "左"
@@ -334,7 +334,7 @@ msgstr "顯示看板娘訊息"
 #. id
 #: src/waifu-Settings-Tips.php:41
 msgid "显示控制台打开提示"
-msgstr "顯示控制台打開提示"
+msgstr "顯示控制檯開啟提示 "
 
 #. id
 #: src/waifu-Settings-Tips.php:49

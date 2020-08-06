@@ -126,10 +126,10 @@ function initModel(waifuPath, settingsJson) {
     if (!live2d_settings.modelStorage || modelId == null) {
         var modelId = live2d_settings.modelId;
         var modelTexturesId = live2d_settings.modelTexturesId;
-    } loadModel(modelId, modelTexturesId,live2d_settings.modelZoomNumberV2);
+    } loadModel(modelId, modelTexturesId,live2d_settings.modelZoomNumberV2, live2d_settings.defineHitAreaName);
 }
 
-function loadModel(modelId, modelTexturesId=0,zoom = 1.0) {
+function loadModel(modelId, modelTexturesId=0,zoom = 1.0 ,hitAreaList = {}) {
     if (live2d_settings.modelStorage) {
         localStorage.setItem('modelId', modelId);
         localStorage.setItem('modelTexturesId', modelTexturesId);
@@ -145,7 +145,8 @@ function loadModel(modelId, modelTexturesId=0,zoom = 1.0) {
     }
     loadlive2d('live2d', modelPath,
         (live2d_settings.showF12Status ? console.log('[Status]','live2d','模型',modelId+'-'+modelTexturesId,'加载完成'):null),
-        zoom
+        zoom,
+        hitAreaList
     );
 }
 

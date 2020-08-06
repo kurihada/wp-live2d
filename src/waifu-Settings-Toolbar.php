@@ -53,9 +53,25 @@ class live2D_Settings_Toolbar {
         );
 
         add_settings_field(
+            'hitokotoAPI', // id
+            __('一言 API','live-2d'), // title
+            array( $this, 'hitokotoAPI_callback' ), // callback
+            'live-2d-settings-toolbar', // page
+            'live_2d_setting_toolbar_section' // section
+        );
+
+        add_settings_field(
             'canTakeScreenshot', // id
             __('看板娘截图按钮','live-2d'), // title
             array( $this, 'canTakeScreenshot_callback' ), // callback
+            'live-2d-settings-toolbar', // page
+            'live_2d_setting_toolbar_section' // section
+        );
+
+        add_settings_field(
+            'screenshotCaptureName', // id
+            __('看板娘截图文件名','live-2d'), // title
+            array( $this, 'screenshotCaptureName_callback' ), // callback
             'live-2d-settings-toolbar', // page
             'live_2d_setting_toolbar_section' // section
         );
@@ -72,6 +88,14 @@ class live2D_Settings_Toolbar {
             'canTurnToAboutPage', // id
             __('跳转关于页按钮','live-2d'), // title
             array( $this, 'canTurnToAboutPage_callback' ), // callback
+            'live-2d-settings-toolbar', // page
+            'live_2d_setting_toolbar_section' // section
+        );
+
+        add_settings_field(
+            'aboutPageUrl', // id
+            __('关于页地址','live-2d'), // title
+            array( $this, 'aboutPageUrl_callback' ), // callback
             'live-2d-settings-toolbar', // page
             'live_2d_setting_toolbar_section' // section
         );
@@ -156,6 +180,19 @@ class live2D_Settings_Toolbar {
         <label for="canSwitchHitokoto-1"><input type="radio" name="live_2d_settings_option_name[canSwitchHitokoto]" id="canSwitchHitokoto-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('隐藏','live-2d') ?></label></fieldset> <?php
     }
 
+    public function hitokotoAPI_callback() {
+        ?> <select name="live_2d_settings_option_name[hitokotoAPI]" id="hitokotoAPI">
+            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'lwl12.com') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>lwl12.com</option>
+            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'hitokoto.cn') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>hitokoto.cn</option>
+            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'jinrishici.com') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>jinrishici.com</option>
+            <?php $selected = (isset( $this->live_2d__options['hitokotoAPI'] ) && $this->live_2d__options['hitokotoAPI'] === 'fghrsh.net') ? 'selected' : '' ; ?>
+            <option <?php echo $selected; ?>>fghrsh.net</option>
+        </select> <?php
+    }
+
     public function canTakeScreenshot_callback() {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['canTakeScreenshot'] ) && $this->live_2d__options['canTakeScreenshot'] === true ) ? 'checked' : '' ; ?>
         <label for="canTakeScreenshot-0"><input type="radio" name="live_2d_settings_option_name[canTakeScreenshot]" id="canTakeScreenshot-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('显示','live-2d') ?></label><br>
@@ -210,6 +247,20 @@ class live2D_Settings_Toolbar {
         printf(
             '<input type="text" class="color-picker" data-alpha="true" name="live_2d_settings_option_name[waifuToolHover]" id="waifuToolHover" value="%s"  />',
             isset( $this->live_2d__options['waifuToolHover'] ) ? esc_attr( $this->live_2d__options['waifuToolHover']) : '#34495e'
+        );
+    }
+
+    public function aboutPageUrl_callback() {
+        printf(
+            '<input class="regular-text" type="text" name="live_2d_settings_option_name[aboutPageUrl]" id="aboutPageUrl" value="%s">',
+            isset( $this->live_2d__options['aboutPageUrl'] ) ? esc_attr( $this->live_2d__options['aboutPageUrl']) : ''
+        );
+    }
+
+    public function screenshotCaptureName_callback() {
+        printf(
+            '<input class="regular-text" type="text" name="live_2d_settings_option_name[screenshotCaptureName]" id="screenshotCaptureName" value="%s">',
+            isset( $this->live_2d__options['screenshotCaptureName'] ) ? esc_attr( $this->live_2d__options['screenshotCaptureName']) : ''
         );
     }
 }

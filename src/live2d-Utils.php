@@ -2,9 +2,13 @@
 
 class live2D_Utils{
 
-    // $keyName options中的key值
-	// $type 有3个选择：Selector（用于带有选择器的数组），Array（纯数组），List（只有文本的数组列表）
-    // $readonly 让第一组input 只读
+	/**
+	 * 
+	 * $keyName options中的key值
+	 * $type 有3个选择：Selector（用于带有选择器的数组），Array（纯数组），List（只有文本的数组列表）
+	 * $readonly 让第一组input 只读
+	 * 
+	 */
 	public static function loopMsg($keyName,$type = 'List' ,$readonly = true ,$optName = 'live_2d_advanced_option_name'){
 		$optionsArray = get_option($optName);
 		$txtCount = 1;// 以下判断不为true时 $txtCount =1
@@ -19,8 +23,8 @@ class live2D_Utils{
 				for($x = 0;$x<$txtCount;$x++){
 					printf(
 						'<p class = "'.$keyName.'">
-						<input class="regular-text selector" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
-						<input class="regular-text text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
+						<input class="regular-text selector" type="text" name="'.$optName.'['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
+						<input class="regular-text text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
 						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : '',
 						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
@@ -34,8 +38,8 @@ class live2D_Utils{
 					for($x = 0;$x<$txtCount;$x++){
 						printf(
 							'<p class = "'.$keyName.'">
-							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly">：
-							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
+							<input class="regular-text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 100px" readonly="readonly">：
+							<input class="regular-text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">',
 							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
 							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
 						);
@@ -44,8 +48,8 @@ class live2D_Utils{
 					for($x = 0;$x<$txtCount;$x++){
 						printf(
 							'<p class = "'.$keyName.'">
-							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
-							<input class="regular-text" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
+							<input class="regular-text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
+							<input class="regular-text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
 							<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
 							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
@@ -58,7 +62,7 @@ class live2D_Utils{
 				for($x = 0;$x<$txtCount;$x++){
 					printf(
 						'<p class = "'.$keyName.'">
-						<input class="regular-text textArray" type="text" name="live_2d_advanced_option_name['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
+						<input class="regular-text textArray" type="text" name="'.$optName.'['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
 						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
 					);

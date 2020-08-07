@@ -25,12 +25,12 @@ class live2D_Utils{
 						'<p class = "'.$keyName.'">
 						<input class="regular-text selector" type="text" name="'.$optName.'['.$keyName.']['.$x.'][selector]" id="'.$keyName.'_'.$x.'_selector" value="%s" style="width: 200px">：
 						<input class="regular-text text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][text]" id="'.$keyName.'_'.$x.'_text" value="%s">
-						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+						<input class="button delbtn" optname = "'.$optName.'" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 						isset( $optionsArray[$keyName][$x]['selector'] ) ? esc_attr( $optionsArray[$keyName][$x]['selector']) : '',
 						isset( $optionsArray[$keyName][$x]['text'] ) ? esc_attr( $optionsArray[$keyName][$x]['text']) : ''
 					);
 				}
-				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
+				echo '<p class="addBtn"><input class="button addbtn" optname = "'.$optName.'" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
 			break;
 			case 'Array':
 				if($readonly){
@@ -50,12 +50,12 @@ class live2D_Utils{
 							'<p class = "'.$keyName.'">
 							<input class="regular-text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][0]" id="'.$keyName.'_'.$x.'_0" value="%s" style="width: 200px">：
 							<input class="regular-text" type="text" name="'.$optName.'['.$keyName.']['.$x.'][1]" id="'.$keyName.'_'.$x.'_1" value="%s">
-							<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+							<input class="button delbtn" optname = "'.$optName.'" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 							isset( $optionsArray[$keyName][$x][0] ) ? esc_attr( $optionsArray[$keyName][$x][0]) : '',
 							isset( $optionsArray[$keyName][$x][1] ) ? esc_attr( $optionsArray[$keyName][$x][1]) : ''
 						);
 					}
-					echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
+					echo '<p class="addBtn"><input class="button addbtn" optname = "'.$optName.'" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
 				}
 			break;
 			case 'List':
@@ -63,11 +63,11 @@ class live2D_Utils{
 					printf(
 						'<p class = "'.$keyName.'">
 						<input class="regular-text textArray" type="text" name="'.$optName.'['.$keyName.']['.$x.']" id="'.$keyName.'_'.$x.'" value="%s">
-						<input class="button delbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
+						<input class="button delbtn" optname = "'.$optName.'" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" name="'.$keyName.'_delbtn'.$x.'" id="'.$keyName.'_delbtn'.$x.'" value="-"></p>',
 						isset( $optionsArray[$keyName][$x] ) ? esc_attr( $optionsArray[$keyName][$x]) : ''
 					);
 				}
-				echo '<p class="addBtn"><input class="button addbtn" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
+				echo '<p class="addBtn"><input class="button addbtn" optname = "'.$optName.'" keyname="'.$keyName.'" arrtype="'.$type.'" type="button" value="+ ' . __('点击此处增加一条','live-2d') . '" id="'.$keyName.'_addbtn" /></p>';
 			break;
 		}
     }
@@ -156,8 +156,8 @@ class live2D_Utils{
 			'content'	=> ''.
 			'<p>模型ID：您可以参考 <a target="_blank" href="https://cdn.jsdelivr.net/gh/fghrsh/live2d_api@1.0.1/model_list.json">model_list.json</a> 了解ID序号，如果您自己搭建模型API请酌情填写。 </p>'.
 			'<p>模型缩放倍数：您可以适当调节模型在容器中的缩放比例。</p>'.
-			'<p>关于页地址：请填写完整的URL或相对路径。</p>'.
-			'<p>看板娘截图文件名：当您点击工具栏中的截图按钮时，保存文件的默认名称。</p>'
+			'<p>moc3模型自定义动作：SDK3.3版本的model3.json中没有明确指定“动作”，需要用户自定义，目前已知的触碰位置有TouchBody、TouchHead、TouchSpecial，请在使用时为触碰位置明确动作文件，文件路径应为：motions/touch_head.motion3.json。
+			例如：TouchHead ： motions/touch_head.motion3.json </p>'
 		) );
 
 		$screen->add_help_tab( array(

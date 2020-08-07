@@ -134,16 +134,18 @@ class live2D {
 				//----------------“添加/删除”按钮事件--------------
 
 				$('input.addbtn').click(function(){
+					var optName = jQuery(this).attr('optname');
 					var keyName = jQuery(this).attr('keyname');
 					var arrType = jQuery(this).attr('arrtype');
-					addMsgInput(keyName,this,arrType);
+					addMsgInput(optName,keyName,this,arrType);
 				});
 				
 
 				$('input.delbtn').click(function(){
+					var optName = jQuery(this).attr('optname');
 					var keyName = jQuery(this).attr('keyname');
 					var arrType = jQuery(this).attr('arrtype');
-					delMsgInput(keyName,this,arrType);
+					delMsgInput(optName,keyName,this,arrType);
 				});
 
 				$('input[type=range]').bind('input propertychange', function() {  
@@ -151,25 +153,25 @@ class live2D {
 				});
 			});
 			
-			function addMsgInput(clsName,obj,typeName){
+			function addMsgInput(optName,clsName,obj,typeName){
 				var txtList = jQuery('p.'+ clsName);
 				var indexNum = txtList.length
 				var txtClone = txtList.last().clone();
 				switch (typeName){
 					case 'Selector':
-						txtClone.children('input.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][selector]')
+						txtClone.children('input.selector').attr('name', optName + '['+clsName+']['+indexNum+'][selector]')
 							.attr('id',clsName+'_'+indexNum+'_selector').val('');
-						txtClone.children('input.text').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][text]')
+						txtClone.children('input.text').attr('name', optName + '['+clsName+']['+indexNum+'][text]')
 							.attr('id',clsName+'_'+indexNum+'_text').val('');
 					break;
 					case 'Array':
-						txtClone.children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][0]')
+						txtClone.children('input:eq(0)').attr('name', optName + '['+clsName+']['+indexNum+'][0]')
 							.attr('id',clsName+'_'+indexNum+'_0').val('');
-						txtClone.children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+'][1]')
+						txtClone.children('input:eq(1)').attr('name', optName + '['+clsName+']['+indexNum+'][1]')
 							.attr('id',clsName+'_'+indexNum+'_1').val('');
 					break;
 					case 'List':
-						txtClone.children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+indexNum+']')
+						txtClone.children('input.textArray').attr('name', optName + '['+clsName+']['+indexNum+']')
 							.attr('id',clsName+'_'+indexNum).val('');
 					break;
 				}
@@ -177,7 +179,7 @@ class live2D {
 				txtClone.children('input.delbtn').attr('name',clsName+'_delbtn'+indexNum)
 						.attr('id',clsName+'_delbtn'+indexNum)
 						.bind('click',function(){
-							delMsgInput(clsName,this,typeName);
+							delMsgInput(optName,clsName,this,typeName);
 						});
 				txtList.last().after(txtClone);
 			}
@@ -185,7 +187,7 @@ class live2D {
 			// 删除一个动态选项isSelector是如果是有选择器的动态选项，有选择器则传true
 			// isArray是没有选择器的动态选项，例如日期选择（暂时不用）
 			// 如果都不传递则为，支持多句随机类型的添加器。
-			function delMsgInput(clsName,obj,typeName){
+			function delMsgInput(optName,clsName,obj,typeName){
 				//如果没有其他组件就不能删除了
 				var otherTxt = jQuery(obj).parent().siblings('.' + clsName);
 				if(otherTxt.length==0) return;
@@ -195,19 +197,19 @@ class live2D {
 					allTxt.each(function(i,e){
 						switch (typeName){
 							case 'Selector':
-								jQuery(e).children('.selector').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][selector]')
+								jQuery(e).children('.selector').attr('name', optName + '['+clsName+']['+i+'][selector]')
 									.attr('id',clsName+'_'+i+'_selector');
-								jQuery(e).children('.text').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][text]')
+								jQuery(e).children('.text').attr('name', optName + '['+clsName+']['+i+'][text]')
 									.attr('id',clsName+'_'+i+'_text');
 							break;
 							case 'Array':
-								jQuery(e).children('input:eq(0)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][0]')
+								jQuery(e).children('input:eq(0)').attr('name', optName + '['+clsName+']['+i+'][0]')
 									.attr('id',clsName+'_'+i+'_0');
-								jQuery(e).children('input:eq(1)').attr('name','live_2d_advanced_option_name['+clsName+']['+i+'][1]')
+								jQuery(e).children('input:eq(1)').attr('name', optName + '['+clsName+']['+i+'][1]')
 									.attr('id',clsName+'_'+i+'_1');
 							break;
 							case 'List':
-								jQuery(e).children('input.textArray').attr('name','live_2d_advanced_option_name['+clsName+']['+i+']')
+								jQuery(e).children('input.textArray').attr('name', optName + '['+clsName+']['+i+']')
 									.attr('id',clsName+'_'+i);
 							break;
 						}

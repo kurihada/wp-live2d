@@ -47,7 +47,7 @@ class live2D_Settings_Base {
 
         add_settings_field(
 			'defineHitAreaName', // id
-			__('moc3版本自定义动作','live-2d'), // title
+			__('moc3模型自定义动作','live-2d'), // title
 			array( $this, 'defineHitAreaName_callback' ), // callback
 			'live-2d-settings-base', // page
 			'live_2d_setting_base_section' // section

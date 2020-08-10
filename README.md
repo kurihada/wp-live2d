@@ -141,9 +141,9 @@
 
 ## 软件许可协议
 
-[Live2D Proprietary Software License Agreement][1]
-[Live2D Open Software License Agreement][2]
+[Live2D Proprietary Software License Agreement][4]
+[Live2D Open Software License Agreement][5]
 
-  [1]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
-  [2]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
+  [4]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
+  [5]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
 

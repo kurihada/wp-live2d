@@ -36,11 +36,11 @@ License: MIT
 
 ## 软件许可协议
 
-[Live2D Proprietary Software License Agreement][1]
-[Live2D Open Software License Agreement][2]
+[Live2D Proprietary Software License Agreement][4]  
+[Live2D Open Software License Agreement][5]  
 
-  [1]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
-  [2]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
+  [4]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
+  [5]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
 
 == Installation ==
 
@@ -153,12 +153,12 @@ None
 
 = 1.7.2 =
 
-修复加载顺序错误问题，感谢 [LemoFire][1] 和 [picpo][2] 
-更新了禁止分发的引用，感谢 [railzy][3]
+- 修复加载顺序错误问题，感谢 [LemoFire][6] 和 [picpo][7] 
+- 更新了禁止分发的引用，感谢 [railzy][8]
 
-  [1]: https://www.ito.fun/
-  [2]: http://picpo.top/ 
-  [3]: https://github.com/railzy
+  [6]: https://www.ito.fun/
+  [7]: http://picpo.top/ 
+  [8]: https://github.com/railzy
 
 = 1.7.1 =
 

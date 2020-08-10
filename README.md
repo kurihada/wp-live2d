@@ -24,13 +24,12 @@
 
 = 1.7.2 =
 
-- 修复加载顺序错误问题，感谢 [LemoFire][1] 和 [picpo][2] 
-- 更新了禁止分发的引用，感谢 [railzy][3]
+- 修复加载顺序错误问题，感谢 [LemoFire][6] 和 [picpo][7] 
+- 更新了禁止分发的引用，感谢 [railzy][8]
 
-  [1]: https://www.ito.fun/
-  [2]: http://picpo.top/ 
-  [3]: https://github.com/railzy
-
+  [6]: https://www.ito.fun/
+  [7]: http://picpo.top/ 
+  [8]: https://github.com/railzy
 
 = 1.7.1 =
 
@@ -127,9 +126,9 @@
 
 ## 版权声明
 
-[Flat UI Free][1]  
-[live2d_src / ©journey-ad / GPL v2.0][2]  
-[fghrsh.net][3]  
+- [Flat UI Free][1]  
+- [live2d_src / ©journey-ad / GPL v2.0][2]  
+- [fghrsh.net][3]  
 
   [1]: https://designmodo.com/flat-free/ "Flat UI Free"
   [2]: https://github.com/journey-ad/live2d_src "基于 #fea64e4 的修改版"
@@ -141,9 +140,8 @@
 
 ## 软件许可协议
 
-- [Live2D Proprietary Software License Agreement][4]
-- [Live2D Open Software License Agreement][5]
+- [Live2D Proprietary Software License Agreement][4]  
+- [Live2D Open Software License Agreement][5]  
 
   [4]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
   [5]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
-

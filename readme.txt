@@ -5,7 +5,7 @@ Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
 Tested up to: 5.4.2
 Requires at least: 4.6
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: MIT
 
 == Description ==
@@ -130,6 +130,17 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.7.4 =
+
+- 新增后台设置：moc3模型自定义动作，提供给Cubism Editor 3.x版本的模型明确指定动作文件使用
+- `lapplive2dmanager.ts`的`onTap`方法：增加判断自定义的`hitAreaList`，用户可在WP后台对`hitAreaList`进行设置
+- 对缩放算法进行修正，由原有`lapplive2dmanager.ts`的`onUpdate`方法中计算`projection.scale(zoom, (zoom * width) / height);`改为使用`Framework/math/cubismmodelmatrix.ts`中的构造方法`this.setHeight(zoom);`进行控制，以确保缩放时触摸区域同比例缩放。
+- 修改`lappmodel.ts`的`preLoadMotionGroup`方法，在model3.json中动作分组未命名的情况下将文件名作为动作名称。
+- 在`lappmodel.ts`新增`startMotionFile`方法，用于直接读取`preLoadMotionGroup`方法中保存在内存中的动作。`startMotionFile`方法在`lapplive2dmanager.ts`的`onTap`被调用。
+- 此版本为本地调整版本，下一个版本将直接修改API，从源头来保证生成的文件可被动作调用。
+- 一言 API、看板娘截图文件名、关于页地址选项移动至工具栏设置TAB中。
+- 新增基础设置帮助内容，请注意查看。
 
 = 1.7.3 =
 

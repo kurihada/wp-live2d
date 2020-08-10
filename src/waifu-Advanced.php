@@ -4,8 +4,6 @@ class live2D_Advanced {
 	
 	private $live_2d_advanced_options;
 	
-	private $hour_tips_readonly = true;
-	
 	public function live_2d_advanced_init() {
 		$this->live_2d_advanced_options = get_option( 'live_2d_advanced_option_name' );
 		

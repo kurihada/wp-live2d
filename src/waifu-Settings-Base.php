@@ -93,7 +93,8 @@ class live2D_Settings_Base {
     }
 
     public function defineHitAreaName_callback(){
-        live2D_Utils::loopMsg('defineHitAreaName','Selector',true,'live_2d_settings_option_name');
+        live2D_Utils::loopMsg('defineHitAreaName','List',true,'live_2d_settings_option_name');
+        echo '<p>'.esc_html__('请输入文件名（不包含扩展名），例如："touch_head.motion3.json"请在输入框中输入touch_head','live-2d').'</p>';
     }
 }
 ?>

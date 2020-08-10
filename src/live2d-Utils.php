@@ -7,7 +7,6 @@ class live2D_Utils{
 	 * $keyName options中的key值
 	 * $type 有3个选择：Selector（用于带有选择器的数组），Array（纯数组），List（只有文本的数组列表）
 	 * $readonly 让第一组input 只读
-	 * 
 	 */
 	public static function loopMsg($keyName,$type = 'List' ,$readonly = true ,$optName = 'live_2d_advanced_option_name'){
 		$optionsArray = get_option($optName);
@@ -156,8 +155,8 @@ class live2D_Utils{
 			'content'	=> ''.
 			'<p>模型ID：您可以参考 <a target="_blank" href="https://cdn.jsdelivr.net/gh/fghrsh/live2d_api@1.0.1/model_list.json">model_list.json</a> 了解ID序号，如果您自己搭建模型API请酌情填写。 </p>'.
 			'<p>模型缩放倍数：您可以适当调节模型在容器中的缩放比例。</p>'.
-			'<p>moc3模型自定义动作：SDK3.3版本的model3.json中没有明确指定“动作”，需要用户自定义，目前已知的触碰位置有TouchBody、TouchHead、TouchSpecial，请在使用时为触碰位置明确动作文件，文件路径应为：motions/touch_head.motion3.json。
-			例如：TouchHead ： motions/touch_head.motion3.json </p>'
+			'<p>moc3模型自定义动作：SDK3.3版本的model3.json中没有明确指定“动作”，需要用户自定义，目前已知的触碰位置有touch_body、touch_head、touch_special，请在使用时为触碰位置明确动作文件。
+			例如："touch_head.motion3.json"请在输入框中输入touch_head</p>'
 		) );
 
 		$screen->add_help_tab( array(

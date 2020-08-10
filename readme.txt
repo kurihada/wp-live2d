@@ -32,6 +32,15 @@ License: MIT
   
 - 请勿将本插件使用在商业网站中！
 - Do not use this plugin on commercial websites！
+- WordPress Live 2D 插件不属于 Live2D Inc. 它是一个非官方产品
+
+## 软件许可协议
+
+[Live2D Proprietary Software License Agreement][1]
+[Live2D Open Software License Agreement][2]
+
+  [1]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
+  [2]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
 
 == Installation ==
 
@@ -118,13 +127,6 @@ License: MIT
 4. moc3的缩放比例可能会比较小，所以您需要将模型缩放比例调整至合适大小，建议2.0，我没有进行控制是因为如果我在代码中写入2.0，其计算方式将会x2 ，例如1.1 实际计算结果将会是2.2。
 
 - 为了不打扰您的使用，除严重bug外，版本更新每周进行一次，感谢各位的支持。
-
-- 1.8版本将进行繁体中文版本开发，从而便于多语言支持。您可以使用https://translate.wordpress.org/projects/wp-plugins/live-2d/ 对插件的语言进行翻译。
-
-- 原作者https://www.fghrsh.net/post/123.html 将模型与本体分开，我认为主要原因有两个：
-1. 模型文件太大了，我从https://github.com/fghrsh/live2d_api 上面下载，200多MB啊！
-2. API没有加密传输，如果你本人搭建了这套API，之后被别人发现了（可以从源代码中找到）会导致大量调用
-
 
 == Screenshots ==
 None

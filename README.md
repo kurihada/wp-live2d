@@ -137,3 +137,13 @@
   
 - 请勿将本插件使用在商业网站中！
 - Do not use this plugin on commercial websites！
+- WordPress Live 2D 插件不属于 Live2D Inc. 它是一个非官方产品
+
+## 软件许可协议
+
+[Live2D Proprietary Software License Agreement][1]
+[Live2D Open Software License Agreement][2]
+
+  [1]: https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
+  [2]: https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
+

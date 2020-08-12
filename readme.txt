@@ -2,10 +2,10 @@
 
 Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
-Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
+Tags: Live2D,看板娘,萌,moe,vtuber,comic,anime,live,2d,animation
 Tested up to: 5.5
 Requires at least: 4.6
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: MIT
 
 == Description ==
@@ -132,6 +132,11 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.7.5 =
+
+- 对moc3模型加载进行了优化，在model3.json中没有动作组命名的moc3模型，预加载时不再对动作文件进行加载，改为随用随取
+- 插件已支持WordPress 5.5
 
 = 1.7.4 =
 

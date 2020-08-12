@@ -3,7 +3,7 @@
 Contributors: Chiang Weifang
 Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,二次元,live,2d
-Tested up to: 5.4.2
+Tested up to: 5.5
 Requires at least: 4.6
 Stable tag: 1.7.4
 License: MIT

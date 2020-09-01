@@ -2,7 +2,7 @@
 window.live2d_settings = Array(); 
 var re = /x/;
 var hltips = 'color:';//定义highlight标记
-console.log(re + 'WP-Live2D 1.7.5');
+console.log(re + 'WP-Live2D 1.7.6');
 
 String.prototype.render = function(context) {
     var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
@@ -53,6 +53,13 @@ function initModel(waifuPath, settingsJson) {
     //设置一个单位为px的文字
     var unitType = 'px';
 
+    /* 判断 JQuery */
+	if($ != null){
+        if (typeof($.ajax) != 'function') typeof(jQuery.ajax) == 'function' ? window.$ = jQuery : console.log('[Error] JQuery is not defined.');
+    }else{
+        window.$ = jQuery;
+    }
+
     /* 加载Live2D容器样式 */
     $("#live2d").attr({
         "width":live2d_settings.waifuSize['width'],
@@ -88,7 +95,15 @@ function initModel(waifuPath, settingsJson) {
     else if (live2d_settings.waifuEdgeSide == 'right') $(".waifu").css("right",live2d_settings.waifuEdgeSize + unitType);
     
     window.waifuResize = function() { $(window).width() <= live2d_settings.waifuMinWidth ? $(".waifu").hide() : $(".waifu").show(); };
-    if (live2d_settings.waifuMinWidth != 0) { waifuResize(); $(window).resize(function() {waifuResize()}); }
+    if (live2d_settings.waifuMinWidth != 0) { 
+        if($(window).width() <= live2d_settings.waifuMinWidth){
+            $(".waifu").hide();
+            return;
+        }else{
+            $(".waifu").show(); 
+        }
+        $(window).resize(function() {waifuResize()});
+    }
     
     try {
         if (live2d_settings.waifuDraggable == 'axis-x') $(".waifu").draggable({ axis: "x", revert: live2d_settings.waifuDraggableRevert });

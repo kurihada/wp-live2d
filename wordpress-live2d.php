@@ -3,7 +3,7 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.7.5
+ * Version: 1.7.6
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  * Text Domain: live-2d
@@ -24,8 +24,7 @@ function live2D_style(){
 	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'jquery-ui-draggable');
-    wp_enqueue_script( 'live2dv3_core' ,'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js');
-    wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js',array('live2dv3_core'));
+    wp_enqueue_script( 'live2d_js' ,LIVE2D_ASSETS.'live2d.js',array('jquery'));
 	wp_enqueue_script( 'waifu-tips_js' ,LIVE2D_ASSETS.'waifu-tips.js',array('jquery-ui-draggable','live2d_js'));
 }
 add_action( 'get_header', 'live2D_style' );
@@ -76,7 +75,8 @@ if ( is_admin() ){
 function live2D_DefMod(){
     // Retrieve this value with:
     $live_2d__options = get_option( 'live_2d_settings_option_name' ); // Array of All Options
-    
+    //if($live_2d__options['waifuMobileDisable'] ){}
+
     ?>
         <div class="waifu">
             <div class="waifu-tips"></div>
@@ -92,14 +92,8 @@ function live2D_DefMod(){
             </div>
         </div>
         <script type="text/javascript">
-        /* 判断 JQuery */
-	    if($ != null){
-            if (typeof($.ajax) != 'function') typeof(jQuery.ajax) == 'function' ? window.$ = jQuery : console.log('[Error] JQuery is not defined.');
-        }else{
-	        window.$ = jQuery;
-        }
         var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
-        $(function(){
+        jQuery(function(){
             initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
         });
         

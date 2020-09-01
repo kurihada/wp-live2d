@@ -123,6 +123,10 @@ class live2D_Settings{
         if ( isset( $input['waifuMinWidth'] ) ) {
             $sanitary_values['waifuMinWidth'] = (int) $input['waifuMinWidth'] ;
 		}
+
+		if ( isset( $input['waifuMobileDisable'] ) ) {
+            $sanitary_values['waifuMobileDisable'] = (Boolean) $input['waifuMobileDisable'] ;
+		}
 		
 		if ( isset( $input['waifuEdgeSide'] ) ) {
             $sanitary_values['waifuEdgeSide'] = sanitize_text_field( $input['waifuEdgeSide'] );
@@ -226,6 +230,7 @@ class live2D_Settings{
 			$defValue['waifuToolLine']=20;
 			$defValue['waifuToolTop']=20;
 			$defValue['waifuMinWidth']=768;
+			//$defValue['waifuMobileDisable']=false;
 			$defValue['waifuEdgeSide']='left';
 			$defValue['waifuEdgeSize']=0;
 			$defValue['waifuDraggable']='axis-x';

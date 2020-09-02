@@ -28,6 +28,10 @@ class live2D_Settings{
             $sanitary_values['modelZoomNumberV2'] = number_format($input['modelZoomNumberV2'],1);
 		}
 
+		if ( isset( $input['sdkUrl'] ) ) {
+            $sanitary_values['sdkUrl'] = sanitize_text_field( $input['sdkUrl'] );
+        }
+
         if ( isset( $input['showToolMenu'] ) ) {
             $sanitary_values['showToolMenu'] = (Boolean)$input['showToolMenu'];
         }
@@ -204,6 +208,7 @@ class live2D_Settings{
 			$defValue['modelId']='1';
 			$defValue['modelTexturesId']='53';
 			$defValue['modelZoomNumberV2']='1.0';
+			$defValue['sdkUrl']='https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js';
 			$defValue['showToolMenu']=true;
 			$defValue['canCloseLive2d']=true;
 			$defValue['canSwitchModel']=true;

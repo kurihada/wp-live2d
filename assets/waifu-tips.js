@@ -141,10 +141,16 @@ function initModel(waifuPath, settingsJson) {
     if (!live2d_settings.modelStorage || modelId == null) {
         var modelId = live2d_settings.modelId;
         var modelTexturesId = live2d_settings.modelTexturesId;
-    } loadModel(modelId, modelTexturesId,live2d_settings.modelZoomNumberV2, live2d_settings.defineHitAreaName);
+    } loadModel(
+        modelId, 
+        modelTexturesId,
+        live2d_settings.modelZoomNumberV2, 
+        live2d_settings.defineHitAreaName,
+        live2d_settings.sdkUrl
+    );
 }
 
-function loadModel(modelId, modelTexturesId=0,zoom = 1.0 ,hitAreaList = {}) {
+function loadModel(modelId, modelTexturesId=0,zoom = 1.0 ,hitAreaList = {} , sdkUrl = '') {
     if (live2d_settings.modelStorage) {
         localStorage.setItem('modelId', modelId);
         localStorage.setItem('modelTexturesId', modelTexturesId);
@@ -158,10 +164,14 @@ function loadModel(modelId, modelTexturesId=0,zoom = 1.0 ,hitAreaList = {}) {
     }else{
         modelPath = live2d_settings.modelAPI+'get/?id='+modelId+'-'+modelTexturesId;
     }
+    if(sdkUrl == undefined || sdkUrl == null || sdkUrl == ''){
+        sdkUrl = 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js';
+    }
     loadlive2d('live2d', modelPath,
         (live2d_settings.showF12Status ? console.log('[Status]','live2d','模型',modelId+'-'+modelTexturesId,'加载完成'):null),
         zoom,
-        hitAreaList
+        hitAreaList,
+        sdkUrl
     );
 }
 

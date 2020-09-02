@@ -168,7 +168,7 @@ function loadModel(modelId, modelTexturesId=0,zoom = 1.0 ,hitAreaList = {} , sdk
         sdkUrl = 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js';
     }
     loadlive2d('live2d', modelPath,
-        (live2d_settings.showF12Status ? console.log('[Status]','live2d','模型',modelId+'-'+modelTexturesId,'加载完成'):null),
+        0.5,
         zoom,
         hitAreaList,
         sdkUrl

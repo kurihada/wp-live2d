@@ -3,7 +3,11 @@ class live2D_Settings{
 
     public function live_2d_settings_sanitize($input) {
             
-        $sanitary_values = array();
+		$sanitary_values = array();
+		if ( isset( $input['live2dLayoutType'] ) ) {
+            $sanitary_values['live2dLayoutType'] = (Boolean)$input['live2dLayoutType'];
+        }
+
         if ( isset( $input['modelAPI'] ) ) {
             $sanitary_values['modelAPI'] = sanitize_text_field( $input['modelAPI'] );
         }
@@ -203,6 +207,7 @@ class live2D_Settings{
 		$live_2d_settings = get_option( 'live_2d_settings_option_name' );
 		$defValue = array();
 		if(FALSE === $live_2d_settings){
+			$defValue['live2dLayoutType']=true;
 			$defValue['modelAPI']='//live2d.fghrsh.net/api/';
 			$defValue['hitokotoAPI']='lwl12.com';
 			$defValue['modelId']='1';

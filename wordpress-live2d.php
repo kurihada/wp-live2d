@@ -10,13 +10,14 @@
  * Domain Path: /languages
  */
 
-
 //定义目录
 define( 'LIVE2D_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );//资源目录
 define('LIVE2D_LANGUAGES', basename(dirname(__FILE__)).'/languages');//基础目录
 
 // 加载设置组件
 require(dirname(__FILE__)  . '/src/live2d-Main.php');
+// 加载小工具
+require(dirname(__FILE__)  . '/src/live2d-Widget.php');
 
 //添加样式（初始化）
 
@@ -70,13 +71,10 @@ add_action('plugins_loaded','live2d_load_plugin_textdomain');
 if ( is_admin() ){
 	$live_2d_ = new live2D();
 }
-
+$live_2d_options = get_option( 'live_2d_settings_option_name' ); // Array of All Options
 //进行设置
 function live2D_DefMod(){
     // Retrieve this value with:
-    $live_2d__options = get_option( 'live_2d_settings_option_name' ); // Array of All Options
-    //if($live_2d__options['waifuMobileDisable'] ){}
-
     ?>
         <div class="waifu">
             <div class="waifu-tips"></div>
@@ -92,7 +90,7 @@ function live2D_DefMod(){
             </div>
         </div>
         <script type="text/javascript">
-        var settings_Json = '<?php echo json_encode($live_2d__options); ?>';
+        var settings_Json = '<?php echo json_encode($live_2d_options); ?>';
         jQuery(function(){
             initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
         });
@@ -100,10 +98,19 @@ function live2D_DefMod(){
         </script>
     <?php
 }
-add_action( 'wp_footer', 'live2D_DefMod' );
-
-
-
+// ** 用来避免更新后出现错误的判断 **
+$live2dLayoutType = false;
+if(!isset($live_2d_options['live2dLayoutType'])){
+    $live2dLayoutType = true;
+}else{
+    $live2dLayoutType = $live_2d_options['live2dLayoutType'];
+}
+// ** 如果是返回true则显示为浏览器内 否则显示为插件 **
+if($live2dLayoutType){
+    add_action( 'wp_footer', 'live2D_DefMod' );
+}else{
+    add_action("widgets_init", function(){register_widget("Live2D_Widget");});
+}
 
 function live_2d_link($url, $text='', $ext=''){
     if(empty($text)) $text = $url;

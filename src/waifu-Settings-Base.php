@@ -81,7 +81,7 @@ class live2D_Settings_Base {
         ?> <fieldset><?php $checked = ( isset( $this->live_2d__options['live2dLayoutType'] ) && $this->live_2d__options['live2dLayoutType'] === true ) ? 'checked' : '' ; ?>
         <label for="live2dLayoutType-0"><input type="radio" name="live_2d_settings_option_name[live2dLayoutType]" id="live2dLayoutType-0" value="1" <?php echo $checked; ?>> <?php esc_html_e('页面','live-2d') ?></label><br>
         <?php $checked = ( isset( $this->live_2d__options['live2dLayoutType'] ) && $this->live_2d__options['live2dLayoutType'] === false ) ? 'checked' : '' ; ?>
-        <label for="live2dLayoutType-1"><input type="radio" name="live_2d_settings_option_name[live2dLayoutType]" id="live2dLayoutType-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('小工具','live-2d') ?></label></fieldset> <?php
+        <label for="live2dLayoutType-1"><input type="radio" name="live_2d_settings_option_name[live2dLayoutType]" id="live2dLayoutType-1" value="0" <?php echo $checked; ?>> <?php esc_html_e('小工具(beta)','live-2d') ?></label></fieldset> <?php
     }
 
     public function modelAPI_callback() {

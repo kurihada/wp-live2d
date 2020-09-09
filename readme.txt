@@ -5,7 +5,7 @@ Donate link: https://www.5ri.org
 Tags: Live2D,看板娘,萌,moe,vtuber,comic,anime,live,2d,animation
 Tested up to: 5.5
 Requires at least: 4.6
-Stable tag: 1.7.6
+Stable tag: 1.7.7
 License: MIT
 
 == Description ==
@@ -132,6 +132,9 @@ License: MIT
 None
 
 == Changelog ==
+
+= 1.7.7 = 
+- 新增小工具功能, 给看板娘关押起来吧!(这是一个测试功能, 可能会有很多问题, 后续继续完善)
 
 = 1.7.6 =
 

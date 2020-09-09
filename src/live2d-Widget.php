@@ -15,6 +15,10 @@ class Live2D_Widget extends WP_Widget{
  
     public function widget( $args, $instance ) {
         extract( $args );
+        $title = apply_filters('widget_title', empty($instance['title']) ? '' : $instance['title']);
+        echo $before_widget;
+        if ( $title )
+            echo $before_title . $title . $after_title; 
         ?>
         <div id="live2d-widget" class="waifu">
             <div class="waifu-tips"></div>
@@ -34,9 +38,9 @@ class Live2D_Widget extends WP_Widget{
         jQuery(function(){
             initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
         });
-        
         </script>
         <?php
+        echo $after_widget;
     }
 
     public function update( $new_instance, $old_instance ){

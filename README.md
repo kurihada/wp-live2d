@@ -5,22 +5,21 @@
 
 ### 更新
 
-= 1.7.6 =
+= 1.7.7 = 
+- 新增小工具功能, 给看板娘关押起来吧!(这是一个测试功能, 可能会有很多问题, 后续继续完善)
 
+= 1.7.6 =
 - 将live2D 4.0 SDK进行动态加载, 避免禁止分发的SDK在页面中加载时间过长 感谢[baysonfox](https://github.com/baysonfox)
 - 修改看板娘最小尺寸逻辑, 当小于指定的最小尺寸时直接退出后续步骤, 停止加载live2D插件渲染(仅在页面重新加载后有效) 感谢[ydecl](https://github.com/ydecl) [Project-458](https://github.com/Project-458) [DogeZen](https://github.com/DogeZen),此功能需要再下个版本继续调整
 - 修复在WP 5.5后台设置报错的问题
 - 修改停用一言选项的文案, 本来这个功能就是禁用功能的~ 感谢[ygdm123](https://github.com/ygdm123)
 - 修复兼容问题 感谢[国木田葉羽](https://github.com/aquausora) [我爱喝北冰洋](https://www.bengalcat.cn/)
 
-
 = 1.7.5 =
-
 - 对moc3模型加载进行了优化，在model3.json中没有动作组命名的moc3模型，预加载时不再对动作文件进行加载，改为随用随取
 - 插件已支持WordPress 5.5
 
 = 1.7.4 =
-
 - 新增后台设置：moc3模型自定义动作，提供给Cubism Editor 3.x版本的模型明确指定动作文件使用
 - `lapplive2dmanager.ts`的`onTap`方法：增加判断自定义的`hitAreaList`，用户可在WP后台对`hitAreaList`进行设置
 - 对缩放算法进行修正，由原有`lapplive2dmanager.ts`的`onUpdate`方法中计算`projection.scale(zoom, (zoom * width) / height);`改为使用`Framework/math/cubismmodelmatrix.ts`中的构造方法`this.setHeight(zoom);`进行控制，以确保缩放时触摸区域同比例缩放。
@@ -29,7 +28,6 @@
 - 此版本为本地调整版本，下一个版本将直接修改API，从源头来保证生成的文件可被动作调用。
 
 = 1.7.3 =
-
 - 修复https://github.com/mashirozx/Sakura 的兼容性问题
 - 本来兼容是正确的，被我改错了，实在抱歉...
 - 修正了moc3中读取motions的报错，但是没有实际解决问题。
@@ -37,7 +35,6 @@
 - 对moc3我无法处理的部分做了屏蔽，不是try catch的屏蔽，不用担心性能问题。
 
 = 1.7.2 =
-
 - 修复加载顺序错误问题，感谢 [LemoFire][6] 和 [picpo][7] 
 - 更新了禁止分发的引用，感谢 [railzy][8]
 
@@ -46,7 +43,6 @@
   [8]: https://github.com/railzy
 
 = 1.7.1 =
-
 本周更新提前啦
 - 新增多语言支持，目前支持繁体中文和英文。
 - Added multilingual version support
@@ -54,7 +50,6 @@
 - Added English
 
 = 1.7.0 =
-
 1. 对moc3 鼠标事件进行算法修改，现在模型头部可正确的看鼠标行动了
 2. 新增moc3截图功能，可以点击截图按钮拍下看板娘了
 3. 去掉对moc3模型自动x2倍的缩放算法，改为用户自行调整

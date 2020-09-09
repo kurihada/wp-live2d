@@ -3,7 +3,7 @@
  * Plugin Name: Live 2D
  * Plugin URI: https://5ri.org
  * Description: 看板娘插件
- * Version: 1.7.6
+ * Version: 1.7.7
  * Author: Chiang Weifang
  * Author URI: https://github.com/jiangweifang/wp-live2d
  * Text Domain: live-2d
@@ -20,7 +20,6 @@ require(dirname(__FILE__)  . '/src/live2d-Main.php');
 require(dirname(__FILE__)  . '/src/live2d-Widget.php');
 
 //添加样式（初始化）
-
 function live2D_style(){
 	wp_enqueue_style( 'waifu_css' ,LIVE2D_ASSETS . "waifu.css");//css
     wp_enqueue_script( 'jquery');
@@ -62,16 +61,35 @@ function live_2d_settings_link($links) {
     return array_merge($setlink, $links);
 }
 
-function live2d_load_plugin_textdomain(){
-    load_plugin_textdomain('live-2d', false, LIVE2D_LANGUAGES);
-}
-add_action('plugins_loaded','live2d_load_plugin_textdomain');
-
 // 实例化设置组件
 if ( is_admin() ){
 	$live_2d_ = new live2D();
 }
-$live_2d_options = get_option( 'live_2d_settings_option_name' ); // Array of All Options
+
+add_action( 'plugins_loaded', 'live2D_Init' );
+// 初始化加载
+function live2D_Init(){
+    // 多语言加载
+    load_plugin_textdomain('live-2d', false, LIVE2D_LANGUAGES);
+    // Array of All Options
+    $live_2d_options = get_option( 'live_2d_settings_option_name' ); 
+    // ** 用来避免更新后出现错误的判断 **
+    $live2dLayoutType = false;
+    if(!isset($live_2d_options['live2dLayoutType'])){
+        //如果没有设置则为页面显示
+        $live2dLayoutType = true; 
+    }else{
+        //如果设置按设置进行显示
+        $live2dLayoutType = $live_2d_options['live2dLayoutType']; 
+    }
+    // ** 如果是返回true显示为浏览器内 false显示为插件 **
+    if($live2dLayoutType){
+        add_action( 'wp_footer', 'live2D_DefMod' );
+    }else{
+        add_action("widgets_init", function(){register_widget("Live2D_Widget");});
+    }
+}
+
 //进行设置
 function live2D_DefMod(){
     // Retrieve this value with:
@@ -90,26 +108,12 @@ function live2D_DefMod(){
             </div>
         </div>
         <script type="text/javascript">
-        var settings_Json = '<?php echo json_encode($live_2d_options); ?>';
+        var settings_Json = '<?php echo json_encode(get_option( 'live_2d_settings_option_name' )); ?>';
         jQuery(function(){
             initModel("<?php echo LIVE2D_ASSETS ?>waifu-tips.json",JSON.parse(settings_Json));
         });
-        
         </script>
     <?php
-}
-// ** 用来避免更新后出现错误的判断 **
-$live2dLayoutType = false;
-if(!isset($live_2d_options['live2dLayoutType'])){
-    $live2dLayoutType = true;
-}else{
-    $live2dLayoutType = $live_2d_options['live2dLayoutType'];
-}
-// ** 如果是返回true则显示为浏览器内 否则显示为插件 **
-if($live2dLayoutType){
-    add_action( 'wp_footer', 'live2D_DefMod' );
-}else{
-    add_action("widgets_init", function(){register_widget("Live2D_Widget");});
 }
 
 function live_2d_link($url, $text='', $ext=''){
